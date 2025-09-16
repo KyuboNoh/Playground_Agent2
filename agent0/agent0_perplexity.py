@@ -20,7 +20,7 @@ headers = {
     "Authorization": f"Bearer {PPLX_API_KEY}",
     "Content-Type": "application/json",
 }
-
+print(PPLX_API_KEY);exit()
 # --- CONFIG ---
 messages = [
     {"role": "system", "content": "You are a helpful research assistant."},
