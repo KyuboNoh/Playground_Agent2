@@ -12,8 +12,6 @@ from typing import List, Dict, Any, Optional
 # --- CONFIG ---
 # SEMANTIC_SCHOLAR_API_KEY = os.environ.get("SEMANTIC_SCHOLAR_API_KEY")          # set this
 # OPENAI_API_KEY             = os.environ.get("OPENAI_API_KEY")                   # set this
-SEMANTIC_SCHOLAR_API_KEY = "pwbxhjjeCX9VsRhNorIMY7jRoUfPuZEcaU1YZVrP"
-OPENAI_API_KEY             = "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"
 
 # Current file path
 here = Path(__file__)
