@@ -142,6 +142,200 @@ def _map_methodologies(rows: list[dict]):
         r["Methodology (from given file with classification)"] = "; ".join(sorted(hits)) if hits else raw
 
 
+def _ensure_list(val) -> List[str]:
+    if val is None:
+        return []
+    if isinstance(val, list):
+        return [str(x).strip() for x in val if str(x).strip()]
+    sval = str(val).strip()
+    return [sval] if sval else []
+
+
+def _normalize_text_for_match(text: str) -> str:
+    text = str(text or "").lower()
+    text = text.replace("/", " ").replace("-", " ")
+    text = re.sub(r"[^a-z0-9+&\s]", " ", text)
+    text = re.sub(r"\s+", " ", text).strip()
+    return f" {text} " if text else ""
+
+
+def _normalize_commodity_rule(entry: dict, extra_terms: List[str] | None = None):
+    if not isinstance(entry, dict):
+        return None
+
+    def _pick(*names):
+        for name in names:
+            if name in entry and entry[name] not in (None, ""):
+                return entry[name]
+        return ""
+
+    major = str(_pick("Major_category", "major_category", "MajorCategory", "major", "Major") or "").strip()
+    minor = str(_pick("Minor_category", "minor_category", "MinorCategory", "minor", "Minor") or "").strip()
+
+    elements = _ensure_list(
+        _pick(
+            "Commodities_elements",
+            "commodities_elements",
+            "Commodity_elements",
+            "commodity_elements",
+            "elements",
+            "Element",
+        )
+    )
+    combined = _ensure_list(
+        _pick(
+            "Commodities_combined",
+            "commodities_combined",
+            "Commodity_combined",
+            "commodity_combined",
+            "combined",
+            "Combination",
+            "name",
+        )
+    )
+    if not combined and elements:
+        combined = elements[:]
+    if not elements and combined:
+        elements = combined[:]
+
+    term_fields: List[str] = []
+    for key in ("aliases", "alias", "keywords", "keyword", "terms", "term", "match_terms", "matches", "search", "tokens"):
+        term_fields.extend(_ensure_list(entry.get(key)))
+    if extra_terms:
+        term_fields.extend(extra_terms)
+    if not term_fields:
+        term_fields.extend(elements)
+        term_fields.extend(combined)
+        if minor:
+            term_fields.append(minor)
+
+    normalized_terms = []
+    for term in term_fields:
+        norm = _normalize_text_for_match(term).strip()
+        if norm and norm not in normalized_terms:
+            normalized_terms.append(norm)
+
+    regexes = []
+    for key in ("regex", "Regex", "patterns", "match_regex"):
+        for pattern in _ensure_list(entry.get(key)):
+            try:
+                regexes.append(re.compile(pattern, re.IGNORECASE))
+            except re.error:
+                continue
+
+    if not normalized_terms and not regexes:
+        return None
+
+    return {
+        "major": major,
+        "minor": minor,
+        "elements": elements,
+        "combined": combined,
+        "terms": normalized_terms,
+        "regex": regexes,
+    }
+
+
+def _load_commodity_rules() -> List[dict]:
+    path = _find_upwards("Rule1_OreDeposit.json")
+    if not path:
+        print("⚠️ Rule1_OreDeposit.json not found. Skipping commodity mapping.")
+        return []
+    try:
+        raw = json.loads(path.read_text())
+    except Exception as e:
+        print(f"⚠️ Could not read {path}: {e}. Skipping commodity mapping.")
+        return []
+
+    rules: List[dict] = []
+
+    def _add_rule(obj, extra_terms: List[str] | None = None):
+        normalized = _normalize_commodity_rule(obj, extra_terms)
+        if normalized:
+            rules.append(normalized)
+
+    if isinstance(raw, list):
+        for obj in raw:
+            _add_rule(obj)
+    elif isinstance(raw, dict):
+        found_list = False
+        for key in ("rules", "commodities", "entries", "data", "items"):
+            if isinstance(raw.get(key), list):
+                found_list = True
+                for obj in raw[key]:
+                    _add_rule(obj)
+        if not found_list:
+            for key, val in raw.items():
+                if isinstance(val, dict):
+                    _add_rule(val, extra_terms=[key])
+    else:
+        print(f"⚠️ Unexpected structure in {path}. Skipping commodity mapping.")
+
+    return rules
+
+
+def _map_commodities(rows: list[dict]):
+    rules = _load_commodity_rules()
+    if not rules:
+        return
+
+    for row in rows:
+        text_parts = []
+        for key in (
+            "Commodity (multiple)",
+            "Commodity",
+            "commodities",
+            "Title",
+            "title",
+            "Abstract",
+            "abstract",
+            "abtract",
+        ):
+            val = row.get(key)
+            if val:
+                text_parts.append(str(val))
+        raw_text = " ".join(text_parts)
+        norm_text = _normalize_text_for_match(raw_text)
+        if not norm_text:
+            continue
+
+        matches: List[dict] = []
+        seen = set()
+        for rule in rules:
+            matched = False
+            for regex in rule.get("regex", []):
+                if regex.search(raw_text):
+                    matched = True
+                    break
+            if not matched:
+                for term in rule.get("terms", []):
+                    if term and f" {term} " in norm_text:
+                        matched = True
+                        break
+            if matched:
+                key = (
+                    rule.get("major", ""),
+                    rule.get("minor", ""),
+                    tuple(rule.get("elements", [])),
+                    tuple(rule.get("combined", [])),
+                )
+                if key not in seen:
+                    seen.add(key)
+                    matches.append(rule)
+
+        if matches:
+            formatted = []
+            for rule in matches:
+                major = rule.get("major") or "Unknown"
+                minor = rule.get("minor") or "Unknown"
+                elements = rule.get("elements") or []
+                combined = rule.get("combined") or []
+                elem_str = " + ".join(elements) if elements else "Unknown"
+                comb_str = " + ".join(combined) if combined else elem_str
+                formatted.append(f"{major}/{minor}/{elem_str}/{comb_str}")
+            row["Commodity (multiple)"] = "; ".join(formatted)
+
+
 # ----------------- SAVE RAW + GET CONTENT -----------------
 try:
     resp = requests.post(url, headers=headers, json=data, timeout=60)
@@ -217,6 +411,8 @@ rows = [_coerce_record(d) for d in papers_json]
 
 # Optional: Methodology mapping
 _map_methodologies(rows)
+# Optional: Commodity mapping using Rule1_OreDeposit.json
+_map_commodities(rows)
 
 # Build DataFrame with expected columns
 df_new = pd.DataFrame(rows)
