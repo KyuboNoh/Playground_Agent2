@@ -15,34 +15,32 @@ import requests
 load_dotenv()
 PPLX_API_KEY = os.getenv("PPLX_API_KEY")
 
+if not PPLX_API_KEY:
+    raise RuntimeError(
+        "PPLX_API_KEY is not configured. Set it in your environment or .env file before running."
+    )
+
 url = "https://api.perplexity.ai/chat/completions"
 headers = {
     "Authorization": f"Bearer {PPLX_API_KEY}",
     "Content-Type": "application/json",
 }
-print(PPLX_API_KEY);exit()
 # --- CONFIG ---
-messages = [
-    {"role": "system", "content": "You are a helpful research assistant."},
-    {"role": "user", "content": (
-        "Find and summarize recent research papers (2022–2025) on "
-        "Mineral prospect/potential mapping/prediction/geological using machine learning/artificial intelligence. "
-        "List the methods, key findings, and provide source links. "
-        "Provide structured information with fields: Year, Month, Journal, Impact factor, Commodity, Methodology, "
-        "Title, Author(s), Abstract, Availability of original data, URL."
-    )},
-]
-
-# ----------------- FORCE JSON FROM THE MODEL (recommended) -----------------
-# Tip: strengthen your prompt before the API call:
-messages.append({
-  "role": "user",
-  "content": (
+user_prompt = (
+    "Find and summarize recent research papers (2022–2025) on "
+    "Mineral prospect/potential mapping/prediction/geological using machine learning/artificial intelligence. "
+    "List the methods, key findings, and provide source links. "
+    "Provide structured information with fields: Year, Month, Journal, Impact factor, Commodity, Methodology, "
+    "Title, Author(s), Abstract, Availability of original data, URL.\n\n"
     "Return ONLY valid JSON (no prose, no markdown). The value must be a JSON array of objects "
     "with EXACT keys: Year, Month, Journal, Journal Impact factor, Commodity (multiple), "
     "Methodology, Title, Author, Abstract, Availability of original data, URL."
-  )
-})
+)
+
+messages = [
+    {"role": "system", "content": "You are a helpful research assistant."},
+    {"role": "user", "content": user_prompt},
+]
 
 data = {
     "model": "sonar-pro",
