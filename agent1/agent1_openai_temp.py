@@ -55,8 +55,10 @@ _repo_root = Path(__file__).resolve().parent.parent
 rules1_str = _load_rule_json(_repo_root / "Rule1_OreDeposit.json")
 rules2_str = _load_rule_json(_repo_root / "Rule2_method_classification.json")
 
-# Prompts sourced from agent1_openai.py so OpenAI reads the intended
-# system/user instructions when analysing each document.
+# ---------------------------------------------------------------------------
+# Prompt payloads used as inputs for the LLM
+# (sourced from agent1_openai.py to keep behaviour aligned)
+# ---------------------------------------------------------------------------
 system_msg = {
     "role": "system",
     "content": (
@@ -97,6 +99,9 @@ user_msg = {
     ),
 }
 
+# ---------------------------------------------------------------------------
+# Summary CSV configuration (tabular output written after model parsing)
+# ---------------------------------------------------------------------------
 SUMMARY_COLUMNS = [
     "Year",
     "Month",
@@ -377,6 +382,9 @@ def _iter_summary_aliases(column: str) -> Iterable[str]:
         seen.add(lower)
         yield alias_clean
 
+# ---------------------------------------------------------------------------
+# Key findings CSV configuration (detail rows derived from model output)
+# ---------------------------------------------------------------------------
 DETAIL_COLUMNS = [
     "Title",
     "filename",
@@ -388,6 +396,10 @@ DETAIL_COLUMNS = [
     "_parent_key",
 ]
 
+# ---------------------------------------------------------------------------
+# JSON schema describing the structured response we expect from the LLM
+# (intermediate payload saved to raw JSON files before CSV generation)
+# ---------------------------------------------------------------------------
 RESPONSE_FORMAT = {
     "type": "json_schema",
     "json_schema": {
