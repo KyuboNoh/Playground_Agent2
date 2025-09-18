@@ -373,9 +373,9 @@ def _call_openai_with_pdf(client: OpenAI, pdf_path: Path, model: str, schema: di
     file_id = uploaded.id
     try:
         prompt = _prepare_prompt(pdf_path.name)
-        response = client.responses.create(
-            model=model,
-            input=[
+        request_payload = {
+            "model": model,
+            "input": [
                 {
                     "role": "user",
                     "content": [
@@ -384,9 +384,23 @@ def _call_openai_with_pdf(client: OpenAI, pdf_path: Path, model: str, schema: di
                     ],
                 }
             ],
-            response_format=schema,
-            temperature=0.2,
-        )
+            "temperature": 0.2,
+        }
+        if schema:
+            request_payload["response_format"] = schema
+
+        try:
+            response = client.responses.create(**request_payload)
+        except TypeError as exc:
+            # Older versions of the OpenAI Python client (<= 1.14) do not yet
+            # support the ``response_format`` argument on ``responses.create``.
+            # Fall back to a plain JSON response by retrying without the schema
+            # when we encounter this specific incompatibility.
+            if "response_format" in str(exc) and "unexpected keyword" in str(exc):
+                request_payload.pop("response_format", None)
+                response = client.responses.create(**request_payload)
+            else:
+                raise
         text = response.output_text
         try:
             return json.loads(text)
