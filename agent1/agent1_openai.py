@@ -77,10 +77,6 @@ user_msg = {
         "Unknown fields → 'Unknown'. Return ONLY valid JSON (array of objects)."
     )
 }
-
-messages = [system_msg, user_msg]
-
-print(messages)
 # -----------------
 @dataclass
 class ContextBundle:
@@ -499,6 +495,7 @@ def run_agent1_report(
     client = OpenAI(api_key=OPENAI_API_KEY)
     user_content: List[Dict[str, Any]] = [{"type": "input_text", "text": user_msg["content"]}]
     system_content: List[Dict[str, Any]] = [{"type": "input_text", "text": system_msg["content"]}]
+
     print(user_content[0]["text"][:30] + "...")
     print(system_content[0]["text"][:30] + "...")
 
@@ -512,7 +509,7 @@ def run_agent1_report(
                     {"role": "system", "content": system_content},
                     {"role": "user", "content": user_content},
                 ],
-                max_output_tokens=5000,
+                max_output_tokens=10000,
             ).output_text
             print("report")
             print(report)
