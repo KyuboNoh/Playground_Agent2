@@ -22,7 +22,7 @@ except Exception as exc:  # pragma: no cover - handled at runtime
 # Configuration
 # ---------------------------------------------------------------------------
 load_dotenv()
-
+temperature = 0.1
 INPUT_PAPER_FOLDER = Path(os.getenv("INPUT_PAPER_FOLDER", "input_papers"))
 OUT_DIR = Path(os.getenv("AGENT1_OUTPUT_DIR", "out/agent1_openai"))
 OUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -384,7 +384,7 @@ def _call_openai_with_pdf(client: OpenAI, pdf_path: Path, model: str, schema: di
                     ],
                 }
             ],
-            "temperature": 0.2,
+            "temperature": temperature,
         }
         if schema:
             request_payload["response_format"] = schema
@@ -402,6 +402,7 @@ def _call_openai_with_pdf(client: OpenAI, pdf_path: Path, model: str, schema: di
             else:
                 raise
         text = response.output_text
+        print(text)
         try:
             return json.loads(text)
         except json.JSONDecodeError as exc:
