@@ -105,6 +105,24 @@ SUMMARY_COLUMNS = [
     "url",
 ]
 
+# Alternate field names occasionally produced by the LLM. These aliases
+# improve our chances of capturing key metadata even when the response
+# deviates from the requested casing or wording. The requirement to
+# "strongly" look for the journal impact factor is handled by mapping
+# multiple possible spellings of that field.
+SUMMARY_FIELD_ALIASES: Dict[str, List[str]] = {
+    "Journal Impact factor": [
+        "Journal Impact Factor",
+        "journal impact factor",
+        "Journal impact factor",
+        "Impact Factor",
+        "impact factor",
+        "impact_factor",
+        "journal impact",
+        "journal_impact_factor",
+    ],
+}
+
 DETAIL_COLUMNS = [
     "Title",
     "filename",
@@ -483,10 +501,87 @@ def _call_openai_with_pdf(client: OpenAI, pdf_path: Path, model: str, schema: di
 
 def _coerce_summary(data: Dict[str, Any]) -> Dict[str, Any]:
     row = {col: "" for col in SUMMARY_COLUMNS}
+    if not isinstance(data, dict):
+        return row
+
+    lower_map: Dict[str, Any] = {}
+    for key, val in data.items():
+        if isinstance(key, str):
+            lower_map[key.strip().lower()] = val
+
     for col in SUMMARY_COLUMNS:
+        value: Any | None = None
         if col in data and data[col] is not None:
-            row[col] = str(data[col]).strip()
+            value = data[col]
+        else:
+            lowered = col.lower()
+            if lowered in lower_map and lower_map[lowered] is not None:
+                value = lower_map[lowered]
+            else:
+                for alias in SUMMARY_FIELD_ALIASES.get(col, []):
+                    if alias in data and data[alias] is not None:
+                        value = data[alias]
+                        break
+                    alias_lower = alias.lower()
+                    if alias_lower in lower_map and lower_map[alias_lower] is not None:
+                        value = lower_map[alias_lower]
+                        break
+                else:
+                    if col == "Journal Impact factor":
+                        for key_lower, candidate in lower_map.items():
+                            if "impact" in key_lower and "factor" in key_lower and candidate is not None:
+                                value = candidate
+                                break
+        if value is not None:
+            row[col] = str(value).strip()
     return row
+
+
+def _normalise_model_payload(payload: Any) -> List[Dict[str, Any]]:
+    """Normalise varied OpenAI responses into a predictable structure."""
+
+    def _clean_terms(values: Any) -> List[Any]:
+        if not isinstance(values, list):
+            return []
+        cleaned: List[Any] = []
+        for item in values:
+            if item is None:
+                continue
+            cleaned.append(item)
+        return cleaned
+
+    def _convert(item: Any) -> Dict[str, Any] | None:
+        if not isinstance(item, dict):
+            return None
+
+        summary_data: Dict[str, Any]
+        if isinstance(item.get("summary"), dict):
+            summary_data = item["summary"]
+        else:
+            meta_keys = {"summary", "key_points", "methodology_terms", "commodity_terms"}
+            summary_data = {
+                key: value
+                for key, value in item.items()
+                if isinstance(key, str) and key not in meta_keys
+            }
+
+        return {
+            "summary": summary_data,
+            "key_points": _clean_terms(item.get("key_points")),
+            "methodology_terms": _clean_terms(item.get("methodology_terms")),
+            "commodity_terms": _clean_terms(item.get("commodity_terms")),
+        }
+
+    if isinstance(payload, list):
+        normalised: List[Dict[str, Any]] = []
+        for entry in payload:
+            converted = _convert(entry)
+            if converted:
+                normalised.append(converted)
+        return normalised
+
+    converted = _convert(payload)
+    return [converted] if converted else []
 
 
 def _update_summary_csv(rows: List[Dict[str, Any]], csv_path: Path):
@@ -569,39 +664,55 @@ def process_pdfs(
         raw_path = RAW_DIR / f"{pdf_path.stem}_response.json"
         raw_path.write_text(json.dumps(payload, indent=2))
 
-        summary_payload = payload.get("summary", {})
-        summary_row = _coerce_summary(summary_payload)
-        summary_row["_source_file"] = pdf_path.name
+        entries = _normalise_model_payload(payload)
+        if not entries:
+            error = RuntimeError("No usable summary data returned by the model")
+            print(f"❌ No structured data extracted for {pdf_path.name}.")
+            failures.append((pdf_path, error))
+            continue
 
-        methodology_terms = [
-            str(x).strip() for x in payload.get("methodology_terms", []) if str(x).strip()
-        ]
-        commodity_terms = [
-            str(x).strip() for x in payload.get("commodity_terms", []) if str(x).strip()
-        ]
-        if methodology_terms and not summary_row["Methodology (from given file with classification)"]:
-            summary_row["Methodology (from given file with classification)"] = "; ".join(methodology_terms)
-        if commodity_terms and not summary_row["Commodity (multiple)"]:
-            summary_row["Commodity (multiple)"] = "; ".join(commodity_terms)
-        summary_row["_methodology_terms"] = methodology_terms
-        summary_row["_commodity_terms"] = commodity_terms
+        for entry_index, entry in enumerate(entries, start=1):
+            summary_payload = entry.get("summary", {})
+            summary_row = _coerce_summary(summary_payload)
+            summary_row["_source_file"] = pdf_path.name
+            entry_id = f"{pdf_path.name}::{entry_index}"
+            summary_row["_entry_id"] = entry_id
 
-        summary_rows.append(summary_row)
+            methodology_terms = [
+                str(x).strip() for x in entry.get("methodology_terms", []) if str(x).strip()
+            ]
+            commodity_terms = [
+                str(x).strip() for x in entry.get("commodity_terms", []) if str(x).strip()
+            ]
+            if (
+                methodology_terms
+                and not summary_row["Methodology (from given file with classification)"]
+            ):
+                summary_row["Methodology (from given file with classification)"] = "; ".join(
+                    methodology_terms
+                )
+            if commodity_terms and not summary_row["Commodity (multiple)"]:
+                summary_row["Commodity (multiple)"] = "; ".join(commodity_terms)
+            summary_row["_methodology_terms"] = methodology_terms
+            summary_row["_commodity_terms"] = commodity_terms
 
-        key_points = payload.get("key_points") or []
-        for idx, point in enumerate(key_points[:MAX_POINTS], start=1):
-            detail_rows.append(
-                {
-                    "Title": summary_row.get("Title", ""),
-                    "filename": pdf_path.name,
-                    "order": idx,
-                    "key_point": str(point.get("summary", "")).strip(),
-                    "page_reference": str(point.get("page_reference", "")).strip(),
-                    "evidence": str(point.get("evidence", "")).strip(),
-                    "confidence": str(point.get("confidence", "")).strip(),
-                    "_parent_key": "",  # to be populated after keys computed
-                }
-            )
+            summary_rows.append(summary_row)
+
+            key_points = entry.get("key_points") or []
+            for idx, point in enumerate(key_points[:MAX_POINTS], start=1):
+                detail_rows.append(
+                    {
+                        "Title": summary_row.get("Title", ""),
+                        "filename": pdf_path.name,
+                        "order": idx,
+                        "key_point": str(point.get("summary", "")).strip(),
+                        "page_reference": str(point.get("page_reference", "")).strip(),
+                        "evidence": str(point.get("evidence", "")).strip(),
+                        "confidence": str(point.get("confidence", "")).strip(),
+                        "_parent_key": "",  # to be populated after keys computed
+                        "_entry_id": entry_id,
+                    }
+                )
 
     # Apply mappings and compute keys
     _map_methodologies(summary_rows)
@@ -613,24 +724,31 @@ def process_pdfs(
         row["_key"] = _make_key(row)
 
     for detail in detail_rows:
-        title = detail.get("Title", "")
-        filename = detail.get("filename", "")
-        parent = next(
-            (
-                row
-                for row in summary_rows
-                if row.get("Title") == title and row.get("_source_file") == filename
-            ),
-            None,
-        )
+        entry_id = detail.get("_entry_id")
+        parent = None
+        if entry_id:
+            parent = next((row for row in summary_rows if row.get("_entry_id") == entry_id), None)
+        if parent is None:
+            title = detail.get("Title", "")
+            filename = detail.get("filename", "")
+            parent = next(
+                (
+                    row
+                    for row in summary_rows
+                    if row.get("Title") == title and row.get("_source_file") == filename
+                ),
+                None,
+            )
         if parent:
             detail["_parent_key"] = parent.get("_key", "")
+        detail.pop("_entry_id", None)
 
     # Clean helper columns before returning
     for row in summary_rows:
         row.pop("_methodology_terms", None)
         row.pop("_commodity_terms", None)
         row.pop("_source_file", None)
+        row.pop("_entry_id", None)
 
     if failures:
         print(f"⚠️ {len(failures)} PDF(s) could not be processed.")
