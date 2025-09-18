@@ -1,1 +1,0 @@
-{"error":{"message":"After the (optional) system message(s), user or tool message(s) should alternate with assistant message(s).","type":"invalid_message","code":400}}

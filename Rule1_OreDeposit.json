@@ -1,214 +1,421 @@
-{
-  "rules": [
-    {
-      "Major_category": "Precious metals",
-      "Minor_category": "Gold",
-      "Commodities_elements": ["Gold"],
-      "Commodities_combined": ["Gold"],
-      "aliases": ["gold", "auriferous", "orogenic gold", "lode gold"]
-    },
-    {
-      "Major_category": "Precious metals",
-      "Minor_category": "Silver",
-      "Commodities_elements": ["Silver"],
-      "Commodities_combined": ["Silver"],
-      "aliases": ["silver", "argentiferous"]
-    },
-    {
-      "Major_category": "Precious metals",
-      "Minor_category": "Platinum-group elements",
-      "Commodities_elements": ["Platinum", "Palladium", "Rhodium"],
-      "Commodities_combined": ["PGE", "PGM"],
-      "aliases": ["platinum", "palladium", "rhodium", "platinum group", "pge", "pgm"]
-    },
-    {
-      "Major_category": "Base metals",
-      "Minor_category": "Copper",
-      "Commodities_elements": ["Copper"],
-      "Commodities_combined": ["Copper"],
-      "aliases": ["copper", "chalcopyrite", "cu"]
-    },
-    {
-      "Major_category": "Base metals",
-      "Minor_category": "Lead",
-      "Commodities_elements": ["Lead"],
-      "Commodities_combined": ["Lead"],
-      "aliases": ["lead", "galena", "pb"]
-    },
-    {
-      "Major_category": "Base metals",
-      "Minor_category": "Zinc",
-      "Commodities_elements": ["Zinc"],
-      "Commodities_combined": ["Zinc"],
-      "aliases": ["zinc", "sphalerite", "zn"]
-    },
-    {
-      "Major_category": "Base metals",
-      "Minor_category": "Nickel",
-      "Commodities_elements": ["Nickel"],
-      "Commodities_combined": ["Nickel"],
-      "aliases": ["nickel", "ni"]
-    },
-    {
-      "Major_category": "Base metals",
-      "Minor_category": "Tin",
-      "Commodities_elements": ["Tin"],
-      "Commodities_combined": ["Tin"],
-      "aliases": ["tin", "cassiterite", "sn"]
-    },
-    {
-      "Major_category": "Base metals",
-      "Minor_category": "Molybdenum",
-      "Commodities_elements": ["Molybdenum"],
-      "Commodities_combined": ["Molybdenum"],
-      "aliases": ["molybdenum", "moly", "mo"]
-    },
-    {
-      "Major_category": "Base metals",
-      "Minor_category": "Copper-Gold polymetallic",
-      "Commodities_elements": ["Copper", "Gold"],
-      "Commodities_combined": ["Cu-Au"],
-      "aliases": ["cu-au", "copper-gold", "cu au", "au-cu"]
-    },
-    {
-      "Major_category": "Battery minerals",
-      "Minor_category": "Lithium",
-      "Commodities_elements": ["Lithium"],
-      "Commodities_combined": ["Lithium"],
-      "aliases": ["lithium", "li", "spodumene", "lct pegmatite"]
-    },
-    {
-      "Major_category": "Battery minerals",
-      "Minor_category": "Cobalt",
-      "Commodities_elements": ["Cobalt"],
-      "Commodities_combined": ["Cobalt"],
-      "aliases": ["cobalt", "co"]
-    },
-    {
-      "Major_category": "Battery minerals",
-      "Minor_category": "Graphite",
-      "Commodities_elements": ["Graphite"],
-      "Commodities_combined": ["Graphite"],
-      "aliases": ["graphite", "graphitic", "graphene"]
-    },
-    {
-      "Major_category": "Battery minerals",
-      "Minor_category": "Manganese",
-      "Commodities_elements": ["Manganese"],
-      "Commodities_combined": ["Manganese"],
-      "aliases": ["manganese", "mn"]
-    },
-    {
-      "Major_category": "Battery minerals",
-      "Minor_category": "Vanadium",
-      "Commodities_elements": ["Vanadium"],
-      "Commodities_combined": ["Vanadium"],
-      "aliases": ["vanadium", "v2o5", "vanadiferous", "v"]
-    },
-    {
-      "Major_category": "Bulk commodities",
-      "Minor_category": "Iron ore",
-      "Commodities_elements": ["Iron"],
-      "Commodities_combined": ["Iron ore"],
-      "aliases": ["iron ore", "banded iron", "hematite", "magnetite", "fe"]
-    },
-    {
-      "Major_category": "Bulk commodities",
-      "Minor_category": "Bauxite",
-      "Commodities_elements": ["Bauxite"],
-      "Commodities_combined": ["Bauxite"],
-      "aliases": ["bauxite", "aluminum ore", "laterite", "al"]
-    },
-    {
-      "Major_category": "Bulk commodities",
-      "Minor_category": "Coal",
-      "Commodities_elements": ["Coal"],
-      "Commodities_combined": ["Coal"],
-      "aliases": ["coal", "coking coal", "thermal coal"]
-    },
-    {
-      "Major_category": "Bulk commodities",
-      "Minor_category": "Phosphate",
-      "Commodities_elements": ["Phosphate"],
-      "Commodities_combined": ["Phosphate"],
-      "aliases": ["phosphate", "phosphorite", "apatite"]
-    },
-    {
-      "Major_category": "Energy minerals",
-      "Minor_category": "Uranium",
-      "Commodities_elements": ["Uranium"],
-      "Commodities_combined": ["Uranium"],
-      "aliases": ["uranium", "uraninite", "u3o8", "u-oxide"]
-    },
-    {
-      "Major_category": "Energy minerals",
-      "Minor_category": "Thorium",
-      "Commodities_elements": ["Thorium"],
-      "Commodities_combined": ["Thorium"],
-      "aliases": ["thorium", "th"]
-    },
-    {
-      "Major_category": "Critical minerals",
-      "Minor_category": "Rare earth elements",
-      "Commodities_elements": ["Rare earth elements"],
-      "Commodities_combined": ["REE"],
-      "aliases": ["rare earth", "rare-earth", "ree", "rare earth element", "rare earths"]
-    },
-    {
-      "Major_category": "Critical minerals",
-      "Minor_category": "Niobium",
-      "Commodities_elements": ["Niobium"],
-      "Commodities_combined": ["Niobium"],
-      "aliases": ["niobium", "columbium", "nb"]
-    },
-    {
-      "Major_category": "Critical minerals",
-      "Minor_category": "Tantalum",
-      "Commodities_elements": ["Tantalum"],
-      "Commodities_combined": ["Tantalum"],
-      "aliases": ["tantalum", "ta"]
-    },
-    {
-      "Major_category": "Critical minerals",
-      "Minor_category": "Chromium",
-      "Commodities_elements": ["Chromium"],
-      "Commodities_combined": ["Chromium"],
-      "aliases": ["chromium", "chromite", "cr"]
-    },
-    {
-      "Major_category": "Fertilizer minerals",
-      "Minor_category": "Potash",
-      "Commodities_elements": ["Potash"],
-      "Commodities_combined": ["Potash"],
-      "aliases": ["potash", "sylvite", "kcl"]
-    },
-    {
-      "Major_category": "Industrial minerals",
-      "Minor_category": "Fluorite",
-      "Commodities_elements": ["Fluorite"],
-      "Commodities_combined": ["Fluorspar"],
-      "aliases": ["fluorite", "fluorspar", "caf2"]
-    },
-    {
-      "Major_category": "Industrial minerals",
-      "Minor_category": "Barite",
-      "Commodities_elements": ["Barite"],
-      "Commodities_combined": ["Barite"],
-      "aliases": ["barite", "baryte", "ba"]
-    },
-    {
-      "Major_category": "Gemstones",
-      "Minor_category": "Diamonds",
-      "Commodities_elements": ["Diamond"],
-      "Commodities_combined": ["Diamonds"],
-      "aliases": ["diamond", "diamonds", "kimberlite"]
-    },
-    {
-      "Major_category": "Precious metals",
-      "Minor_category": "Gold-Silver epithermal",
-      "Commodities_elements": ["Gold", "Silver"],
-      "Commodities_combined": ["Au-Ag"],
-      "aliases": ["gold-silver", "au-ag", "ag-au", "epithermal gold"]
-    }
-  ]
-}
+[
+  {
+    "major_category": "Magmatic",
+    "minor_category": "Orthomagmatic sulfide (Ni-Cu-PGE)",
+    "setting": "Mafic–ultramafic intrusions, conduits, and komatiitic flows; sulfide segregation from magma.",
+    "commodities_elements": [
+      "Ni",
+      "Cu",
+      "Co",
+      "PGE",
+      "Pt",
+      "Pd",
+      "Rh",
+      "Au",
+      "S"
+    ],
+    "commodities_combined": [
+      "Ni-Cu-PGE",
+      "Ni-Cu-Co",
+      "Ni-Cu-PGE-Au"
+    ]
+  },
+  {
+    "major_category": "Magmatic",
+    "minor_category": "Layered mafic intrusion Fe-Ti-V",
+    "setting": "Stratiform magnetite–ilmenite layers within large mafic intrusions.",
+    "commodities_elements": [
+      "Fe",
+      "Ti",
+      "V"
+    ],
+    "commodities_combined": [
+      "Fe-Ti-V"
+    ]
+  },
+  {
+    "major_category": "Magmatic",
+    "minor_category": "Chromitite (stratiform/podiform)",
+    "setting": "Cumulate chromite layers in layered intrusions or podiform bodies in ophiolites.",
+    "commodities_elements": [
+      "Cr",
+      "Fe",
+      "PGE"
+    ],
+    "commodities_combined": [
+      "Cr-(PGE)"
+    ]
+  },
+  {
+    "major_category": "Magmatic",
+    "minor_category": "Kimberlite/Lamproite (diamond)",
+    "setting": "Volatile-rich ultramafic pipes/dykes erupted from mantle; often pipe-like bodies.",
+    "commodities_elements": [
+      "Diamond",
+      "Garnet (G10)",
+      "Chromite (Cr)",
+      "Ilmenite (Ti)"
+    ],
+    "commodities_combined": [
+      "Diamond+IndicatorMinerals"
+    ]
+  },
+  {
+    "major_category": "Magmatic",
+    "minor_category": "Pegmatite (LCT, NYF)",
+    "setting": "Late-stage magmatic fluids forming very coarse-grained dikes/apophyses near granites.",
+    "commodities_elements": [
+      "Li",
+      "Cs",
+      "Ta",
+      "Be",
+      "Sn",
+      "W",
+      "Nb",
+      "Y",
+      "F",
+      "REE"
+    ],
+    "commodities_combined": [
+      "Li-Cs-Ta (LCT)",
+      "Nb-Y-F-REE (NYF)",
+      "Li-Ta-Be"
+    ]
+  },
+  {
+    "major_category": "Magmatic",
+    "minor_category": "Sublimation/Pneumatolytic & Greisen",
+    "setting": "High-T magmatic gases and late magmatic-hydrothermal overprints (greisen).",
+    "commodities_elements": [
+      "W",
+      "Sn",
+      "Mo",
+      "Bi",
+      "F"
+    ],
+    "commodities_combined": [
+      "W-Sn-Mo",
+      "Bi-F"
+    ]
+  },
+  {
+    "major_category": "Hydrothermal",
+    "minor_category": "Porphyry Cu(-Mo-Au-Ag)",
+    "setting": "Arc/intraplate porphyritic intrusions with large stockwork vein systems; telescoped alteration.",
+    "commodities_elements": [
+      "Cu",
+      "Mo",
+      "Au",
+      "Ag",
+      "Re"
+    ],
+    "commodities_combined": [
+      "Cu-Mo",
+      "Cu-Au",
+      "Cu-Mo-Au",
+      "Cu-Au-Ag"
+    ]
+  },
+  {
+    "major_category": "Hydrothermal",
+    "minor_category": "Skarn (Fe, Cu, W, Zn-Pb, Sn, Au-As-Cu)",
+    "setting": "Contact metasomatism at intrusion–carbonate contacts; exoskarn/endoskarn.",
+    "commodities_elements": [
+      "Fe",
+      "Cu",
+      "W",
+      "Zn",
+      "Pb",
+      "Sn",
+      "Au",
+      "As",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Fe",
+      "Cu-Fe-Au-Ag",
+      "W-Cu",
+      "Zn-Pb-Ag",
+      "Sn",
+      "Au-As-Cu"
+    ]
+  },
+  {
+    "major_category": "Hydrothermal",
+    "minor_category": "Vein systems (hypothermal/mesothermal/epithermal)",
+    "setting": "Fracture-controlled quartz–sulfide veins; depth/temperature zonation.",
+    "commodities_elements": [
+      "Au",
+      "Ag",
+      "Cu",
+      "Pb",
+      "Zn",
+      "Hg",
+      "Sb",
+      "As"
+    ],
+    "commodities_combined": [
+      "Hypothermal Cu-Au",
+      "Mesothermal Au-Ag-Pb-Zn",
+      "Epithermal Au-Ag-Hg-Sb-As"
+    ]
+  },
+  {
+    "major_category": "Hydrothermal",
+    "minor_category": "Orogenic (lode) gold",
+    "setting": "Compressional/transpressional terranes; shear zones and greenstone belts.",
+    "commodities_elements": [
+      "Au",
+      "As",
+      "Sb",
+      "W"
+    ],
+    "commodities_combined": [
+      "Au-(As-Sb)",
+      "Au-W"
+    ]
+  },
+  {
+    "major_category": "Hydrothermal",
+    "minor_category": "Epithermal Au-Ag (HS/LS/IS)",
+    "setting": "Shallow volcanic–hydrothermal systems; high-, low-, and intermediate-sulfidation styles.",
+    "commodities_elements": [
+      "Au",
+      "Ag",
+      "Cu",
+      "Hg",
+      "Sb",
+      "As",
+      "Te"
+    ],
+    "commodities_combined": [
+      "HS Au-Ag-Cu-Te",
+      "LS Au-Ag-Sb-As",
+      "IS Au-Ag-Cu"
+    ]
+  },
+  {
+    "major_category": "Hydrothermal",
+    "minor_category": "IOCG (Iron Oxide Copper-Gold)",
+    "setting": "Fe-oxide–rich hydrothermal systems in extensional/tectonic zones; sodic-calcic alteration.",
+    "commodities_elements": [
+      "Fe",
+      "Cu",
+      "Au",
+      "U",
+      "REE",
+      "Co",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Cu-Au-U-REE-Fe",
+      "Cu-Au-Co"
+    ]
+  },
+  {
+    "major_category": "Hydrothermal",
+    "minor_category": "VMS (Volcanogenic Massive Sulfide)",
+    "setting": "Submarine volcanic arcs and back-arc basins; seafloor or sub-seafloor replacement.",
+    "commodities_elements": [
+      "Cu",
+      "Zn",
+      "Pb",
+      "Ag",
+      "Au",
+      "Ba",
+      "Fe"
+    ],
+    "commodities_combined": [
+      "Cu-Zn",
+      "Zn-Pb-Ag",
+      "Cu-Zn-Pb-Au-Ag"
+    ]
+  },
+  {
+    "major_category": "Hydrothermal",
+    "minor_category": "SEDEX (Sedimentary Exhalative)",
+    "setting": "Hydrothermal fluids venting into marine basins; stratiform sulfides with barite.",
+    "commodities_elements": [
+      "Zn",
+      "Pb",
+      "Ag",
+      "Ba",
+      "Fe"
+    ],
+    "commodities_combined": [
+      "Zn-Pb-Ag",
+      "Pb-Zn-Ag-Ba"
+    ]
+  },
+  {
+    "major_category": "Hydrothermal",
+    "minor_category": "MVT (Mississippi Valley-Type)",
+    "setting": "Low-T basinal brines depositing Pb–Zn in platform carbonates.",
+    "commodities_elements": [
+      "Pb",
+      "Zn",
+      "Ag",
+      "Ba",
+      "F"
+    ],
+    "commodities_combined": [
+      "Pb-Zn-Ag",
+      "Pb-Zn",
+      "Ba-F (associations)"
+    ]
+  },
+  {
+    "major_category": "Hydrothermal",
+    "minor_category": "Carlin-type gold",
+    "setting": "Disseminated Au in silty carbonates; deep basinal hydrothermal systems with arsenic-rich fluids.",
+    "commodities_elements": [
+      "Au",
+      "As",
+      "Hg",
+      "Tl",
+      "Sb"
+    ],
+    "commodities_combined": [
+      "Au-(As-Hg-Tl-Sb)"
+    ]
+  },
+  {
+    "major_category": "Sedimentary & Diagenetic",
+    "minor_category": "BIF-hosted iron",
+    "setting": "Layered iron formations (Algoma/Superior types) deposited in Precambrian basins.",
+    "commodities_elements": [
+      "Fe",
+      "SiO2"
+    ],
+    "commodities_combined": [
+      "Fe (hematite/magnetite)"
+    ]
+  },
+  {
+    "major_category": "Sedimentary & Diagenetic",
+    "minor_category": "Sediment-hosted Cu (red-bed/Kupferschiefer/CACB)",
+    "setting": "Stratiform Cu in reduced units at redox interfaces; basinal sandstones/shales/carbonates.",
+    "commodities_elements": [
+      "Cu",
+      "Co",
+      "Ag",
+      "U",
+      "V"
+    ],
+    "commodities_combined": [
+      "Cu-Co-Ag",
+      "Cu-(U-V)"
+    ]
+  },
+  {
+    "major_category": "Sedimentary & Diagenetic",
+    "minor_category": "Phosphorite",
+    "setting": "Upwelling margins and shelf environments; reworked phosphatic sediments.",
+    "commodities_elements": [
+      "P2O5",
+      "F",
+      "U",
+      "REE"
+    ],
+    "commodities_combined": [
+      "P-F",
+      "P-REE"
+    ]
+  },
+  {
+    "major_category": "Sedimentary & Diagenetic",
+    "minor_category": "Evaporites",
+    "setting": "Restricted basins with high evaporation; sabkhas and saline lakes/seas.",
+    "commodities_elements": [
+      "NaCl",
+      "KCl",
+      "Gypsum",
+      "Anhydrite",
+      "Li (brines)"
+    ],
+    "commodities_combined": [
+      "Halite (NaCl)",
+      "Sylvite (KCl)",
+      "Li-brine"
+    ]
+  },
+  {
+    "major_category": "Sedimentary & Diagenetic",
+    "minor_category": "Heavy-mineral sands (placer ilmenite/rutile/zircon/monazite)",
+    "setting": "Wave-dominated beach/dune systems concentrating resistate minerals.",
+    "commodities_elements": [
+      "TiO2 (Rutile/Ilmenite)",
+      "Zr (Zircon)",
+      "REE (Monazite)"
+    ],
+    "commodities_combined": [
+      "Ti-Zr-REE placers"
+    ]
+  },
+  {
+    "major_category": "Metamorphic",
+    "minor_category": "Graphite (flake/amorphous)",
+    "setting": "Regional metamorphism of carbonaceous sediments; contact metamorphic skarns minor.",
+    "commodities_elements": [
+      "C (graphite)"
+    ],
+    "commodities_combined": [
+      "Graphite"
+    ]
+  },
+  {
+    "major_category": "Surficial/Secondary",
+    "minor_category": "Laterite Ni-Co",
+    "setting": "Intense tropical weathering of ultramafics; saprolite/limonite profiles.",
+    "commodities_elements": [
+      "Ni",
+      "Co",
+      "Sc"
+    ],
+    "commodities_combined": [
+      "Ni-Co",
+      "Ni-Co-Sc"
+    ]
+  },
+  {
+    "major_category": "Surficial/Secondary",
+    "minor_category": "Bauxite (Al)",
+    "setting": "Tropical weathering of alumina-rich rocks; upland plateaus.",
+    "commodities_elements": [
+      "Al (as gibbsite/boehmite)",
+      "Ga"
+    ],
+    "commodities_combined": [
+      "Al-(Ga)"
+    ]
+  },
+  {
+    "major_category": "Surficial/Secondary",
+    "minor_category": "Supergene Cu enrichment",
+    "setting": "Near-surface oxidation/supergene blankets above porphyries and other sulfide systems.",
+    "commodities_elements": [
+      "Cu (chalcocite, covellite, malachite, azurite)"
+    ],
+    "commodities_combined": [
+      "Cu(II) oxides/carbonates",
+      "Cu2S (chalcocite)"
+    ]
+  },
+  {
+    "major_category": "Surficial/Secondary",
+    "minor_category": "Placer (Au, Sn, Ti, diamond)",
+    "setting": "Hydraulic sorting in streams and shorelines; paleochannels and trap sites.",
+    "commodities_elements": [
+      "Au",
+      "Sn (cassiterite)",
+      "Ti (rutile/ilmenite)",
+      "Diamond"
+    ],
+    "commodities_combined": [
+      "Au",
+      "Sn",
+      "Ti",
+      "Diamond"
+    ]
+  }
+]

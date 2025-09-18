@@ -1,0 +1,65 @@
+[
+{
+"Index": 1,
+"Year": "2022",
+"Month": "November",
+"Journal": "Minerals",
+"Journal Impact factor": "2.818 (2023)",
+"Methodology": "Machine learning (unspecified algorithm), 3D geochemical anomaly extraction (multi-fractal C-V models), compositional data analysis (CoDA), data-driven mineral systems modeling",
+"Title": "3D Mineral Prospectivity Mapping of Zaozigou Gold Deposit, West Qinling, China: Machine Learning-Based Mineral Prediction",
+"Author": "Unknown",
+"Study Country": "China",
+"Study Province/Region": "West Qinling (Gansu Province)",
+"URL of the papers": "https://www.mdpi.com/2075-163X/12/11/1361",
+"Availability of original data": "Unknown",
+"URL of the data server": "Unknown",
+"Commodity": {
+"major_category": "Hydrothermal",
+"minor_category": "Vein systems (hypothermal/mesothermal/epithermal)",
+"commodities_elements": ["Au", "Ag", "Cu", "Pb", "Zn", "Hg", "Sb", "As"],
+"commodities_combined": ["Mesothermal Au-Ag-Pb-Zn", "Epithermal Au-Ag-Hg-Sb-As"]
+}
+},
+{
+"Index": 3,
+"Year": "2022",
+"Month": "September",
+"Journal": "Minerals",
+"Journal Impact factor": "2.818 (2023)",
+"Methodology": "Random Forest, Logistic Regression, 3D mineral prospectivity modeling (3DMPM), data-driven geological targeting",
+"Title": "Three-Dimensional Mineral Prospectivity Modeling for Delineation of Deep-Seated Skarn-Type Mineralization in Xuancheng–Magushan Area, China",
+"Author": "Unknown",
+"Study Country": "China",
+"Study Province/Region": "Xuancheng–Magushan (Anhui Province)",
+"URL of the papers": "https://www.mdpi.com/2075-163X/12/9/1174",
+"Availability of original data": "Unknown",
+"URL of the data server": "Unknown",
+"Commodity": {
+"major_category": "Hydrothermal",
+"minor_category": "Skarn (Fe, Cu, W, Zn-Pb, Sn, Au-As-Cu)",
+"commodities_elements": ["Fe", "Cu", "W", "Zn", "Pb", "Sn", "Au", "As", "Ag"],
+"commodities_combined": ["Fe", "Cu-Fe-Au-Ag", "W-Cu", "Zn-Pb-Ag", "Sn", "Au-As-Cu"]
+}
+},
+{
+"Index": 6,
+"Year": "2022",
+"Month": "Unknown",
+"Journal": "Geochemistry: Exploration, Environment, Analysis",
+"Journal Impact factor": "2.8 (2022)",
+"Methodology": "Back-propagation neural network, fuzzy weights-of-evidence, multi-information fusion (geochemical, gravity, aeromagnetic, structural data), data-driven targeting",
+"Title": "Quantitative prediction of prospectivity for Pb–Zn deposits in Guangxi (China) by back-propagation neural network and fuzzy weights-of-evidence modelling",
+"Author": "Unknown",
+"Study Country": "China",
+"Study Province/Region": "Guangxi",
+"URL of the papers": "https://www.lyellcollection.org/doi/10.1144/geochem2021-085",
+"Availability of original data": "Unknown",
+"URL of the data server": "Unknown",
+"Commodity": {
+"major_category": "Hydrothermal",
+"minor_category": "MVT (Mississippi Valley-Type)",
+"commodities_elements": ["Pb", "Zn", "Ag", "Ba", "F"],
+"commodities_combined": ["Pb-Zn-Ag", "Pb-Zn", "Ba-F (associations)"]
+}
+}
+]

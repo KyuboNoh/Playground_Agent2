@@ -1,0 +1,82 @@
+Magmatic
+	Orthomagmatic sulfide (Ni-Cu-PGE) — Sulfide segregation in mafic–ultramafic magmas (komatiites, conduits, layered intrusions).
+	Key commodities: Ni, Cu, Co, PGE (Pt, Pd, Rh), ±Au.
+
+	Layered mafic Fe-Ti-V — Stratiform magnetite–ilmenite layers in large intrusions.
+	Key commodities: Fe, Ti, V.
+
+	Chromitite (stratiform/podiform) — Cumulate chromite in layered intrusions or podiform bodies in ophiolites.
+	Key commodities: Cr (±PGE).
+
+	Kimberlite/Lamproite (diamond) — Mantle-derived ultramafic pipes/dykes; diamondiferous with indicator minerals.
+	Key commodities: Diamonds (indicators: G10 garnet, chromite, ilmenite).
+
+	Pegmatite (LCT, NYF) — Late-stage magmatic dikes; LCT (Li-Cs-Ta), NYF (Nb-Y-F-REE).
+	Key commodities: Li, Cs, Ta, Be, Nb, Y, F, REE, ±Sn, ±W.
+
+	Sublimation / Pneumatolytic / Greisen — High-T magmatic gases and late magmatic-hydrothermal overprint.
+	Key commodities: W, Sn, Mo, Bi, F.
+
+Hydrothermal
+	Porphyry Cu(-Mo-Au-Ag) — Large stockworks around porphyritic intrusions (arc/intraplate); telescoped alteration.
+	Key commodities: Cu, Mo, Au, Ag, ±Re.
+
+	Skarn (Fe; Cu-Fe-Au-Ag; W-Cu; Zn-Pb-Ag; Sn; Au-As-Cu) — Intrusion–carbonate replacement.
+	Key commodities: Fe, Cu, W, Zn, Pb, Sn, Au, Ag, As.
+
+	Vein systems (hypothermal/mesothermal/epithermal) — Fracture-controlled quartz–sulfide veins; depth zonation.
+	Key commodities: Au, Ag, Cu, Pb, Zn, Hg, Sb, As.
+
+	Orogenic (lode) gold — Shear zones in compressional belts/greenstones.
+	Key commodities: Au (pathfinders As, Sb; ±W).
+
+	Epithermal Au-Ag (HS/LS/IS) — Shallow volcanic-hydrothermal; HS, LS, IS styles.
+	Key commodities: Au, Ag, ±Cu, Hg, Sb, As, Te.
+
+	IOCG — Fe-oxide–rich hydrothermal systems with sodic-calcic alteration.
+	Key commodities: Fe, Cu, Au, U, REE, ±Co, ±Ag.
+
+	VMS — Submarine volcanic settings; seafloor/sub-seafloor replacement.
+	Key commodities: Cu, Zn, Pb, Ag, Au (±Ba, Fe).
+
+	SEDEX — Stratiform sulfides from hydrothermal fluids vented into marine basins.
+	Key commodities: Zn, Pb, Ag (±Ba, Fe).
+
+	MVT — Low-T basinal brines in platform carbonates.
+	Key commodities: Pb, Zn, ±Ag (±Ba, ±F).
+
+	Carlin-type gold — Disseminated Au in silty carbonates; deep basinal systems.
+	Key commodities: Au (pathfinders As, Hg, Tl, Sb).
+
+Sedimentary & diagenetic
+	BIF-hosted Fe — Precambrian iron formations (Algoma/Superior types).
+	Key commodities: Fe (hematite/magnetite).
+
+	Sediment-hosted Cu (red-bed/Kupferschiefer/CACB) — Redox interfaces in basinal sandstones/shales/carbonates.
+	Key commodities: Cu, Co, Ag (±U, ±V).
+
+	Phosphorite — Upwelling margins; reworked phosphatic sediments.
+	Key commodities: P (P₂O₅), ±F, ±U, ±REE.
+
+	Evaporites — Restricted basins; chemical precipitation.
+	Key commodities: Halite (NaCl), Sylvite (KCl), Gypsum, Anhydrite, ±Li-brines.
+
+	Heavy-mineral sands (placers) — Wave/shoreline concentration of resistates.
+	Key commodities: Ti (rutile/ilmenite), Zr (zircon), REE (monazite).
+
+Metamorphic
+	Graphite (flake/amorphous) — Metamorphism of carbonaceous sediments (contact/regional).
+	Key commodities: Graphite (C).
+
+Surficial / secondary
+	Laterite Ni-Co — Tropical weathering of ultramafics (saprolite/limonite).
+	Key commodities: Ni, Co, ±Sc.
+
+	Bauxite (Al) — Intense lateritization of aluminous rocks; plateaus.
+	Key commodities: Al (±Ga).
+
+	Supergene Cu enrichment — Oxidation/supergene blankets above sulfide protore.
+	Key commodities: Cu (chalcocite, covellite; oxides/carbonates).
+
+	Placer (Au, Sn, Ti, diamond) — Hydraulic sorting in streams/shorelines; paleochannels.
+	Key commodities: Au; Sn (cassiterite); Ti (rutile/ilmenite); diamonds. 
