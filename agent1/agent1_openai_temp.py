@@ -366,6 +366,30 @@ def _prepare_prompt(pdf_name: str, extra_rules: str | None = None) -> str:
     )
 
 
+def _clean_response_text(text: str) -> str:
+    """Remove Markdown fences or extraneous text before JSON parsing."""
+    cleaned = (text or "").strip()
+    if cleaned.startswith("```"):
+        cleaned = re.sub(r"^```(?:json)?\s*", "", cleaned, flags=re.IGNORECASE)
+        cleaned = re.sub(r"\s*```$", "", cleaned)
+    return cleaned.strip()
+
+
+def _parse_response_json(text: str, pdf_name: str) -> Dict[str, Any]:
+    cleaned = _clean_response_text(text)
+    try:
+        return json.loads(cleaned)
+    except json.JSONDecodeError:
+        match = re.search(r"(\{.*\}|\[.*\])", cleaned, flags=re.DOTALL)
+        if match:
+            snippet = match.group(1)
+            try:
+                return json.loads(snippet)
+            except json.JSONDecodeError:
+                pass
+    raise RuntimeError(f"OpenAI response for {pdf_name} was not valid JSON.")
+
+
 def _call_openai_with_pdf(client: OpenAI, pdf_path: Path, model: str, schema: dict) -> Dict[str, Any]:
     with pdf_path.open("rb") as fh:
         uploaded = client.files.create(file=fh, purpose="assistants")
@@ -403,12 +427,7 @@ def _call_openai_with_pdf(client: OpenAI, pdf_path: Path, model: str, schema: di
                 raise
         text = response.output_text
         print(text)
-        try:
-            return json.loads(text)
-        except json.JSONDecodeError as exc:
-            raise RuntimeError(
-                f"OpenAI response for {pdf_path.name} was not valid JSON."
-            ) from exc
+        return _parse_response_json(text, pdf_path.name)
     finally:
         try:
             client.files.delete(file_id)
