@@ -469,23 +469,6 @@ def _describe_attachment(record: Dict[str, str]) -> str:
         return f"{path} ({', '.join(annotations)})"
     return path
 
-
-def _log_attachment_event(model_name: str, records: List[Dict[str, str]], succeeded: bool) -> None:
-    if records:
-        action = "Sent" if succeeded else "Attempted to send"
-        plural = "s" if len(records) != 1 else ""
-        print(f"[Agent3] {action} {len(records)} file{plural} to model '{model_name}':")
-        for record in records:
-            print(f"  - {_describe_attachment(record)}")
-    else:
-        message = (
-            f"[Agent3] No files were sent to model '{model_name}'."
-            if succeeded
-            else f"[Agent3] No image attachments were available for model '{model_name}'."
-        )
-        print(message)
-
-
 def _fallback_report(bundle: ContextBundle) -> str:
     lines = ["\n**Note:** OpenAI response unavailable; provided heuristic summary instead."]
     return "\n".join(lines)
@@ -511,17 +494,13 @@ def run_agent1_report(
     model_name = OPENAI_MODEL or "gpt-5o-mini"
     used_fallback = False
     error: Optional[str] = None
-    attachments_prepared: List[Dict[str, str]] = []
-    attachments_sent: List[Dict[str, str]] = []
-    attachment_message = ""
 
     from openai import OpenAI
     client = OpenAI(api_key=OPENAI_API_KEY)
     user_content: List[Dict[str, Any]] = [{"type": "input_text", "text": context_text}]
 
     if OPENAI_API_KEY:
-        # image_payloads, attachments_prepared = _extract_image_payloads(context_text)
-        image_payloads, attachments_prepared = None, None
+        print("Check")
         try:
             report = client.responses.create(
                 model=OPENAI_MODEL,
@@ -536,28 +515,13 @@ def run_agent1_report(
             error = str(exc)
             report = _fallback_report(bundle)
             used_fallback = True
-            _log_attachment_event(model_name, attachments_prepared, succeeded=False)
-            if attachments_prepared:
-                plural = "s" if len(attachments_prepared) != 1 else ""
-                lines = [
-                    f"Attempted to send {len(attachments_prepared)} file{plural} to model `{model_name}`, but the request failed.",
-                ]
-                lines.extend(f"- {_describe_attachment(record)}" for record in attachments_prepared)
-                if error:
-                    lines.append(f"⚠️ {error}")
-                attachment_message = "\n".join(lines)
-            else:
-                failure_note = "The request failed before any image attachments could be processed."
-                if error:
-                    failure_note = f"{failure_note} ({error})"
-                attachment_message = f"No files were sent to model `{model_name}`. {failure_note}"
+
     else:
         error = "OPENAI_API_KEY not set"
         report = _fallback_report(bundle)
         used_fallback = True
         log_message = f"No files were sent to model '{model_name}' because the OpenAI API key is not set."
         print(f"[Agent3] {log_message}")
-        attachment_message = log_message.replace("'", "`")
 
     # TODO: Write new CSV format
     timestamp = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
@@ -570,8 +534,6 @@ def run_agent1_report(
         "used_fallback": used_fallback,
         "error": error,
         "context_summary": context_text,
-        "attachments": attachments_sent,
-        "attachment_message": attachment_message,
     }
 
 if __name__ == "__main__":  # pragma: no cover - CLI entry
