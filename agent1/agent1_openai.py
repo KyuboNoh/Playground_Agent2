@@ -497,24 +497,29 @@ def run_agent1_report(
 
     from openai import OpenAI
     client = OpenAI(api_key=OPENAI_API_KEY)
-    user_content: List[Dict[str, Any]] = [{"type": "input_text", "text": context_text}]
-
+    user_content: List[Dict[str, Any]] = [{"type": "input_text", "text": user_msg["content"]}]
+    system_content: List[Dict[str, Any]] = [{"type": "input_text", "text": system_msg["content"]}]
+    print(user_content)
+    print(system_content)
     if OPENAI_API_KEY:
         print("Check")
         try:
             report = client.responses.create(
-                model=OPENAI_MODEL,
+                model=model_name,
                 input=[
-                    {"role": "system", "content": messages},
+                    {"role": "system", "content": system_content},
                     {"role": "user", "content": user_content},
                 ],
                 max_output_tokens=5000,
-            ).output_text.strip()
+            )
+            report = (report.output_text or "").strip()
 
         except Exception as exc:
             error = str(exc)
             report = _fallback_report(bundle)
             used_fallback = True
+
+        print(report)
 
     else:
         error = "OPENAI_API_KEY not set"
