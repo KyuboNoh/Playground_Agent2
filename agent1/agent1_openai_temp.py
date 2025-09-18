@@ -85,7 +85,7 @@ user_msg = {
         "If a field is not explicitly stated, return an empty string for that field. "
         "Additionally, summarise the paper's key findings into short bullet points.\n\n"
         "Use EXACT keys per item: Index, Year, Month, Journal, Journal Impact factor, Methodology, Title, Author, Study Country, Study Province/Region"
-        "URL of the papers, Availability of original data, URL of the data server, Commodity, "
+        "URL of the papers, Public availability original dataset, URL of the data server, Commodity, "
         "(Commodity 2, Commodity 3, ...; Optional when multiple commodities).\n"
         "Unknown fields → 'Unknown'. Return ONLY valid JSON (array of objects)."
     ),
@@ -101,7 +101,7 @@ SUMMARY_COLUMNS = [
     "Title",
     "Author",
     "abstract",
-    "availability of original data",
+    "Public availability original dataset",
     "url",
 ]
 
@@ -135,7 +135,7 @@ RESPONSE_FORMAT = {
                         "Title": {"type": "string"},
                         "Author": {"type": "string"},
                         "abstract": {"type": "string"},
-                        "availability of original data": {"type": "string"},
+                        "Public availability original dataset": {"type": "boolean"},
                         "url": {"type": "string"},
                     },
                     "required": ["Title"],
