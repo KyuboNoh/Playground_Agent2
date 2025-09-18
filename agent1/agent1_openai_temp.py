@@ -7,9 +7,12 @@ import re
 import time
 from pathlib import Path
 from typing import Any, Dict, Iterable, List
+from urllib.parse import urlparse
 
 import pandas as pd
 from dotenv import load_dotenv
+import requests
+from requests import RequestException
 
 try:  # pragma: no cover - import guard for optional dependency
     from openai import OpenAI
@@ -85,8 +88,11 @@ user_msg = {
         "If a field is not explicitly stated, return an empty string for that field. "
         "Additionally, summarise the paper's key findings into short bullet points.\n\n"
         "Use EXACT keys per item: Index, Year, Month, Journal, Journal Impact factor, Methodology, Title, Author, Study Country, Study Province/Region"
-        "URL of the papers, Public availability original dataset, URL of the data server, Commodity, "
+        "URL of the papers, Public availability original dataset, Training/Application dataset type, "
+        "Training vs Application dataset relationship, Training to application scope, URL of the data server, Commodity, "
         "(Commodity 2, Commodity 3, ...; Optional when multiple commodities).\n"
+        "For 'Training vs Application dataset relationship', return 'Same' when the same dataset (even if split into subsets) is used for both training and application; otherwise return 'Different'."
+        " When the relationship is 'Different', describe the transfer as 'Region A to Region B' (or similar) in 'Training to application scope' using the study areas discussed in the paper.\n"
         "Unknown fields → 'Unknown'. Return ONLY valid JSON (array of objects)."
     ),
 }
@@ -102,6 +108,9 @@ SUMMARY_COLUMNS = [
     "Author",
     "abstract",
     "Public availability original dataset",
+    "Training/Application dataset type",
+    "Training vs Application dataset relationship",
+    "Training to application scope",
     "url",
 ]
 
@@ -121,7 +130,252 @@ SUMMARY_FIELD_ALIASES: Dict[str, List[str]] = {
         "journal impact",
         "journal_impact_factor",
     ],
+    "Public availability original dataset": [
+        "availability of original data",
+        "Availability of original data",
+        "Public availability of original dataset",
+        "public availability original data",
+        "availability_of_original_data",
+    ],
+    "Training/Application dataset type": [
+        "Training dataset type",
+        "Application dataset type",
+        "Dataset type",
+        "Training application dataset type",
+    ],
+    "Training vs Application dataset relationship": [
+        "Training vs application dataset",
+        "Training vs Application dataset",
+        "Training application dataset match",
+        "Training vs application relationship",
+        "Dataset relationship",
+    ],
+    "Training to application scope": [
+        "Training to application region",
+        "Training to application geography",
+        "Dataset transfer scope",
+        "Training application scope",
+    ],
 }
+
+SUMMARY_FIELD_ALIAS_SOURCES_ENV = "SUMMARY_FIELD_ALIAS_URLS"
+SUMMARY_FIELD_ALIAS_CACHE = OUT_DIR / "summary_field_aliases_cache.json"
+
+
+def _get_int_env(name: str, default: int) -> int:
+    raw = os.getenv(name)
+    if raw is None:
+        return default
+    try:
+        return int(raw)
+    except ValueError:
+        print(f"⚠️ Invalid integer for {name}: {raw!r}. Using default {default}.")
+        return default
+
+
+def _get_float_env(name: str, default: float) -> float:
+    raw = os.getenv(name)
+    if raw is None:
+        return default
+    try:
+        return float(raw)
+    except ValueError:
+        print(f"⚠️ Invalid float for {name}: {raw!r}. Using default {default}.")
+        return default
+
+
+SUMMARY_FIELD_ALIAS_CACHE_TTL = _get_int_env("SUMMARY_FIELD_ALIAS_CACHE_TTL", 24 * 60 * 60)
+SUMMARY_FIELD_ALIAS_TIMEOUT = _get_float_env("SUMMARY_FIELD_ALIAS_TIMEOUT", 10.0)
+
+
+def _parse_alias_source_urls(raw: str) -> List[str]:
+    if not raw:
+        return []
+    parts = re.split(r"[\s,]+", raw)
+    return [token for token in (part.strip() for part in parts) if token]
+
+
+def _load_alias_cache(path: Path, sources: List[str], max_age: int) -> Dict[str, List[str]] | None:
+    if not path.exists():
+        return None
+    if max_age > 0:
+        try:
+            age = time.time() - path.stat().st_mtime
+        except OSError:
+            age = max_age + 1
+        if age > max_age:
+            return None
+    try:
+        with path.open("r", encoding="utf-8") as fh:
+            payload = json.load(fh)
+    except (OSError, json.JSONDecodeError):
+        return None
+    if not isinstance(payload, dict):
+        return None
+    cached_sources = payload.get("sources")
+    aliases = payload.get("aliases")
+    if cached_sources != sources or not isinstance(aliases, dict):
+        return None
+
+    cleaned: Dict[str, List[str]] = {}
+    for canonical, values in aliases.items():
+        if not isinstance(canonical, str):
+            continue
+        if isinstance(values, str):
+            candidates = [values]
+        elif isinstance(values, list):
+            candidates = [alias for alias in values if isinstance(alias, str)]
+        else:
+            continue
+        unique: List[str] = []
+        seen: set[str] = set()
+        for alias in candidates:
+            alias = alias.strip()
+            if not alias:
+                continue
+            lower = alias.lower()
+            if lower in seen:
+                continue
+            seen.add(lower)
+            unique.append(alias)
+        if unique:
+            cleaned[canonical] = unique
+    return cleaned
+
+
+def _write_alias_cache(path: Path, sources: List[str], data: Dict[str, List[str]]) -> None:
+    try:
+        with path.open("w", encoding="utf-8") as fh:
+            json.dump({"sources": sources, "aliases": data}, fh, ensure_ascii=False, indent=2)
+    except OSError:
+        pass
+
+
+def _normalise_alias_payload(payload: Any) -> Dict[str, List[str]]:
+    if not isinstance(payload, dict):
+        return {}
+    normalised: Dict[str, List[str]] = {}
+    for canonical, values in payload.items():
+        if not isinstance(canonical, str):
+            continue
+        if isinstance(values, str):
+            candidates = [values]
+        elif isinstance(values, (list, tuple, set)):
+            candidates = [alias for alias in values if isinstance(alias, str)]
+        else:
+            continue
+        unique: List[str] = []
+        seen: set[str] = set()
+        for alias in candidates:
+            alias = alias.strip()
+            if not alias:
+                continue
+            lower = alias.lower()
+            if lower in seen:
+                continue
+            seen.add(lower)
+            unique.append(alias)
+        if unique:
+            normalised[canonical] = unique
+    return normalised
+
+
+def _read_alias_source(source: str) -> Dict[str, List[str]]:
+    parsed = urlparse(source)
+    try:
+        if parsed.scheme in {"http", "https"}:
+            response = requests.get(source, timeout=SUMMARY_FIELD_ALIAS_TIMEOUT)
+            response.raise_for_status()
+            payload = response.json()
+        elif parsed.scheme == "file":
+            payload_path = Path(parsed.path)
+            with payload_path.open("r", encoding="utf-8") as fh:
+                payload = json.load(fh)
+        elif parsed.scheme:
+            print(f"⚠️ Unsupported alias source scheme '{parsed.scheme}' in {source}")
+            return {}
+        else:
+            payload_path = Path(source)
+            with payload_path.open("r", encoding="utf-8") as fh:
+                payload = json.load(fh)
+    except RequestException as exc:
+        print(f"⚠️ Could not fetch alias mapping from {source}: {exc}")
+        return {}
+    except (OSError, json.JSONDecodeError) as exc:
+        print(f"⚠️ Could not read alias mapping from {source}: {exc}")
+        return {}
+    return _normalise_alias_payload(payload)
+
+
+def _merge_alias_maps(target: Dict[str, List[str]], additions: Dict[str, List[str]]) -> None:
+    for canonical, aliases in additions.items():
+        if not isinstance(canonical, str):
+            continue
+        canonical_key = canonical.strip()
+        if not canonical_key:
+            continue
+        existing = target.setdefault(canonical_key, [])
+        seen = {alias.lower(): alias for alias in existing if isinstance(alias, str)}
+        for alias in aliases:
+            if not isinstance(alias, str):
+                continue
+            alias_clean = alias.strip()
+            if not alias_clean:
+                continue
+            lower = alias_clean.lower()
+            if lower in seen:
+                continue
+            existing.append(alias_clean)
+            seen[lower] = alias_clean
+
+
+def _load_remote_aliases() -> Dict[str, List[str]]:
+    sources = _parse_alias_source_urls(os.getenv(SUMMARY_FIELD_ALIAS_SOURCES_ENV, ""))
+    if not sources:
+        return {}
+
+    cached = _load_alias_cache(SUMMARY_FIELD_ALIAS_CACHE, sources, SUMMARY_FIELD_ALIAS_CACHE_TTL)
+    if cached is not None:
+        return cached
+
+    merged: Dict[str, List[str]] = {}
+    for source in sources:
+        remote_aliases = _read_alias_source(source)
+        if not remote_aliases:
+            continue
+        _merge_alias_maps(merged, remote_aliases)
+
+    if merged:
+        _write_alias_cache(SUMMARY_FIELD_ALIAS_CACHE, sources, merged)
+
+    return merged
+
+
+SUMMARY_FIELD_ALIASES_REMOTE = _load_remote_aliases()
+if SUMMARY_FIELD_ALIASES_REMOTE:
+    _merge_alias_maps(SUMMARY_FIELD_ALIASES, SUMMARY_FIELD_ALIASES_REMOTE)
+    total_remote_aliases = sum(len(values) for values in SUMMARY_FIELD_ALIASES_REMOTE.values())
+    print(
+        "ℹ️ Loaded"
+        f" {total_remote_aliases} remote summary field aliases from"
+        f" {len(SUMMARY_FIELD_ALIASES_REMOTE)} internet source entries."
+    )
+
+
+def _iter_summary_aliases(column: str) -> Iterable[str]:
+    aliases = SUMMARY_FIELD_ALIASES.get(column, [])
+    seen: set[str] = set()
+    for alias in aliases:
+        if not isinstance(alias, str):
+            continue
+        alias_clean = alias.strip()
+        if not alias_clean:
+            continue
+        lower = alias_clean.lower()
+        if lower in seen:
+            continue
+        seen.add(lower)
+        yield alias_clean
 
 DETAIL_COLUMNS = [
     "Title",
@@ -154,6 +408,9 @@ RESPONSE_FORMAT = {
                         "Author": {"type": "string"},
                         "abstract": {"type": "string"},
                         "Public availability original dataset": {"type": "boolean"},
+                        "Training/Application dataset type": {"type": "string"},
+                        "Training vs Application dataset relationship": {"type": "string"},
+                        "Training to application scope": {"type": "string"},
                         "url": {"type": "string"},
                     },
                     "required": ["Title"],
@@ -518,7 +775,7 @@ def _coerce_summary(data: Dict[str, Any]) -> Dict[str, Any]:
             if lowered in lower_map and lower_map[lowered] is not None:
                 value = lower_map[lowered]
             else:
-                for alias in SUMMARY_FIELD_ALIASES.get(col, []):
+                for alias in _iter_summary_aliases(col):
                     if alias in data and data[alias] is not None:
                         value = data[alias]
                         break
