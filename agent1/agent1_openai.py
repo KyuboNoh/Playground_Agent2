@@ -34,7 +34,11 @@ if not OPENAI_API_KEY:
 
 with open("../Rule1_OreDeposit.json", "r", encoding="utf-8") as f:
     rules = json.load(f)
-rules_str = json.dumps(rules, ensure_ascii=False)
+rules1_str = json.dumps(rules, ensure_ascii=False)
+
+with open("../Rule2_method_classification.json", "r", encoding="utf-8") as f:
+    rules = json.load(f)
+rules2_str = json.dumps(rules, ensure_ascii=False)
 
 # --- CONFIG ---
 # Build a strict system message that hard-scopes the subject and forbids off-topic items.
@@ -48,7 +52,10 @@ system_msg = {
         "you MUST return a CSV files with EXACT keys "
         "major_category, minor_category, commodities_elements, commodities_combined (no extra keys, no strings). "
         "If you cannot map a paper to a commodity in the rules, OMIT that paper entirely.\n"
-        f"{rules_str}\n\n"
+        f"{rules1_str}\n\n"
+        "METHODOLOGY RULES (authoritative):\n"
+        "you MUST return a CSV files with EXACT keys "
+        f"{rules2_str}\n\n"
         "OUTPUT RULES:\n"
         "• Return in CSV format (no prose/markdown/code fences). If nothing qualifies, return [].\n"
         "• Do NOT guess: if a field is unknown, set it to 'Unknown'.\n"
@@ -501,8 +508,7 @@ def run_agent1_report(
     bundle = _build_context_bundle(context_dir, predictions_dir)
     context_text = bundle.compose_context()
 
-    api_key = os.getenv(OPENAI_API_KEY)
-    model_name = model or os.getenv(OPENAI_MODEL) or "gpt-5o-mini"
+    model_name = OPENAI_MODEL or "gpt-5o-mini"
     used_fallback = False
     error: Optional[str] = None
     attachments_prepared: List[Dict[str, str]] = []
@@ -510,16 +516,15 @@ def run_agent1_report(
     attachment_message = ""
 
     from openai import OpenAI
-    client = OpenAI(api_key=os.getenv(OPENAI_API_KEY))
+    client = OpenAI(api_key=OPENAI_API_KEY)
     user_content: List[Dict[str, Any]] = [{"type": "input_text", "text": context_text}]
 
-
-    if api_key:
+    if OPENAI_API_KEY:
         # image_payloads, attachments_prepared = _extract_image_payloads(context_text)
         image_payloads, attachments_prepared = None, None
         try:
             report = client.responses.create(
-                model=model_name,
+                model=OPENAI_MODEL,
                 input=[
                     {"role": "system", "content": messages},
                     {"role": "user", "content": user_content},
@@ -569,6 +574,5 @@ def run_agent1_report(
         "attachment_message": attachment_message,
     }
 
-
-__all__ = ["run_agent1_report"]
-
+if __name__ == "__main__":  # pragma: no cover - CLI entry
+    run_agent1_report()
