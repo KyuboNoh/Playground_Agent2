@@ -53,7 +53,7 @@ SUMMARY_COLUMNS = [
     "Methodology (from given file with classification)",
     "Title",
     "Author",
-    "abtract",
+    "abstract",
     "availability of original data",
     "url",
 ]
@@ -87,7 +87,7 @@ RESPONSE_FORMAT = {
                         "Methodology (from given file with classification)": {"type": "string"},
                         "Title": {"type": "string"},
                         "Author": {"type": "string"},
-                        "abtract": {"type": "string"},
+                        "abstract": {"type": "string"},
                         "availability of original data": {"type": "string"},
                         "url": {"type": "string"},
                     },
@@ -252,7 +252,6 @@ def _map_commodities(rows: List[Dict[str, Any]]):
             "title",
             "Abstract",
             "abstract",
-            "abtract",
         ):
             val = row.get(key)
             if val:
@@ -302,9 +301,9 @@ def _map_commodities(rows: List[Dict[str, Any]]):
 
 
 def _load_method_mapping() -> Dict[str, str]:
-    path = _find_upwards("method_classification.json")
+    path = _find_upwards("Rule2_method_classification.json")
     if not path:
-        print("⚠️ method_classification.json not found. Skipping methodology mapping.")
+        print("⚠️ Rule2_method_classification.json not found. Skipping methodology mapping.")
         return {}
     try:
         return json.loads(path.read_text())
