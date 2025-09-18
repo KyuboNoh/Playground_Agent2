@@ -34,15 +34,62 @@ MODEL_NAME = os.getenv("AGENT1_OPENAI_MODEL", "gpt-4o-mini")
 MAX_POINTS = int(os.getenv("AGENT1_MAX_KEY_POINTS", "5"))
 
 # Multi-line instructions sent to the model alongside each PDF.
-rules_str = (
-    "You are a research assistant helping a mineral exploration team. "
-    "Read the attached PDF (a journal article) carefully. "
-    "Extract structured bibliographic metadata, a concise abstract, "
-    "and the methodological/commodity information required for our tracking sheet. "
-    "Focus on the actual content of the PDF—do not fabricate values. "
-    "If a field is not explicitly stated, return an empty string for that field. "
-    "Additionally, summarise the paper's key findings into short bullet points."
-)
+
+def _load_rule_json(path: Path) -> str:
+    try:
+        with path.open("r", encoding="utf-8") as f:
+            data = json.load(f)
+    except FileNotFoundError:
+        print(f"⚠️ {path.name} not found. Proceeding without embedded rules.")
+        return "[]"
+    except json.JSONDecodeError as exc:
+        print(f"⚠️ Could not parse {path.name}: {exc}. Proceeding without embedded rules.")
+        return "[]"
+    return json.dumps(data, ensure_ascii=False)
+
+
+_repo_root = Path(__file__).resolve().parent.parent
+rules1_str = _load_rule_json(_repo_root / "Rule1_OreDeposit.json")
+rules2_str = _load_rule_json(_repo_root / "Rule2_method_classification.json")
+
+# Prompts sourced from agent1_openai.py so OpenAI reads the intended
+# system/user instructions when analysing each document.
+system_msg = {
+    "role": "system",
+    "content": (
+        "You are an expert geoscientist and computational scientist.\n"
+        "TASK SCOPE (hard constraints):\n"
+        "• Read each paper in pdf and summarize with given RULE that will be shown below.\n"
+        "COMMODITY RULES (authoritative):\n"
+        "you MUST return a CSV files with EXACT keys "
+        "major_category, minor_category, commodities_elements, commodities_combined (no extra keys, no strings). "
+        "If you cannot map a paper to a commodity in the rules, OMIT that paper entirely.\n"
+        f"{rules1_str}\n\n"
+        "METHODOLOGY RULES (authoritative):\n"
+        "you MUST return a CSV files with EXACT keys "
+        f"{rules2_str}\n\n"
+        "OUTPUT RULES:\n"
+        "• Return in CSV format (no prose/markdown/code fences). If nothing qualifies, return [].\n"
+        "• Do NOT guess: if a field is unknown, set it to 'Unknown'.\n"
+    ),
+}
+
+user_msg = {
+    "role": "user",
+    "content": (
+        "You are a research assistant helping a mineral exploration team. "
+        "Read the attached PDF (a journal article) carefully. "
+        "Extract structured bibliographic metadata, a concise abstract, "
+        "and the methodological/commodity information required for our tracking sheet. "
+        "Focus on the actual content of the PDF—do not fabricate values. "
+        "If a field is not explicitly stated, return an empty string for that field. "
+        "Additionally, summarise the paper's key findings into short bullet points.\n\n"
+        "Use EXACT keys per item: Index, Year, Month, Journal, Journal Impact factor, Methodology, Title, Author, Study Country, Study Province/Region"
+        "URL of the papers, Availability of original data, URL of the data server, Commodity, "
+        "(Commodity 2, Commodity 3, ...; Optional when multiple commodities).\n"
+        "Unknown fields → 'Unknown'. Return ONLY valid JSON (array of objects)."
+    ),
+}
 
 SUMMARY_COLUMNS = [
     "Year",
@@ -355,14 +402,14 @@ def _init_client(api_key: str | None = None) -> OpenAI:
         )
     return OpenAI(api_key=key)
 
-
-def _prepare_prompt(pdf_name: str, extra_rules: str | None = None) -> str:
-    extra = (extra_rules or rules_str).strip()
-    return (
-        f"The attached file is '{pdf_name}'.\n"  # context for the model
-        f"Follow these rules when analysing the document:\n{extra}\n\n"
-        "Return a JSON object that complies with the provided schema."
+def _prepare_prompt(pdf_name: str) -> tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
+    system_content = [{"type": "input_text", "text": system_msg["content"]}]
+    user_text = (
+        f"{user_msg['content'].strip()}\n\n"
+        f"The attached file is '{pdf_name}'. Follow all system instructions and return a JSON object that complies with the provided schema."
     )
+    user_content = [{"type": "input_text", "text": user_text}]
+    return system_content, user_content
 
 
 def _clean_response_text(text: str) -> str:
@@ -395,17 +442,13 @@ def _call_openai_with_pdf(client: OpenAI, pdf_path: Path, model: str, schema: di
 
     file_id = uploaded.id
     try:
-        prompt = _prepare_prompt(pdf_path.name)
+        system_content, user_content = _prepare_prompt(pdf_path.name)
+        user_content.append({"type": "input_file", "file_id": file_id})
         request_payload = {
             "model": model,
             "input": [
-                {
-                    "role": "user",
-                    "content": [
-                        {"type": "input_text", "text": prompt},
-                        {"type": "input_file", "file_id": file_id},
-                    ],
-                }
+                {"role": "system", "content": system_content},
+                {"role": "user", "content": user_content},
             ],
             "temperature": temperature,
         }
@@ -643,7 +686,7 @@ def main(argv: List[str] | None = None) -> None:
     client = _init_client()
 
     start = time.time()
-    summary_rows, detail_rows = process_pdfs(client, pdf_paths, model=args.model)
+    summary_rows, detail_rows = process_pdfs(client, pdf_paths, schema=RESPONSE_FORMAT, model=args.model)
     elapsed = time.time() - start
 
     print(f"Processed {len(summary_rows)} PDFs in {elapsed:.1f}s")
