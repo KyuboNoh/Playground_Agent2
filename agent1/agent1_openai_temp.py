@@ -106,8 +106,8 @@ SUMMARY_COLUMNS = [
     "Month",
     "Journal",
     "Journal Impact factor",
-    "Commodity (multiple)",
-    "Methodology (from given file with classification)",
+    "Commodity",
+    "Methodology",
     "Title",
     "Author",
     "abstract",
@@ -413,8 +413,8 @@ RESPONSE_FORMAT = {
                         "Month": {"type": "string"},
                         "Journal": {"type": "string"},
                         "Journal Impact factor": {"type": "string"},
-                        "Commodity (multiple)": {"type": "string"},
-                        "Methodology (from given file with classification)": {"type": "string"},
+                        "Commodity": {"type": "string"},
+                        "Methodology": {"type": "string"},
                         "Title": {"type": "string"},
                         "Author": {"type": "string"},
                         "abstract": {"type": "string"},
@@ -650,7 +650,7 @@ def _map_methodologies(rows: List[Dict[str, Any]]):
     if not mapping:
         return
     for row in rows:
-        raw = row.get("Methodology (from given file with classification)", "")
+        raw = row.get("Methodology", "")
         add_terms = row.get("_methodology_terms") or []
         combined_text = " ".join([raw, *add_terms])
         low = combined_text.lower()
@@ -659,7 +659,7 @@ def _map_methodologies(rows: List[Dict[str, Any]]):
             if k.lower() in low:
                 hits.add(v)
         if hits:
-            row["Methodology (from given file with classification)"] = "; ".join(sorted(hits))
+            row["Methodology"] = "; ".join(sorted(hits))
 
 
 def _make_key(row: Dict[str, Any]) -> str:
@@ -969,9 +969,9 @@ def process_pdfs(
             ]
             if (
                 methodology_terms
-                and not summary_row["Methodology (from given file with classification)"]
+                and not summary_row["Methodology"]
             ):
-                summary_row["Methodology (from given file with classification)"] = "; ".join(
+                summary_row["Methodology"] = "; ".join(
                     methodology_terms
                 )
             if commodity_terms and not summary_row["Commodity (multiple)"]:
