@@ -916,7 +916,19 @@ def process_pdfs(
     pdf_paths: Iterable[Path],
     model: str = MODEL_NAME,
     schema: dict = RESPONSE_FORMAT,
+    summary_csv_path: Path | None = None,
+    detail_csv_path: Path | None = None,
 ) -> tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
+    summary_csv_path = Path(summary_csv_path) if summary_csv_path else None
+    detail_csv_path = Path(detail_csv_path) if detail_csv_path else None
+
+    if summary_csv_path:
+        summary_csv_path.parent.mkdir(parents=True, exist_ok=True)
+    if detail_csv_path:
+        detail_csv_path.parent.mkdir(parents=True, exist_ok=True)
+
+    write_incrementally = summary_csv_path is not None or detail_csv_path is not None
+
     summary_rows: List[Dict[str, Any]] = []
     detail_rows: List[Dict[str, Any]] = []
     failures: List[tuple[Path, Exception]] = []
@@ -939,6 +951,9 @@ def process_pdfs(
             print(f"❌ No structured data extracted for {pdf_path.name}.")
             failures.append((pdf_path, error))
             continue
+
+        pdf_summary_rows: List[Dict[str, Any]] = []
+        pdf_detail_rows: List[Dict[str, Any]] = []
 
         for entry_index, entry in enumerate(entries, start=1):
             summary_payload = entry.get("summary", {})
@@ -966,51 +981,105 @@ def process_pdfs(
             summary_row["_commodity_terms"] = commodity_terms
 
             summary_rows.append(summary_row)
+            pdf_summary_rows.append(summary_row)
 
             key_points = entry.get("key_points") or []
             for idx, point in enumerate(key_points[:MAX_POINTS], start=1):
-                detail_rows.append(
-                    {
-                        "Title": summary_row.get("Title", ""),
-                        "filename": pdf_path.name,
-                        "order": idx,
-                        "key_point": str(point.get("summary", "")).strip(),
-                        "page_reference": str(point.get("page_reference", "")).strip(),
-                        "evidence": str(point.get("evidence", "")).strip(),
-                        "confidence": str(point.get("confidence", "")).strip(),
-                        "_parent_key": "",  # to be populated after keys computed
-                        "_entry_id": entry_id,
-                    }
+                detail_entry = {
+                    "Title": summary_row.get("Title", ""),
+                    "filename": pdf_path.name,
+                    "order": idx,
+                    "key_point": str(point.get("summary", "")).strip(),
+                    "page_reference": str(point.get("page_reference", "")).strip(),
+                    "evidence": str(point.get("evidence", "")).strip(),
+                    "confidence": str(point.get("confidence", "")).strip(),
+                    "_parent_key": "",  # to be populated after keys computed
+                    "_entry_id": entry_id,
+                }
+                detail_rows.append(detail_entry)
+                pdf_detail_rows.append(detail_entry)
+
+        if write_incrementally and pdf_summary_rows:
+            _map_methodologies(pdf_summary_rows)
+            _map_commodities(pdf_summary_rows)
+
+            for row in pdf_summary_rows:
+                row.setdefault("_methodology_terms", [])
+                row.setdefault("_commodity_terms", [])
+                row["_key"] = _make_key(row)
+
+            for detail in pdf_detail_rows:
+                entry_id = detail.get("_entry_id")
+                parent = None
+                if entry_id:
+                    parent = next(
+                        (row for row in pdf_summary_rows if row.get("_entry_id") == entry_id),
+                        None,
+                    )
+                if parent is None:
+                    title = detail.get("Title", "")
+                    parent = next(
+                        (
+                            row
+                            for row in pdf_summary_rows
+                            if row.get("Title") == title and row.get("_source_file") == pdf_path.name
+                        ),
+                        None,
+                    )
+                if parent:
+                    detail["_parent_key"] = parent.get("_key", "")
+                detail.pop("_entry_id", None)
+
+            if summary_csv_path:
+                prepared_rows: List[Dict[str, Any]] = []
+                for row in pdf_summary_rows:
+                    prepared = {col: row.get(col, "") for col in SUMMARY_COLUMNS}
+                    prepared["_key"] = row.get("_key", _make_key(row))
+                    prepared_rows.append(prepared)
+                if prepared_rows:
+                    _update_summary_csv(prepared_rows, summary_csv_path)
+
+            if detail_csv_path and pdf_detail_rows:
+                prepared_details: List[Dict[str, Any]] = []
+                for detail in pdf_detail_rows:
+                    prepared_detail = {col: detail.get(col, "") for col in DETAIL_COLUMNS}
+                    prepared_details.append(prepared_detail)
+                if prepared_details:
+                    _update_details_csv(prepared_details, detail_csv_path)
+
+    if not write_incrementally:
+        # Apply mappings and compute keys after processing all PDFs
+        _map_methodologies(summary_rows)
+        _map_commodities(summary_rows)
+
+        for row in summary_rows:
+            row.setdefault("_methodology_terms", [])
+            row.setdefault("_commodity_terms", [])
+            row["_key"] = _make_key(row)
+
+        for detail in detail_rows:
+            entry_id = detail.get("_entry_id")
+            parent = None
+            if entry_id:
+                parent = next((row for row in summary_rows if row.get("_entry_id") == entry_id), None)
+            if parent is None:
+                title = detail.get("Title", "")
+                filename = detail.get("filename", "")
+                parent = next(
+                    (
+                        row
+                        for row in summary_rows
+                        if row.get("Title") == title and row.get("_source_file") == filename
+                    ),
+                    None,
                 )
-
-    # Apply mappings and compute keys
-    _map_methodologies(summary_rows)
-    _map_commodities(summary_rows)
-
-    for row in summary_rows:
-        row.setdefault("_methodology_terms", [])
-        row.setdefault("_commodity_terms", [])
-        row["_key"] = _make_key(row)
-
-    for detail in detail_rows:
-        entry_id = detail.get("_entry_id")
-        parent = None
-        if entry_id:
-            parent = next((row for row in summary_rows if row.get("_entry_id") == entry_id), None)
-        if parent is None:
-            title = detail.get("Title", "")
-            filename = detail.get("filename", "")
-            parent = next(
-                (
-                    row
-                    for row in summary_rows
-                    if row.get("Title") == title and row.get("_source_file") == filename
-                ),
-                None,
-            )
-        if parent:
-            detail["_parent_key"] = parent.get("_key", "")
-        detail.pop("_entry_id", None)
+            if parent:
+                detail["_parent_key"] = parent.get("_key", "")
+            detail.pop("_entry_id", None)
+    else:
+        # Ensure helper IDs are removed when writing incrementally
+        for detail in detail_rows:
+            detail.pop("_entry_id", None)
 
     # Clean helper columns before returning
     for row in summary_rows:
@@ -1072,17 +1141,24 @@ def main(argv: List[str] | None = None) -> None:
 
     client = _init_client()
 
+    summary_csv = Path(args.summary_csv)
+    detail_csv = Path(args.details_csv)
+
     start = time.time()
-    summary_rows, detail_rows = process_pdfs(client, pdf_paths, schema=RESPONSE_FORMAT, model=args.model)
+    summary_rows, detail_rows = process_pdfs(
+        client,
+        pdf_paths,
+        schema=RESPONSE_FORMAT,
+        model=args.model,
+        summary_csv_path=summary_csv,
+        detail_csv_path=detail_csv,
+    )
     elapsed = time.time() - start
 
     print(f"Processed {len(summary_rows)} PDFs in {elapsed:.1f}s")
 
-    summary_csv = Path(args.summary_csv)
-    detail_csv = Path(args.details_csv)
-
-    _update_summary_csv(summary_rows, summary_csv)
-    _update_details_csv(detail_rows, detail_csv)
+    if summary_rows:
+        print(f"✅ Summary saved to {summary_csv}")
     if detail_rows:
         print(f"✅ Key findings saved to {detail_csv}")
 
