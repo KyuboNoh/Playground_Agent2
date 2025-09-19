@@ -2,5 +2,5 @@
 .env.api
 .venv/
 .idea/
-.agent0/out
-.agent1/out
+./agent0/out/
+./agent1/out/
