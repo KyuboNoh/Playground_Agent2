@@ -32,7 +32,6 @@ OUT_DIR.mkdir(parents=True, exist_ok=True)
 RAW_DIR = OUT_DIR / "raw"
 RAW_DIR.mkdir(parents=True, exist_ok=True)
 SUMMARY_CSV = Path(os.getenv("AGENT1_SUMMARY_CSV", "papers_summary.csv"))
-DETAILS_CSV = Path(os.getenv("AGENT1_DETAILS_CSV", "papers_key_findings.csv"))
 MODEL_NAME = os.getenv("AGENT1_OPENAI_MODEL", "gpt-4o-mini")
 MAX_POINTS = int(os.getenv("AGENT1_MAX_KEY_POINTS", "5"))
 
@@ -1039,13 +1038,13 @@ def process_pdfs(
                 if prepared_rows:
                     _update_summary_csv(prepared_rows, summary_csv_path)
 
-            if detail_csv_path and pdf_detail_rows:
-                prepared_details: List[Dict[str, Any]] = []
-                for detail in pdf_detail_rows:
-                    prepared_detail = {col: detail.get(col, "") for col in DETAIL_COLUMNS}
-                    prepared_details.append(prepared_detail)
-                if prepared_details:
-                    _update_details_csv(prepared_details, detail_csv_path)
+            # if detail_csv_path and pdf_detail_rows:
+            #     prepared_details: List[Dict[str, Any]] = []
+            #     for detail in pdf_detail_rows:
+            #         prepared_detail = {col: detail.get(col, "") for col in DETAIL_COLUMNS}
+            #         prepared_details.append(prepared_detail)
+            #     if prepared_details:
+            #         _update_details_csv(prepared_details, detail_csv_path)
 
     if not write_incrementally:
         # Apply mappings and compute keys after processing all PDFs
@@ -1120,12 +1119,12 @@ def main(argv: List[str] | None = None) -> None:
         default=str(SUMMARY_CSV),
         help="Path to the summary CSV file",
     )
-    parser.add_argument(
-        "--details-csv",
-        type=str,
-        default=str(DETAILS_CSV),
-        help="Path to the key-findings CSV file",
-    )
+    # parser.add_argument(
+    #     "--details-csv",
+    #     type=str,
+    #     default=str(DETAILS_CSV),
+    #     help="Path to the key-findings CSV file",
+    # )
     args = parser.parse_args(argv)
 
     input_dir = Path(args.input)
@@ -1142,7 +1141,7 @@ def main(argv: List[str] | None = None) -> None:
     client = _init_client()
 
     summary_csv = Path(args.summary_csv)
-    detail_csv = Path(args.details_csv)
+    # detail_csv = Path(args.details_csv)
 
     start = time.time()
     summary_rows, detail_rows = process_pdfs(
@@ -1151,7 +1150,7 @@ def main(argv: List[str] | None = None) -> None:
         schema=RESPONSE_FORMAT,
         model=args.model,
         summary_csv_path=summary_csv,
-        detail_csv_path=detail_csv,
+        # detail_csv_path=detail_csv,
     )
     elapsed = time.time() - start
 
@@ -1159,8 +1158,8 @@ def main(argv: List[str] | None = None) -> None:
 
     if summary_rows:
         print(f"✅ Summary saved to {summary_csv}")
-    if detail_rows:
-        print(f"✅ Key findings saved to {detail_csv}")
+    # if detail_rows:
+    #     print(f"✅ Key findings saved to {detail_csv}")
 
 
 if __name__ == "__main__":  # pragma: no cover - CLI entry
