@@ -1,0 +1,53 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2024,
+    "Month": "June",
+    "Journal": "Mathematical Geosciences",
+    "Journal Impact factor": "Unknown",
+    "Title": "An Interpretable Graph Attention Network for Mineral Prospectivity Mapping",
+    "Author": "Ying Xu, Renguang Zuo",
+    "url": "https://doi.org/10.1007/s11004-023-10076-8"
+  },
+  "abstract": "This study proposes an interpretable graph attention network (GAN) for mineral prospectivity mapping (MPM) of Fe polymetallic mineralization in southwestern Fujian Province, China. The method integrates prior geological knowledge into the GAN structure, enhancing interpretability and generalization. A comparative analysis shows that the interpretable GAN outperforms conventional GANs in identifying high mineralization potential areas.",
+  "methodology": "supervised > deep learning > graph attention network",
+  "commodity": {
+    "major_category": "Magmatic",
+    "minor_category": "Skarn (Fe, Cu, W, Zn-Pb, Sn, Au-As-Cu)",
+    "commodities_elements": [
+      "Fe",
+      "Cu",
+      "W",
+      "Zn",
+      "Pb",
+      "Sn",
+      "Au",
+      "As"
+    ],
+    "commodities_combined": [
+      "Fe",
+      "Cu-Fe-Au-Ag",
+      "W-Cu",
+      "Zn-Pb-Ag",
+      "Sn",
+      "Au-As-Cu"
+    ]
+  },
+  "deposit_type": "Skarn (Fe, Cu, W, Zn-Pb, Sn, Au-As-Cu)",
+  "dataset_fields": {
+    "public_availability": "Yes",
+    "types": [
+      "Geological map; scale 1:200,000",
+      "Geochemical survey data; concentrations of 39 elements",
+      "Distance maps; km"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Training area to Testing area"
+  },
+  "key_points": [
+    "Introduced an interpretable GAN for mineral prospectivity mapping.",
+    "Integrated geological knowledge improves model interpretability.",
+    "Demonstrated better performance in identifying mineralization potential.",
+    "Used a topology graph to reflect spatial relationships.",
+    "Applied soft and hard constraints to enhance model accuracy."
+  ]
+}

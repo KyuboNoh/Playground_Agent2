@@ -1,0 +1,61 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2021,
+    "Month": "March",
+    "Journal": "Natural Resources Research",
+    "Journal Impact factor": "Unknown",
+    "Title": "Regional-Scale Mineral Prospectivity Mapping: Support Vector Machines and an Improved Data-Driven Multi-criteria Decision-Making Technique",
+    "Author": "Reza Ghezelbash, Abbas Maghsoudi, Amirreza Bigdeli, Emmanuel John M. Carranza",
+    "url": "https://doi.org/10.1007/s11053-021-09842-4"
+  },
+  "abstract": "This paper aims to reduce uncertainties in mineral prospectivity mapping (MPM) for Cu-Au mineralization in the Moalleman District, NE Iran. Efficient evidence layers were translated from geospatial criteria and integrated using an improved data-driven simple additive weight (SAW) procedure. A support vector machine (SVM) with radial basis function kernel was also applied for comparison. Results indicated that both models successfully delineated favorable mineralization targets, with SVM proving more reliable.",
+  "methodology": "supervised > kernel-based > support vector machine; supervised > tree-based > random forest",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Vein systems (hypothermal/mesothermal/epithermal)",
+    "commodities_elements": [
+      "Cu",
+      "Au",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Cu-Au",
+      "Cu-Ag"
+    ]
+  },
+  "deposit_type": "Vein systems (hypothermal/mesothermal/epithermal)",
+  "dataset": {
+    "public_availability": "Yes",
+    "types": [
+      {
+        "data_type": "Geochemical signatures",
+        "units": "ppm"
+      },
+      {
+        "data_type": "Proximity to host rocks",
+        "units": "m"
+      },
+      {
+        "data_type": "Proximity to faults",
+        "units": "m"
+      },
+      {
+        "data_type": "Fault density",
+        "units": "km/km\u00b2"
+      },
+      {
+        "data_type": "Hydrothermal alterations",
+        "units": "m"
+      }
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Training from known deposits to application in the Moalleman District"
+  },
+  "key_points": [
+    "The study introduces an improved data-driven MCDM technique for mineral prospectivity mapping.",
+    "Support vector machines (SVM) were utilized for classification and comparison with traditional methods.",
+    "The SVM model demonstrated higher reliability in predicting mineralization targets.",
+    "Efficient exploration criteria significantly enhance the accuracy of predictive models.",
+    "The study highlights the importance of data-driven weights to reduce systematic uncertainty."
+  ]
+}

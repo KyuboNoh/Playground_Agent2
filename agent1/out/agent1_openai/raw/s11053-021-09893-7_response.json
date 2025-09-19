@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "Year": 2021,
+    "Month": "October",
+    "Journal": "Natural Resources Research",
+    "Journal Impact factor": "Unknown",
+    "Title": "Machine Learning-Based 3D Modeling of Mineral Prospectivity Mapping in the Anqing Orefield, Eastern China",
+    "Author": "Yaozu Qin, Liangming Liu, Weicheng Wu",
+    "url": "https://doi.org/10.1007/s11053-021-09893-7"
+  },
+  "abstract": "This study presents a machine learning-based approach for 3D modeling of mineral prospectivity mapping in the Anqing orefield, which has been extensively explored. By integrating various geological factors and exploration data, the study aims to identify high-potential targets for mineral exploration. The random forest algorithm was found to be particularly effective in predicting mineralization zones, emphasizing the importance of accurate geological data and sample selection in the modeling process.",
+  "Methodology": "supervised > tree-based > random forest; supervised > tree-based > support vector machine",
+  "Commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Skarn (Fe, Cu, W, Zn-Pb, Sn, Au-As-Cu)",
+    "commodities_elements": [
+      "Fe",
+      "Cu",
+      "W",
+      "Zn",
+      "Pb",
+      "Sn",
+      "Au",
+      "As",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Fe",
+      "Cu-Fe-Au-Ag",
+      "W-Cu",
+      "Zn-Pb-Ag",
+      "Sn",
+      "Au-As-Cu"
+    ]
+  },
+  "Deposit type": "Skarn (Fe, Cu, W, Zn-Pb, Sn, Au-As-Cu)",
+  "Dataset": {
+    "public availability": "Unknown",
+    "types": [
+      "Geological factors; Unknown",
+      "Resistivity data; Unknown",
+      "Volumetric strain field; Unknown"
+    ],
+    "train/app relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "Key points": [
+    "Integration of geological factors improves mineral prospectivity mapping.",
+    "Random forest algorithm outperforms other methods in prediction accuracy.",
+    "Sample selection is critical for effective modeling.",
+    "High potential zones identified contain a significant percentage of mineralized blocks."
+  ]
+}

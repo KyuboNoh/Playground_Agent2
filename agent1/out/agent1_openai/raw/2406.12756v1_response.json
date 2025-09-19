@@ -1,0 +1,50 @@
+{
+  "bibliographic_metadata": {
+    "Year": "2024",
+    "Month": "June",
+    "Journal": "Unknown",
+    "Journal Impact factor": "Unknown",
+    "Title": "GFM4MPM: Towards Geospatial Foundation Models for Mineral Prospectivity Mapping",
+    "Author": [
+      "Angel Daruna",
+      "Vasily Zadorozhnyy",
+      "Georgina Lukoczki",
+      "Han-Pang Chiu"
+    ],
+    "url": "https://arxiv.org/abs/2406.12756"
+  },
+  "abstract": "Machine Learning (ML) for Mineral Prospectivity Mapping (MPM) remains a challenging problem as it requires the analysis of associations between large-scale multi-modal geospatial data and few historical mineral commodity observations. Our MPM approach uses a masked image modeling framework to pretrain a backbone neural network in a self-supervised manner using unlabeled geospatial data alone. We evaluated our approach alongside existing methods to assess mineral prospectivity of Mississippi Valley Type (MVT) and Clastic-Dominated (CD) Lead-Zinc deposits in North America and Australia. Our results demonstrate that self-supervision promotes robustness in learned features, improving prospectivity predictions.",
+  "methodology": "supervised > deep learning > transformer; supervised > deep learning > CNN",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "VMS (Volcanogenic Massive Sulfide)",
+    "commodities_elements": [
+      "Cu",
+      "Zn",
+      "Pb",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Cu-Zn",
+      "Zn-Pb-Ag",
+      "Cu-Zn-Pb-Au-Ag"
+    ]
+  },
+  "deposit_type": "VMS (Volcanogenic Massive Sulfide)",
+  "dataset": {
+    "public_availability": "Unknown",
+    "types": [
+      "geophysical measurements; Unknown",
+      "geological data; Unknown",
+      "geochemical data; Unknown"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "North America to Australia"
+  },
+  "key_points": [
+    "Proposed a self-supervised MPM pretraining method based on masked image modeling.",
+    "Incorporated explainable AI and epistemic uncertainty modeling into the DL MPM method.",
+    "Treated MPM as an imbalanced, positive-unlabeled binary classification problem.",
+    "Validated the approach with comprehensive experiments and ablation studies."
+  ]
+}

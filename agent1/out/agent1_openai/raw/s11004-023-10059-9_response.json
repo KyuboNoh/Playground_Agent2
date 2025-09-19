@@ -1,0 +1,44 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2023,
+    "Month": "April",
+    "Journal": "Mathematical Geosciences",
+    "Journal Impact factor": "Unknown",
+    "Title": "Deep Reinforcement Learning for Mineral Prospectivity Mapping",
+    "Author": "Zixian Shi, Renguang Zuo, Bao Zhou",
+    "url": "https://doi.org/10.1007/s11004-023-10059-9"
+  },
+  "abstract": "This study constructs a deep reinforcement learning (RL) framework for mineral prospectivity mapping, tested through a case study in northwest Hubei Province, China. The deep RL agent interacts with the environment to evaluate mineralization potential, outperforming traditional models like random forest and isolation forest. The results indicate strong spatial correlation with known gold deposits, providing valuable insights for future prospecting.",
+  "methodology": "supervised > deep learning > reinforcement learning",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Orogenic (lode) gold",
+    "commodities_elements": [
+      "Au",
+      "As",
+      "Sb",
+      "W"
+    ],
+    "commodities_combined": [
+      "Au-(As-Sb)",
+      "Au-W"
+    ]
+  },
+  "Deposit type": "Orogenic (lode) gold",
+  "dataset": {
+    "public_availability": "Unknown",
+    "types": [
+      "Geochemical data; various elements (Al2O3, CaO, Fe2O3, etc.)",
+      "Geological features; Unknown units"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Training from labeled gold deposits to application in unlabeled areas"
+  },
+  "key_points": [
+    "Deep reinforcement learning framework developed for mineral prospectivity mapping.",
+    "Case study conducted in northwest Hubei Province, China.",
+    "Deep RL outperformed traditional models like random forest and isolation forest.",
+    "High-potential areas identified correlate strongly with known gold deposits.",
+    "Framework effectively utilizes both labeled and unlabeled datasets."
+  ]
+}

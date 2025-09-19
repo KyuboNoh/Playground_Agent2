@@ -1,0 +1,71 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2025,
+    "Month": "April",
+    "Journal": "Natural Resources Research",
+    "Journal Impact factor": "Unknown",
+    "Title": "Interpretability Analysis of Data Augmented Convolutional Neural Network in Mineral Prospectivity Mapping Using Black-Box Visualization Tools",
+    "Author": "Yue Liu, Tao Sun, Kaixing Wu, Wenyuan Xiang, Jingwei Zhang, Hongwei Zhang, Mei Feng",
+    "url": "https://doi.org/10.1007/s11053-025-10462-5"
+  },
+  "abstract": "This study investigates the effectiveness of data augmentation in mineral prospectivity mapping (MPM) using a convolutional neural network (CNN). The synthetic minority oversampling technique (SMOTE) was employed to enhance training data, addressing issues of data scarcity and overfitting. The results demonstrate improved model performance, with higher accuracy and reduced overfitting. Various black-box visualization tools were utilized to elucidate the mechanisms by which SMOTE enhances predictive capabilities, revealing significant ore-associated features.",
+  "methodology": "supervised > deep learning > convolutional neural network (CNN); supervised > tree-based > random forest",
+  "commodity": {
+    "major_category": "Magmatic",
+    "minor_category": "Unknown",
+    "commodities_elements": [
+      "W",
+      "Mn",
+      "Fe"
+    ],
+    "commodities_combined": [
+      "W-Mn-Fe"
+    ]
+  },
+  "Deposit type": "Unknown",
+  "dataset": {
+    "public_availability": "Yes",
+    "types": [
+      {
+        "data_type": "Magnetic anomalies",
+        "unit": "nT"
+      },
+      {
+        "data_type": "Gravity anomalies",
+        "unit": "Unknown"
+      },
+      {
+        "data_type": "Proximity to Yanshanian intrusions",
+        "unit": "Unknown"
+      },
+      {
+        "data_type": "W anomalies",
+        "unit": "Unknown"
+      },
+      {
+        "data_type": "Fe anomalies",
+        "unit": "Unknown"
+      },
+      {
+        "data_type": "Mn anomalies",
+        "unit": "Unknown"
+      },
+      {
+        "data_type": "Density of regional faults",
+        "unit": "Unknown"
+      },
+      {
+        "data_type": "Fault intersections",
+        "unit": "Unknown"
+      }
+    ],
+    "train_app_relationship": "Same",
+    "scope": "Unknown"
+  },
+  "key_points": [
+    "Data augmentation using SMOTE improves model performance in mineral prospectivity mapping.",
+    "CNN trained on SMOTE-augmented data shows higher accuracy and reduced overfitting.",
+    "Black-box visualization tools reveal the influence of key ore-associated features on model predictions.",
+    "Rational feature ordering enhances the model's ability to generalize to unseen data."
+  ]
+}

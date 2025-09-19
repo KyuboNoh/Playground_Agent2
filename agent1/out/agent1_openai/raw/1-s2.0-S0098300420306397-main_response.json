@@ -1,0 +1,53 @@
+{
+  "bibliographic_metadata": {
+    "Year": "2021",
+    "Month": "November",
+    "Journal": "Computers & Geosciences",
+    "Journal Impact factor": "Unknown",
+    "Title": "A positive and unlabeled learning algorithm for mineral prospectivity mapping",
+    "Author": "Yihui Xiong, Renguang Zuo",
+    "url": "https://doi.org/10.1016/j.cageo.2020.104667"
+  },
+  "abstract": "This study employs a positive and unlabeled learning (PUL) algorithm for mineral prospectivity mapping (MPM) in southwestern Fujian province, China. The PUL algorithm utilizes only positive and unlabeled samples, avoiding the need for negative training samples. The study examines the sensitivity of the PUL algorithm to different training sets and demonstrates its reproducibility and stability. The results indicate a strong spatial correlation between predictive variables and known mineral deposits, with PUL outperforming other methods like one-class support vector machine (OCSVM) and artificial neural networks (ANN).",
+  "methodology": "supervised > tree-based > random forest; supervised > kernel-based > support vector machine; supervised > neural networks > feedforward neural network (MLP)",
+  "commodity": {
+    "major_category": "Magmatic",
+    "minor_category": "Skarn (Fe, Cu, W, Zn-Pb, Sn, Au-As-Cu)",
+    "commodities_elements": [
+      "Fe",
+      "Cu",
+      "W",
+      "Zn",
+      "Pb",
+      "Sn",
+      "Au",
+      "As",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Fe",
+      "Cu-Fe-Au-Ag",
+      "W-Cu",
+      "Zn-Pb-Ag",
+      "Sn",
+      "Au-As-Cu"
+    ]
+  },
+  "Deposit type": "Skarn (Fe, Cu, W, Zn-Pb, Sn, Au-As-Cu)",
+  "dataset_fields": {
+    "public_availability": "Yes",
+    "types": [
+      "Geochemical anomalies; Unknown",
+      "Aeromagnetic anomalies; Unknown",
+      "Geological maps; Unknown"
+    ],
+    "train/app relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "PUL algorithm effectively maps mineral prospectivity using only positive and unlabeled samples.",
+    "The study area is rich in Fe polymetallic deposits.",
+    "PUL outperforms traditional methods like OCSVM and ANN in predictive accuracy.",
+    "The model demonstrates strong spatial correlation with known mineral deposits."
+  ]
+}

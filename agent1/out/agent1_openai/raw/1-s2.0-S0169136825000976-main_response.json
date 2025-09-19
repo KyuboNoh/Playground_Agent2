@@ -1,0 +1,54 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2025,
+    "Month": "February",
+    "Journal": "Ore Geology Reviews",
+    "Journal Impact factor": "Unknown",
+    "Title": "Translation of mineral system components into time step-based ore-forming events and evidence maps for mineral exploration: Intelligent mineral prospectivity mapping through adaptation of recurrent neural networks and random forest algorithm",
+    "Author": "Soran Qaderi, Abbas Maghsoudi, Mahyar Yousefi, Amin Beiranvand Pour",
+    "url": "https://doi.org/10.1016/j.oregeorev.2025.106537"
+  },
+  "abstract": "This study designs and adapts recurrent neural network architectures and a random forest algorithm to incorporate the temporal nature of ore-forming subsystems into mineral prospectivity analysis. Using a dataset of Pb-Zn mineralization in Semnan Province, Iran, the exploration targets in the prospectivity maps show excellent agreement with deposit locations, demonstrating the importance of incorporating the chronology of geological processes in targeting mineral deposits.",
+  "methodology": "supervised > tree-based > random forest; supervised > neural networks > feedforward neural network (MLP)",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "VMS (Volcanogenic Massive Sulfide)",
+    "commodities_elements": [
+      "Pb",
+      "Zn",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Pb-Zn-Ag"
+    ]
+  },
+  "deposit_type": "VMS (Volcanogenic Massive Sulfide)",
+  "dataset": {
+    "public_availability": "Available on request",
+    "types": [
+      {
+        "data_type": "Geologic map",
+        "unit": "1:100,000 scale"
+      },
+      {
+        "data_type": "Composite stream sediment samples",
+        "unit": "1111 samples"
+      },
+      {
+        "data_type": "Remote sensing data",
+        "unit": "Unknown"
+      },
+      {
+        "data_type": "Known deposit locations",
+        "unit": "16 locations"
+      }
+    ],
+    "train_app_relationship": "Same",
+    "scope": "Unknown"
+  },
+  "key_points": [
+    "Integration of recurrent neural networks and random forest improves mineral prospectivity mapping.",
+    "Chronology of ore-forming geological processes enhances prediction accuracy.",
+    "The methodology can be applied to other types of mineral deposits."
+  ]
+}

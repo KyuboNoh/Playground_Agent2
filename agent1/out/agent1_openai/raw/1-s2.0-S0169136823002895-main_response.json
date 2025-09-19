@@ -1,0 +1,48 @@
+{
+  "bibliographic_metadata": {
+    "Year": "2023",
+    "Month": "July",
+    "Journal": "Ore Geology Reviews",
+    "Journal Impact factor": "Unknown",
+    "Title": "One-dimensional convolutional neural network for mapping mineral prospectivity: A case study in Changba ore concentration area, Gansu Province",
+    "Author": "Binbin Li, Zhengbo Yu, Xijun Ke",
+    "url": "https://doi.org/10.1016/j.oregeorev.2023.105573"
+  },
+  "abstract": "Predictive modeling of mineral prospects is a critical but challenging procedure for delineating undiscovered prospective targets in mineral exploration. In this study, the one-dimensional convolutional neural network (1D CNN) was utilized for mineral prospectivity mapping (MPM). Local singularity analysis and deposit buffer analysis were used to determine unfavorable metallogenic regions, and random points were taken as negative samples. Synthetic minority over-sampling technique (SMOTE) was used to generate training data to enhance the model's generalization ability. The average classification accuracy of this model was 96.2%, indicating robustness. The geochemical data of 19 elements were used as input, predicting the prospecting potential of lead\u2013zinc deposits in the Changba ore concentration area.",
+  "methodology": "supervised > deep learning > convolutional neural network (CNN)",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Vein systems (hypothermal/mesothermal/epithermal)",
+    "commodities_elements": [
+      "Pb",
+      "Zn",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Pb-Zn-Ag"
+    ]
+  },
+  "deposit_type": "Vein systems (hypothermal/mesothermal/epithermal)",
+  "dataset": {
+    "public_availability": "Yes",
+    "types": [
+      {
+        "data_type": "Geochemical analysis",
+        "units": "N/A"
+      },
+      {
+        "data_type": "Geochemical elements",
+        "units": "ppm"
+      }
+    ],
+    "train_app_relationship": "Same",
+    "scope": "Unknown"
+  },
+  "key_points": [
+    "Utilized 1D CNN for mineral prospectivity mapping.",
+    "Achieved an average classification accuracy of 96.2%.",
+    "Used geochemical data of 19 elements for prediction.",
+    "Implemented SMOTE for training data enhancement.",
+    "Identified favorable metallogenic regions for lead\u2013zinc deposits."
+  ]
+}

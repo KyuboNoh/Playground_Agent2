@@ -1,0 +1,51 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2023,
+    "Month": "July",
+    "Journal": "Ore Geology Reviews",
+    "Journal Impact factor": "Unknown",
+    "Title": "Mineral prospectivity mapping based on Support vector machine and Random Forest algorithm \u2013 A case study from Ashele copper\u2013zinc deposit, Xinjiang, NW China",
+    "Author": "Chaojie Zheng, Feng Yuan, Xianrong Luo, Xiaohui Li, Panfeng Liu, Meilan Wen, Zesu Chen, Stefano Albanese",
+    "url": "https://doi.org/10.1016/j.oregeorev.2023.105567"
+  },
+  "abstract": "This study investigates the use of machine learning techniques for mineral prospectivity mapping (MPM) at the Ashele copper-zinc deposit. By enhancing feature representativeness and analyzing dataset composition, the study constructs predictive models using Support Vector Machine (SVM) and Random Forest (RF) algorithms. The results indicate that improved feature selection significantly enhances model performance, achieving predictive accuracies of approximately 0.88. The integrated model successfully identifies mineralized boreholes, demonstrating the efficacy of machine learning in MPM.",
+  "methodology": "supervised > tree-based > random forest; supervised > kernel-based > support vector machine",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "VMS (Volcanogenic Massive Sulfide)",
+    "commodities_elements": [
+      "Cu",
+      "Zn",
+      "Pb",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Cu-Zn",
+      "Zn-Pb-Ag",
+      "Cu-Zn-Pb-Au-Ag"
+    ]
+  },
+  "deposit_type": "VMS (Volcanogenic Massive Sulfide)",
+  "dataset": {
+    "public_availability": "No",
+    "types": [
+      {
+        "data_type": "Rock samples",
+        "unit": "Unknown"
+      },
+      {
+        "data_type": "Geochemical analysis",
+        "unit": "ppm"
+      }
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "Machine learning techniques enhance mineral prospectivity mapping.",
+    "Support Vector Machine and Random Forest algorithms were utilized.",
+    "Improved feature representativeness significantly boosts model performance.",
+    "Predictive accuracy reached approximately 0.88.",
+    "Integrated model identified 98% of mineralized boreholes in the top 15% of the study area."
+  ]
+}

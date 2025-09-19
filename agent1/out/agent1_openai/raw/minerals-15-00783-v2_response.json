@@ -1,0 +1,44 @@
+{
+  "bibliographic_metadata": {
+    "Year": "2025",
+    "Month": "July",
+    "Journal": "Minerals",
+    "Journal Impact factor": "Unknown",
+    "Title": "Three-Dimensional Mineralization Prediction Using the Information Value Method: A Case Study of the Bainiuchang Ag Polymetallic Deposit, Southwest China",
+    "Author": "Fuju Jia, Guolong Zheng, Guangzhi Meng, Long Jian, He Chang, Ping Pan, Jianguo Gao, Zhixiao Wu, Ceting Yang",
+    "url": "https://doi.org/10.3390/min15080783"
+  },
+  "abstract": "Three-dimensional geological modeling combined with the information value method offers a powerful approach for predicting mineralization in complex geological settings. This study applies these techniques to the Bainiuchang Ag polymetallic deposit in Southwest China. We constructed a detailed 3D geological model to identify key geological factors influencing mineralization, such as the F3 fault, secondary faults, and the middle Cambrian Tianpeng Formation. Using the information value method, we evaluated the mineralization potential of each unit in the study area. Receiver operating characteristic (ROC) curves and fractal analysis were employed to determine an optimal threshold (information value > 2.6) for delineating high-potential exploration targets. Our results identified three priority targets (A1, A2, and A3), demonstrating the effectiveness of integrating 3D modeling with probabilistic mineral prospectivity mapping.",
+  "methodology": "supervised > probabilistic > weights of evidence (WofE); supervised > tree-based > gradient boosting (GBDT)",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Vein systems (hypothermal/mesothermal/epithermal)",
+    "commodities_elements": [
+      "Ag",
+      "Pb",
+      "Zn",
+      "Cu",
+      "Sn"
+    ],
+    "commodities_combined": [
+      "Ag-Pb-Zn-Cu-Sn"
+    ]
+  },
+  "Deposit type": "Vein systems (hypothermal/mesothermal/epithermal)",
+  "dataset": {
+    "public_availability": "Unknown",
+    "types": [
+      "Geological maps",
+      "Borehole data",
+      "Geophysical surveys"
+    ],
+    "train_app_relationship": "Same",
+    "scope": "Unknown"
+  },
+  "key_points": [
+    "3D geological modeling effectively predicts mineralization.",
+    "The information value method identifies key geological factors.",
+    "Three priority exploration targets were identified (A1, A2, A3).",
+    "ROC curves and fractal analysis determined optimal thresholds for exploration."
+  ]
+}

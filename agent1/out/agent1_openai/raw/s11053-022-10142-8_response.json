@@ -1,0 +1,45 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2023,
+    "Month": "February",
+    "Journal": "Natural Resources Research",
+    "Journal Impact factor": "Unknown",
+    "Title": "Mineral Prospectivity Mapping Using Deep Self-Attention Model",
+    "Author": "Bojun Yin, Renguang Zuo, Siquan Sun",
+    "url": "https://doi.org/10.1007/s11053-022-10142-8"
+  },
+  "abstract": "This study introduces a deep self-attention model for mineral prospectivity mapping (MPM), integrating multi-source data to enhance accuracy. The model captures internal relationships between evidence layers and considers spatial heterogeneity. A case study in the Suizao district, Hubei Province, China, demonstrates its effectiveness in predicting gold mineralization, achieving an accuracy of 0.88. The results suggest that the model can guide future mineral exploration.",
+  "methodology": "supervised > deep learning > self-attention mechanism",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Orogenic (lode) gold",
+    "commodities_elements": [
+      "Au",
+      "As",
+      "Sb",
+      "W"
+    ],
+    "commodities_combined": [
+      "Au-(As-Sb)",
+      "Au-W"
+    ]
+  },
+  "Deposit type": "Orogenic (lode) gold",
+  "dataset_fields": {
+    "public_availability": "Unknown",
+    "types": [
+      "Geological data; km",
+      "Geochemical data; various elements",
+      "Rasterized data; km"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "Introduced a deep self-attention model for mineral prospectivity mapping.",
+    "Model integrates multi-source data to enhance mapping accuracy.",
+    "Achieved an accuracy of 0.88 in predicting gold mineralization.",
+    "Demonstrated effectiveness in the Suizao district, Hubei Province, China.",
+    "Model can guide future mineral exploration efforts."
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2025,
+    "Month": "January",
+    "Journal": "Natural Resources Research",
+    "Journal Impact factor": "Unknown",
+    "Title": "Class Label Representativeness in Machine Learning-Based Mineral Prospectivity Mapping",
+    "Author": "Mohammad Parsa, Renato Cumani",
+    "url": "https://doi.org/10.1007/s11053-025-10468-z"
+  },
+  "abstract": "This paper examines how augmented positive labels and different negative label selection procedures geospatially represent economically viable mineral deposits and affect deep learning-based mineral prospectivity mapping (MPM) classification performance and spatial selectivity. The study provides insights into how different label sets affect MPM\u2019s classification performance and spatial selectivity, indicating that selecting negative class labels from geospatially different localities enhances classification performance compared to other negative label selection procedures.",
+  "methodology": "supervised > deep learning > convolutional neural network (CNN)",
+  "commodity": {
+    "major_category": "Magmatic",
+    "minor_category": "Orthomagmatic sulfide (Ni-Cu-PGE)",
+    "commodities_elements": [
+      "Ni",
+      "Cu",
+      "Co",
+      "PGE"
+    ],
+    "commodities_combined": [
+      "Ni-Cu-PGE"
+    ]
+  },
+  "Deposit type": "Orthomagmatic sulfide (Ni-Cu-PGE)",
+  "dataset": {
+    "public_availability": "Unknown",
+    "types": [
+      "Geospatial features; Unknown",
+      "Mineral deposits; Unknown",
+      "Mineral occurrences; Unknown"
+    ],
+    "train/app relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "The representativeness of class labels can be evaluated by analyzing their geospatial similarity or dissimilarity to confident mineral deposits.",
+    "Negative class labels drawn from areas geospatially distinct from confident mineral deposits provided the most effective negative label set.",
+    "Employing non-representative augmented positive class labels can undermine the performance of prospectivity models.",
+    "Supplementing confident mineral deposits with additional representative positive class labels boosts MPM's classification performance and spatial selectivity.",
+    "Using a combination of representative positive and negative class labels significantly enhances MPM's classification accuracy and spatial selectivity."
+  ]
+}

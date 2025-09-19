@@ -1,0 +1,52 @@
+{
+  "Bibliographic metadata": {
+    "Year": 2020,
+    "Month": "September",
+    "Journal": "Natural Resources Research",
+    "Journal Impact factor": "Unknown",
+    "Title": "Random-Drop Data Augmentation of Deep Convolutional Neural Network for Mineral Prospectivity Mapping",
+    "Author": "Tong Li, Renguang Zuo, Yihui Xiong, Yong Peng",
+    "url": "https://doi.org/10.1007/s11053-020-09742-z"
+  },
+  "Abstract": "This study addresses limitations in applying convolutional neural networks (CNNs) for mineral prospectivity mapping (MPM) due to insufficient labeled samples and the complexity of geological prospecting big data. A random-drop data augmentation method is proposed to generate sufficient training samples. The CNN architecture is optimized for MPM, resulting in strong spatial correlations with known mineralization locations, indicating its effectiveness in predicting rare geological events.",
+  "Methodology": "supervised > deep learning > convolutional neural network (CNN)",
+  "Commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Skarn (Fe, Cu, W, Zn-Pb, Sn, Au-As-Cu)",
+    "commodities_elements": [
+      "Fe",
+      "Cu",
+      "W",
+      "Zn",
+      "Pb",
+      "Sn",
+      "Au",
+      "As"
+    ],
+    "commodities_combined": [
+      "Fe",
+      "Cu-Fe-Au-Ag",
+      "W-Cu",
+      "Zn-Pb-Ag",
+      "Sn",
+      "Au-As-Cu"
+    ]
+  },
+  "Deposit type": "Skarn (Fe, Cu, W, Zn-Pb, Sn, Au-As-Cu)",
+  "Dataset": {
+    "public availability": "Unknown",
+    "types": [
+      "Geological data; Unknown",
+      "Geochemical data; Unknown",
+      "Geophysical data; Unknown"
+    ],
+    "train/app relationship": "Different",
+    "scope": "Training from northern region to application in southern region"
+  },
+  "Key points": [
+    "CNNs can effectively predict mineral prospectivity.",
+    "Random-drop data augmentation addresses sample scarcity.",
+    "High spatial correlation with known mineral deposits.",
+    "Methodology integrates multi-source geoscience data."
+  ]
+}

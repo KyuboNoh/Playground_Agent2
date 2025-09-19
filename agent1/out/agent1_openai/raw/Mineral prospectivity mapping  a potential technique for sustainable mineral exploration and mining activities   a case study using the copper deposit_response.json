@@ -1,0 +1,58 @@
+{
+  "Bibliographic metadata": {
+    "Year": 2022,
+    "Month": "December",
+    "Journal": "Geocarto International",
+    "Journal Impact factor": "Unknown",
+    "Title": "Mineral prospectivity mapping: a potential technique for sustainable mineral exploration and mining activities \u2013 a case study using the copper deposits of the Tagmout basin, Morocco",
+    "Author": [
+      "Fatima Zahra Echogdali",
+      "Said Boutaleb",
+      "El Hassan Abia",
+      "Mohammed Ouchchen",
+      "Bouchra Dadi",
+      "Mouna Id-Belqas",
+      "Mohamed Abioui",
+      "Luan Thanh Pham",
+      "Tamer Abu-Alam",
+      "Kevin L. Mickus"
+    ],
+    "url": "https://doi.org/10.1080/10106049.2021.2017006"
+  },
+  "Abstract": "Mineral prospectivity mapping (MPM) based on the principle of geometric mean was applied to stream sediment geochemical, fault density, and aeromagnetic data from Tagmout basin, Morocco to determine new areas for optimizing copper exploration. The application of a fuzzy operator using stream sediment data, factor analysis, and fault density map allowed weights to be assigned to these parameters so that the MPM function can process them to indicate the most favorable zones of copper mineralization. The model\u2019s accuracy as evaluated using a normalized density index (Nd with value 1.22) shows the reliability of the method. The potential copper concentration areas represent 8.22% of the entire basin of which 30% are concentrated in the western portion of the basin and other significant areas are in the southwest and northeast portions. The results indicate that MPM is a powerful technique for planning exploration programs that aim for sustainable mining activities.",
+  "Methodology": "supervised > tree-based > random forest; supervised > tree-based > gradient boosting (GBDT)",
+  "Commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Porphyry Cu(-Mo-Au-Ag)",
+    "commodities_elements": [
+      "Cu",
+      "Mo",
+      "Au",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Cu-Mo",
+      "Cu-Au",
+      "Cu-Mo-Au",
+      "Cu-Au-Ag"
+    ]
+  },
+  "Deposit type": "Porphyry Cu(-Mo-Au-Ag)",
+  "Dataset": {
+    "public availability": "Available upon reasonable request",
+    "types": [
+      "Stream sediment geochemical data; ppm",
+      "Aeromagnetic data; nT",
+      "Fault density data; Unknown"
+    ],
+    "train/app relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "Key points": [
+    "MPM applied to optimize copper exploration in Tagmout basin.",
+    "Fuzzy operators and factor analysis used for data integration.",
+    "Model accuracy indicated by a normalized density index of 1.22.",
+    "8.22% of the basin identified as potential copper mineralization areas.",
+    "30% of potential areas concentrated in the western portion of the basin."
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "bibliographic_metadata": {
+    "Year": "2023",
+    "Month": "October",
+    "Journal": "Natural Resources Research",
+    "Journal Impact factor": "Unknown",
+    "Title": "A New Generation of Artificial Intelligence Algorithms for Mineral Prospectivity Mapping",
+    "Author": "Renguang Zuo, Yihui Xiong, Ziye Wang, Jian Wang, Oliver P. Kreuzer",
+    "url": "https://doi.org/10.1007/s11053-023-10237-w"
+  },
+  "abstract": "This paper proposes a new generation of artificial intelligence (AI) algorithms for mineral prospectivity mapping (MPM) that emphasizes interpretability and domain cognitive consistency. The algorithms integrate geological knowledge into AI models, enhance transparency, and improve mineral exploration targeting. Key strategies include building a robust conceptual model, translating it into a practical exploration model, constructing a comprehensive geodatabase, and identifying relevant targeting parameters. The goal is to improve mineral exploration success rates and address shortages of critical metallic elements.",
+  "methodology": "Unknown",
+  "commodity": {
+    "major_category": "Magmatic",
+    "minor_category": "Orthomagmatic sulfide (Ni-Cu-PGE)",
+    "commodities_elements": [
+      "Ni",
+      "Cu",
+      "Co",
+      "PGE",
+      "Pt",
+      "Pd",
+      "Rh",
+      "Au",
+      "S"
+    ],
+    "commodities_combined": [
+      "Ni-Cu-PGE",
+      "Ni-Cu-Co",
+      "Ni-Cu-PGE-Au"
+    ]
+  },
+  "Deposit type": "Orthomagmatic sulfide (Ni-Cu-PGE)",
+  "dataset_fields": {
+    "public_availability": "Unknown",
+    "types": [
+      "Geological data",
+      "Geophysical data",
+      "Geochemical data",
+      "Remote sensing data"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "New AI algorithms for mineral prospectivity mapping emphasize interpretability.",
+    "Integration of geological knowledge into AI models enhances exploration targeting.",
+    "A robust conceptual model is essential for effective mineral exploration.",
+    "The proposed workflow aims to reduce exploration risk and costs."
+  ]
+}

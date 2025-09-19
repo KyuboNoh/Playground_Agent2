@@ -1,0 +1,46 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2023,
+    "Month": "November",
+    "Journal": "Journal of Geochemical Exploration",
+    "Journal Impact factor": "Unknown",
+    "Title": "Identification of geochemical anomalies related to mineralization: A case study from porphyry copper deposits in the Qulong-Jiama mining district of Tibet, China",
+    "Author": "Nini Mou, Gongwen Wang, Xiang Sun",
+    "url": "https://doi.org/10.1016/j.gexplo.2022.107126"
+  },
+  "abstract": "Geochemical exploration data plays a vital role in mineral prospectivity mapping (MPM) for discovering unknown mineral deposits. In this study, compositional balance analysis (CoBA), unsupervised and supervised learning are collaboratively used to improve the practice of identification of geochemical anomalies related to mineralization in the Qulong-Jiama mining district of Tibet. The iterative self-organizing data analysis techniques algorithm (ISODATA) and isolation forest (iForest) are used for preprocessing the geochemical data and optimizing the appropriate training sets for supervised learning. The results indicate that supervised learning can effectively delineate prospective areas, although a hybrid of CoBA, unsupervised learning, and supervised learning could provide better insights into MPM using the geochemical data.",
+  "methodology": "supervised > tree-based > random forest; supervised > kernel-based > support vector machine; knowledge-driven > probabilistic > weights of evidence (WofE)",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Porphyry Cu(-Mo-Au-Ag)",
+    "commodities_elements": [
+      "Cu",
+      "Mo",
+      "Au",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Cu-Mo",
+      "Cu-Au",
+      "Cu-Mo-Au",
+      "Cu-Au-Ag"
+    ]
+  },
+  "deposit_type": "Porphyry Cu(-Mo-Au-Ag)",
+  "dataset_fields": {
+    "public_availability": "No",
+    "types": [
+      "Geochemical data; Unknown",
+      "Geological map; Unknown",
+      "Stream sediment samples; Unknown"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Training from known deposits to application in the Qulong-Jiama mining district"
+  },
+  "key_points": [
+    "Compositional balance analysis (CoBA) improves identification of geochemical anomalies.",
+    "ISODATA and isolation forest (iForest) optimize training sets for supervised learning.",
+    "Supervised learning effectively delineates prospective areas but may bias toward known mineralization.",
+    "Hybrid approaches combining CoBA, unsupervised, and supervised learning enhance mineral prospectivity mapping."
+  ]
+}

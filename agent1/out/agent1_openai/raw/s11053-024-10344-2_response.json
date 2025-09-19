@@ -1,0 +1,53 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2024,
+    "Month": "May",
+    "Journal": "Natural Resources Research",
+    "Journal Impact factor": "Unknown",
+    "Title": "A Heterogeneous Graph Construction Method for Mineral Prospectivity Mapping",
+    "Author": "Luyi Shi, Ying Xu, Renguang Zuo",
+    "url": "https://doi.org/10.1007/s11053-024-10344-2"
+  },
+  "abstract": "This study introduces a novel method for constructing heterogeneous graphs for mineral prospectivity mapping (MPM). The nodes consist of different types of geological entities, and the edges represent the links between them. The constructed heterogeneous graph effectively expresses the spatial anisotropy of mineralization and considers the relationships among geological entities. The method was trained using graph neural networks to obtain a mineral prospectivity map for southwestern Fujian Province, China, demonstrating higher accuracy compared to conventional methods.",
+  "methodology": "supervised > deep learning > graph neural network; supervised > deep learning > graph attention network",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Skarn (Fe, Cu, W, Zn-Pb, Sn, Au-As-Cu)",
+    "commodities_elements": [
+      "Fe",
+      "Cu",
+      "W",
+      "Zn",
+      "Pb",
+      "Sn",
+      "Au",
+      "As",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Fe",
+      "Cu-Fe-Au-Ag",
+      "W-Cu",
+      "Zn-Pb-Ag",
+      "Sn",
+      "Au-As-Cu"
+    ]
+  },
+  "deposit_type": "Skarn (Fe, Cu, W, Zn-Pb, Sn, Au-As-Cu)",
+  "dataset": {
+    "public_availability": "Unknown",
+    "types": [
+      "Geological entities; Unknown",
+      "Geochemical anomalies; Unknown"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "Introduced a heterogeneous graph construction method for MPM.",
+    "Utilized graph neural networks for training the model.",
+    "Demonstrated higher accuracy in mineral prospectivity mapping compared to conventional methods.",
+    "Focused on geological entities and their relationships in the mapping process.",
+    "Case study conducted in southwestern Fujian Province, China."
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2025,
+    "Month": 7,
+    "Journal": "Minerals",
+    "Journal Impact factor": "Unknown",
+    "Title": "Transformer\u2013GCN Fusion Framework for Mineral Prospectivity Mapping: A Geospatial Deep Learning Approach",
+    "Author": "Le Gao, Gnanachandrasamy Gopalakrishnan, Adel Nasri, Youhong Li, Yuying Zhang, Xiaoying Ou, Kele Xia",
+    "url": "https://doi.org/10.3390/min15070711"
+  },
+  "abstract": "Mineral prospectivity mapping (MPM) is a pivotal technique in geoscientific mineral resource exploration. This study proposes a T-GCN model integrating Transformer with graph convolutional neural networks (GCNs) to address challenges in current deep learning applications for mineral resource prediction. The model achieves a prediction accuracy of 97.27% in the PangXD ore district, successfully identifying five prospective mineralization zones.",
+  "methodology": "supervised > deep learning > transformer; supervised > deep learning > graph neural network (GNN)",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "VMS (Volcanogenic Massive Sulfide)",
+    "commodities_elements": [
+      "Cu",
+      "Zn",
+      "Pb",
+      "Ag",
+      "Au"
+    ],
+    "commodities_combined": [
+      "Cu-Zn",
+      "Zn-Pb-Ag",
+      "Cu-Zn-Pb-Au-Ag"
+    ]
+  },
+  "deposit_type": "VMS (Volcanogenic Massive Sulfide)",
+  "dataset": {
+    "public_availability": "Available on request",
+    "types": [
+      {
+        "data_type": "Geochemical data",
+        "unit": "\u00b5g/g or ng/g"
+      }
+    ],
+    "train_app_relationship": "Different",
+    "scope": "PangXD area to mineral prospectivity mapping"
+  },
+  "key_points": [
+    "Proposes a novel T-GCN model for mineral prospectivity mapping.",
+    "Achieves a prediction accuracy of 97.27% in the PangXD ore district.",
+    "Successfully identifies five prospective mineralization zones.",
+    "Integrates Transformer and GCNs for improved feature extraction.",
+    "Addresses challenges of data imbalance and feature smoothing."
+  ]
+}

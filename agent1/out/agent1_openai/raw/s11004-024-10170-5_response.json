@@ -1,0 +1,57 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2025,
+    "Month": "January",
+    "Journal": "Mathematical Geosciences",
+    "Journal Impact factor": "Unknown",
+    "Title": "Mineral Prospectivity Mapping Based on a Novel Self-Ensembling Graph Convolutional Network",
+    "Author": "Yonghang Lou, Yue Liu",
+    "url": "https://doi.org/10.1007/s11004-024-10170-5"
+  },
+  "abstract": "The graph convolutional network (GCN) has proven to be a powerful tool for exploration criterion identification and mineral prospectivity analysis. However, the graph convolution of the GCN can result in over-smoothing of output features, undermining the reliability of mineral prospectivity mapping (MPM). To address this, we introduce a novel model, the self-ensembling graph convolutional network (SEGCN), which integrates the mean teacher model with a GCN for MPM. A case study for tungsten polymetallic prospectivity analysis in the Nanling belt, China, demonstrates that the SEGCN model significantly outperforms conventional models in mapping tungsten polymetallic prospectivity.",
+  "methodology": "supervised > deep learning > graph neural network (GNN); supervised > deep learning > CNN; supervised > tree-based > random forest; supervised > kernel-based > support vector machine",
+  "commodity": {
+    "major_category": "Magmatic",
+    "minor_category": "Unknown",
+    "commodities_elements": [
+      "W",
+      "Sn",
+      "Mo",
+      "Bi",
+      "Y",
+      "La",
+      "Be",
+      "Pb"
+    ],
+    "commodities_combined": [
+      "W-Sn-Mo-Bi"
+    ]
+  },
+  "Deposit type": "Unknown",
+  "dataset": {
+    "public_availability": "Yes",
+    "types": [
+      {
+        "data_type": "Geochemical data",
+        "units": "Unknown"
+      },
+      {
+        "data_type": "Fault data",
+        "units": "Unknown"
+      },
+      {
+        "data_type": "Rock mass data",
+        "units": "Unknown"
+      }
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "Introduction of a novel SEGCN model for mineral prospectivity mapping.",
+    "Case study conducted in the Nanling belt, China, focusing on tungsten polymetallic deposits.",
+    "SEGCN model outperforms conventional models like GCN, CNN, RF, and SVM.",
+    "Integration of multi-source geospatial datasets enhances model performance.",
+    "Robustness of the SEGCN model is improved through a perturbation strategy."
+  ]
+}

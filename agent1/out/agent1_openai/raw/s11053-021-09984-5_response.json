@@ -1,0 +1,46 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2021,
+    "Month": "November",
+    "Journal": "Natural Resources Research",
+    "Journal Impact factor": "Unknown",
+    "Title": "Deep GMDH Neural Networks for Predictive Mapping of Mineral Prospectivity in Terrains Hosting Few but Large Mineral Deposits",
+    "Author": "Mohammad Parsa, Emmanuel John M. Carranza, Bahman Ahmadi",
+    "url": "https://doi.org/10.1007/s11053-021-09984-5"
+  },
+  "abstract": "This study demonstrates the application of GMDH neural networks for mineral prospectivity mapping (MPM) in terrains hosting few but large mineral deposits. Coupled with a window-based data augmentation technique, GMDH networks yield robust predictive models that effectively manage the bias\u2013variance tradeoff, making this methodology a viable option for MPM.",
+  "methodology": "supervised > neural networks > feedforward neural network (MLP); knowledge-driven > probabilistic > weights of evidence (WofE)",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Porphyry Cu(-Mo-Au-Ag)",
+    "commodities_elements": [
+      "Cu",
+      "Mo",
+      "Au",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Cu-Mo",
+      "Cu-Au",
+      "Cu-Mo-Au",
+      "Cu-Au-Ag"
+    ]
+  },
+  "deposit_type": "Porphyry Cu(-Mo-Au-Ag)",
+  "dataset_fields": {
+    "public_availability": "Yes",
+    "types": [
+      "Geochemical data; Unknown",
+      "Geological maps; Unknown",
+      "Remote sensing data; Unknown"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "GMDH neural networks are effective for mineral prospectivity mapping.",
+    "Data augmentation techniques improve model performance in data-scarce environments.",
+    "The study focuses on a district with few but large porphyry copper deposits.",
+    "The methodology addresses the bias-variance tradeoff in predictive modeling."
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2025,
+    "Month": "November",
+    "Journal": "Journal of African Earth Sciences",
+    "Journal Impact factor": "Unknown",
+    "Title": "A novel approach for integrating spatial data in gold prospectivity mapping using a modified TODIM method, a case study: Basiran-Mokhtaran - Eastern Iran",
+    "Author": "Hosein Ferdowsi, Abbas Bahroudi, Ali Moradzadeh, Maysam Abedi",
+    "url": "https://doi.org/10.1016/j.jafrearsci.2024.105482"
+  },
+  "abstract": "This study addresses challenges in Mineral Prospectivity Mapping (MPM) by enhancing methodologies for integrating geospatial data. It utilizes geological, airborne geophysical, geochemical, and remote sensing datasets to develop evidence layers for gold exploration in a region with limited known deposits. The prediction-area method assesses layer weights independently of expert bias, leading to a gold prospectivity map created through a modified TODIM and multi-index overlay method. The modified TODIM method improves efficiency in managing alternatives and is benchmarked against the index overlay method.",
+  "methodology": "supervised > tree-based > random forest; supervised > tree-based > gradient boosting (GBDT); knowledge-driven > multicriteria decision analysis > AHP",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Epithermal Au-Ag (HS/LS/IS)",
+    "commodities_elements": [
+      "Au",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "HS Au-Ag-Cu-Te",
+      "LS Au-Ag-Sb-As",
+      "IS Au-Ag-Cu"
+    ]
+  },
+  "deposit_type": "Epithermal Au-Ag (HS/LS/IS)",
+  "dataset_fields": {
+    "public_availability": "Available on request",
+    "types": [
+      "Geological data; Unknown",
+      "Airborne geophysical data; Unknown",
+      "Geochemical data; Unknown",
+      "Remote sensing data; Unknown"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "The study enhances MPM methodologies by integrating diverse geospatial data.",
+    "A data-driven approach mitigates expert bias in layer weighting.",
+    "The modified TODIM method improves efficiency in managing alternatives.",
+    "The study area has limited known deposits, complicating prospectivity mapping.",
+    "The integration of layers resulted in a more reliable gold prospectivity map."
+  ]
+}

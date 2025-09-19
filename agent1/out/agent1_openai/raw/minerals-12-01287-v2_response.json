@@ -1,0 +1,45 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2022,
+    "Month": "October",
+    "Journal": "Minerals",
+    "Journal Impact factor": "Unknown",
+    "Title": "Applying Data-Driven-Based Logistic Function and Prediction-Area Plot to Map Mineral Prospectivity in the Qinling Orogenic Belt, Central China",
+    "Author": "Hongyang Bai, Yuan Cao, Heng Zhang, Wenfeng Wang, Chaojun Jiang, Yongguo Yang",
+    "url": "https://doi.org/10.3390/min12101287"
+  },
+  "abstract": "This study combines data-driven-based logistic functions with prediction\u2013area (P\u2013A) plot for delineating target areas of orogenic Au deposits in the eastern margin of the Qinling metallogenic belt, central China. Appropriate geological and geochemical factors were identified, optimized, and transformed into fuzzy numbers to determine the evidence layer for prospecting orogenic Au. The P\u2013A plot was derived on the evidence layers to select a proper prediction scheme, with acidic magmatic activity identified as the most important ore-controlling factor. A mineral prospecting map was generated, showing areas of varying metallogenic potential. The method proved to be effective and low-cost for mineral prospectivity mapping.",
+  "methodology": "supervised > tree-based > logistic regression; supervised > tree-based > random forest",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Orogenic (lode) gold",
+    "commodities_elements": [
+      "Au",
+      "As",
+      "Sb",
+      "W"
+    ],
+    "commodities_combined": [
+      "Au-(As-Sb)",
+      "Au-W"
+    ]
+  },
+  "deposit_type": "Orogenic (lode) gold",
+  "dataset": {
+    "public_availability": "Unknown",
+    "types": [
+      "Geological map; 1:50000",
+      "Stream sediment survey data; 1:50000",
+      "Geochemical data; g/t"
+    ],
+    "train_app_relationship": "Same",
+    "scope": "Unknown"
+  },
+  "key_points": [
+    "Combination of logistic function and P\u2013A plot for mineral prospectivity mapping.",
+    "Identification of geological and geochemical factors for orogenic Au deposits.",
+    "Generation of a mineral prospecting map with varying potential areas.",
+    "High predictive ability of the heat source in mineralization.",
+    "Effective and low-cost method for guiding further exploration."
+  ]
+}

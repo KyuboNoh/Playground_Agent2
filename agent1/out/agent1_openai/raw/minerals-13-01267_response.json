@@ -1,0 +1,46 @@
+{
+  "bibliographic_metadata": {
+    "Year": "2023",
+    "Month": "September",
+    "Journal": "Minerals",
+    "Journal Impact factor": "Unknown",
+    "Title": "Mineral Prospectivity Mapping for Orogenic Gold Mineralization in the Rainy River Area, Wabigoon Subprovince",
+    "Author": "Pouran Behnia, Jeff Harris, Ross Sherlock, Mostafa Naghizadeh, Rajesh Vayavur",
+    "url": "https://doi.org/10.3390/min13101267"
+  },
+  "abstract": "Random Forest classification was applied to create mineral prospectivity maps (MPM) for orogenic gold in the Rainy River area of Ontario, Canada. Geological and geophysical data were used to create 36 predictive maps as RF algorithm input. Eighty-three (83) orogenic gold prospects/occurrences were used to train the classifier, and 33 occurrences were used to validate the model. The prospectivity mapping results show high performance for the training and test data in area-frequency curves. The F1 accuracy is high and moderate when assessed with the training and test data, respectively.",
+  "methodology": "supervised > tree-based > random forest",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Orogenic (lode) gold",
+    "commodities_elements": [
+      "Au",
+      "As",
+      "Sb",
+      "W"
+    ],
+    "commodities_combined": [
+      "Au-(As-Sb)",
+      "Au-W"
+    ]
+  },
+  "deposit_type": "Orogenic (lode) gold",
+  "dataset_fields": {
+    "public_availability": "Available on request from the corresponding author",
+    "types": [
+      "Geological data; Unknown",
+      "Geophysical data; Unknown",
+      "Lithogeochemical data; Unknown",
+      "Geochronological data; Unknown"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Training from 83 occurrences; application to 33 occurrences"
+  },
+  "key_points": [
+    "Random Forest classification was used for mineral prospectivity mapping.",
+    "36 predictive maps were created using geological and geophysical data.",
+    "83 orogenic gold prospects were used for training, and 33 for validation.",
+    "High F1 accuracy was achieved for both training and test data.",
+    "Variable importance was assessed, highlighting key geological features."
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2023,
+    "Month": "December",
+    "Journal": "Arabian Journal of Geosciences",
+    "Journal Impact factor": "Unknown",
+    "Title": "Execution of an applicable hybrid integration procedure for mineral prospectivity mapping",
+    "Author": "Hamid Sabbaghi, Seyed Hassan Tabatabaei",
+    "url": "https://doi.org/10.1007/s12517-022-11094-2"
+  },
+  "abstract": "Delimiting mineralization targets executing various exploratory data is a challenging issue especially in deposit scale studies. This scope is not feasible by applying an integration method alone. Therefore, integrating some reliable mineral potential maps with presenting uncertainty map (hybrid technique) is the best procedure which has high confidence level for exploration of a mineralization deposit. The proposed hybrid approach was evaluated through P-A plots and field checking for confirming its power and accuracy in detecting mineralization outcrops from Zafarqand porphyry Cu-Mo deposit.",
+  "methodology": "supervised > tree-based > random forest; supervised > tree-based > gradient boosting (GBDT); knowledge-driven > multicriteria decision analysis > TOPSIS; knowledge-driven > multicriteria decision analysis > VIKOR; knowledge-driven > probabilistic > evidential belief function (Dempster\u2013Shafer)",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Porphyry Cu(-Mo-Au-Ag)",
+    "commodities_elements": [
+      "Cu",
+      "Mo",
+      "Au",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Cu-Mo",
+      "Cu-Au",
+      "Cu-Mo-Au",
+      "Cu-Au-Ag"
+    ]
+  },
+  "Deposit type": "Porphyry Cu(-Mo-Au-Ag)",
+  "dataset_fields": {
+    "public_availability": "Yes",
+    "types": [
+      "Geochemical samples; ppm",
+      "Geological evidence layers; Unknown",
+      "Fault evidence layers; Unknown",
+      "Alteration evidence layers; Unknown"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "Hybrid integration method improves mineral prospectivity mapping.",
+    "Utilizes TOPSIS and VIKOR methods for integrating geochemical and geological data.",
+    "Field checking validates the effectiveness of the proposed method.",
+    "P-A plots demonstrate high prediction rates for mineralization zones."
+  ]
+}

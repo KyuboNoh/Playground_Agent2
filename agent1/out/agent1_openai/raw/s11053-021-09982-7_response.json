@@ -1,0 +1,42 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2022,
+    "Month": "January",
+    "Journal": "Natural Resources Research",
+    "Journal Impact factor": "Unknown",
+    "Title": "Determination of Predictive Variables in Mineral Prospectivity Mapping Using Supervised and Unsupervised Methods",
+    "Author": "Chengbin Wang, Jianguo Chen, Yongpeng Ouyang",
+    "url": "https://doi.org/10.1007/s11053-021-09982-7"
+  },
+  "abstract": "This study presents a comparative analysis using supervised and unsupervised methods to determine predictive variables (PVs) for mineral prospectivity mapping. Twelve variables were created based on a mineral deposit model, and methods such as recursive feature elimination (RFE) and sparse principal components analysis (SPCA) were employed to identify PVs. The weights-of-evidence and Random Forest methods were used to integrate these variables into a probability map of mineral prospectivity, evaluated using the receiver operating characteristic curve. The findings highlight the importance of PV determination in enhancing mineral prospectivity predictions.",
+  "methodology": "supervised > tree-based > random forest; knowledge-driven > probabilistic > weights of evidence (WofE)",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Porphyry Cu(-Mo-Au-Ag)",
+    "commodities_elements": [
+      "Cu",
+      "W"
+    ],
+    "commodities_combined": [
+      "Cu-W"
+    ]
+  },
+  "Deposit type": "Porphyry Cu(-Mo-Au-Ag)",
+  "dataset": {
+    "public_availability": "Yes",
+    "types": [
+      "Geological map; scale 1:50,000",
+      "Geochemical data; various elements",
+      "Geophysical data; magnetic field"
+    ],
+    "train/app relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "SPCA and RFE were used to determine predictive variables for mineral prospectivity.",
+    "The study area is located in the Jiangnan porphyry-skarn tungsten belt.",
+    "Geological, geochemical, and geophysical variables were integrated for mapping.",
+    "The Random Forest method showed high performance in mineral prospectivity prediction.",
+    "PV determination is crucial for improving prediction accuracy."
+  ]
+}

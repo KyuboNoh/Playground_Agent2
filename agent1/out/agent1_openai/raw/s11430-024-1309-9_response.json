@@ -1,0 +1,39 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2024,
+    "Month": "September",
+    "Journal": "Science China Earth Sciences",
+    "Journal Impact factor": "Unknown",
+    "Title": "Explainable artificial intelligence models for mineral prospectivity mapping",
+    "Author": "Renguang ZUO, Qiuming CHENG, Ying XU, Fanfan YANG, Yihui XIONG, Ziye WANG, Oliver P. KREUZER",
+    "url": "https://doi.org/10.1007/s11430-024-1309-9"
+  },
+  "abstract": "Mineral prospectivity mapping (MPM) is designed to reduce the exploration search space by combining and analyzing geological prospecting big data. Artificial intelligence (AI) algorithms have demonstrated excellent performance in MPM but face challenges such as interpretability and generalizability. This study proposes a novel workflow for constructing explainable AI models for MPM by embedding domain knowledge throughout the process, improving model interpretability and performance.",
+  "methodology": "supervised > tree-based > random forest",
+  "commodity": {
+    "major_category": "Unknown",
+    "minor_category": "Unknown",
+    "commodities_elements": [],
+    "commodities_combined": []
+  },
+  "deposit_type": "Unknown",
+  "dataset_fields": {
+    "public_availability": "Unknown",
+    "types": [
+      "Geological data",
+      "Geochemical data",
+      "Geophysical data",
+      "Remote sensing data",
+      "Drilling data"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "AI models improve mineral prospectivity mapping (MPM) by analyzing geological big data.",
+    "Challenges include interpretability and generalizability of AI models.",
+    "Proposed workflow embeds domain knowledge to enhance model performance.",
+    "Feature engineering and data augmentation are critical for training samples.",
+    "Visualization techniques and attribution algorithms improve result interpretability."
+  ]
+}

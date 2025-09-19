@@ -1,0 +1,46 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2023,
+    "Month": "November",
+    "Journal": "Earth Science Informatics",
+    "Journal Impact factor": "Unknown",
+    "Title": "First-Pass prospectivity mapping for Au\u2013Ag mineralization in Sikhote\u2013Alin Superterrane, Southeast Russia through field sampling, image enhancement on ASTER data, and MaxEnt modeling",
+    "Author": [
+      "Sergei Shevyrev",
+      "Ekaterina V. Gorobeyko",
+      "Emmanuel John M. Carranza",
+      "Natalia G. Boriskina"
+    ],
+    "url": "https://doi.org/10.1007/s12145-022-00906-4"
+  },
+  "abstract": "The largest Au\u2013Ag deposits in the eastern Asian region occur along the borders of cratons and superterranes. This research focuses on the Kema Terrane and Kema Metallogenic Belt in Southeast Russia, utilizing machine learning and field sampling to delineate prospective areas for epithermal Au\u2013Ag deposits. The study employs directed principal component analysis of ASTER data to enhance mineral detection and applies the MaxEnt method to generate a mineral occurrence probability map, revealing new areas with high mineral occurrence probability.",
+  "methodology": "supervised > tree-based > random forest; supervised > tree-based > gradient boosting (GBDT); supervised > kernel-based > support vector machine",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Epithermal Au-Ag (HS/LS/IS)",
+    "commodities_elements": [
+      "Au",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "HS Au-Ag-Cu-Te",
+      "LS Au-Ag-Sb-As",
+      "IS Au-Ag-Cu"
+    ]
+  },
+  "Deposit type": "Epithermal Au-Ag (HS/LS/IS)",
+  "dataset": {
+    "public_availability": "Yes",
+    "types": [
+      "ASTER data; various bands (15m, 30m, 90m)"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Training from Kema Terrane to application in mineral prospectivity mapping"
+  },
+  "key_points": [
+    "Utilized machine learning for prospectivity mapping in dense vegetation.",
+    "Implemented directed principal component analysis to enhance mineral detection.",
+    "Generated a mineral occurrence probability map using the MaxEnt method.",
+    "Delineated prospective areas for Au\u2013Ag deposits in the Kema Terrane."
+  ]
+}

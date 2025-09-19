@@ -1,0 +1,53 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2022,
+    "Month": "March",
+    "Journal": "Journal of African Earth Sciences",
+    "Journal Impact factor": "Unknown",
+    "Title": "Data-driven multi-index overlay gold prospectivity mapping using geophysical and remote sensing datasets",
+    "Author": "Eric Dominic Forson, David Dotse Wemegah, Godfred Bright Hagan, Desmond Appiah, Fortune Addo-Wuver, Isaac Adjovu, Frank Osae Otchere, Said Mateso, Aboagye Menyeh, Theophilus Amponsah",
+    "url": "https://doi.org/10.1016/j.jafrearsci.2022.104504"
+  },
+  "abstract": "This study employs a data-driven approach to evaluate the comparative relevance of geospatial components for gold mineralization in the southern Kibi-Winneba belt, Ghana. Using logistic functions and prediction-area plots, the study identifies effective evidential layers for mineral prospectivity mapping. The results indicate that hydroxyl concentration is the most significant indicator for gold mineralization, while potassium concentration is deemed non-indicative. A mineral prospectivity map was generated, enhancing predictive capabilities compared to individual evidential layers.",
+  "methodology": "supervised > tree-based > random forest; supervised > tree-based > gradient boosting (GBDT); supervised > kernel-based > support vector machine",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Vein systems (hypothermal/mesothermal/epithermal)",
+    "commodities_elements": [
+      "Au",
+      "Ag",
+      "Cu",
+      "Pb",
+      "Zn",
+      "Hg",
+      "Sb",
+      "As"
+    ],
+    "commodities_combined": [
+      "Hypothermal Cu-Au",
+      "Mesothermal Au-Ag-Pb-Zn",
+      "Epithermal Au-Ag-Hg-Sb-As"
+    ]
+  },
+  "Deposit type": "Vein systems (hypothermal/mesothermal/epithermal)",
+  "dataset_fields": {
+    "public_availability": "Yes",
+    "types": [
+      "magnetic anomaly; nT",
+      "gravity anomaly; mGal",
+      "potassium concentration; % K",
+      "hydroxyl concentration; % OH",
+      "iron concentration; % Fe",
+      "lineament density; km/km\u00b2"
+    ],
+    "train/app relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "Employs a data-driven approach for mineral prospectivity mapping.",
+    "Identifies hydroxyl concentration as the most significant indicator for gold.",
+    "Generates a mineral prospectivity map enhancing predictive capabilities.",
+    "Excludes potassium concentration as a non-indicator for gold mineralization.",
+    "Utilizes logistic functions and prediction-area plots for analysis."
+  ]
+}

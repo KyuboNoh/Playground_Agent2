@@ -1,0 +1,45 @@
+{
+  "Bibliographic metadata": {
+    "Year": 2025,
+    "Month": "April",
+    "Journal": "Earth Science Informatics",
+    "Journal Impact factor": "Unknown",
+    "Title": "Orogenic gold mineral prospectivity mapping of the geraldton area, ontario: discussion of key issues",
+    "Author": "J. R. Harris, B. Lafrance, E. Grunsky, P. Behnia, M. Nagizedah, C. Lawley, M. Parsa",
+    "url": "https://doi.org/10.1007/s12145-025-01831-y"
+  },
+  "Abstract": "This paper employed Random Forests (RF) to generate several Mineral Prospectivity maps for orogenic gold in the Geraldton area, located within the Wabigoon Tectonic subprovince of Ontario, Canada. Various issues pertinent to the Mineral Prospectivity mapping process are presented and proposed solutions to these key challenges are suggested. Additionally, multiple methods are proposed to analyze text-based geoscientific information derived from geological maps, including a novel application of Natural Language Processing (NLP) to delineate the sources and traps of gold mineral systems. The Mineral Prospectivity maps generated have located new possible areas for gold exploration.",
+  "Methodology": "supervised > tree-based > random forest",
+  "Commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Orogenic (lode) gold",
+    "commodities_elements": [
+      "Au",
+      "As",
+      "Sb",
+      "W"
+    ],
+    "commodities_combined": [
+      "Au-(As-Sb)",
+      "Au-W"
+    ]
+  },
+  "Deposit type": "Orogenic (lode) gold",
+  "Dataset": {
+    "public availability": "Unknown",
+    "types": [
+      "Lithogeochemistry; ppm",
+      "Geophysical data (density, susceptibility, resistivity); various depths",
+      "Structural data (faults); Unknown"
+    ],
+    "train/app relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "Key points": [
+    "The Beardmore Greenstone Belt appears more prospective for gold than the Geraldton Belt.",
+    "Mineral Prospectivity maps based on mines show high predictive accuracy.",
+    "Natural Language Processing (NLP) was successfully applied to enhance predictor maps.",
+    "Geographically restricting non-deposit points improved model performance.",
+    "The study identified several prospective zones for Au exploration in the Beardmore-Geraldton area."
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2025,
+    "Month": "June",
+    "Journal": "Natural Resources Research",
+    "Journal Impact factor": "Unknown",
+    "Title": "Mineral Prospectivity Modeling of Graphite Deposits and Occurrences in Canada",
+    "Author": [
+      "Steven E. Zhang",
+      "Christopher J. M. Lawley",
+      "Julie E. Bourdeau",
+      "Mohammad Parsa",
+      "Renato Cumani",
+      "Aaron Thompson"
+    ],
+    "url": "https://doi.org/10.1007/s11053-024-10451-0"
+  },
+  "abstract": "Exploration for graphite in Canada is of economic, strategic and governance priority. This study aimed to develop a reliable prospectivity map for graphite in Canada, mitigating multiple sources of workflow-induced uncertainty. By averaging an ensemble of de-correlated models, a consensus map and an uncertainty map were produced. The MPM products showed excellent spatial variability, aligning with existing knowledge of graphite deposits in Canada, indicating that combining data-driven rigor with independent interpretation enhances robustness.",
+  "methodology": "supervised > tree-based > random forest; supervised > tree-based > gradient boosting (GBDT); supervised > tree-based > decision tree (CART); supervised > neural networks > feedforward neural network (MLP); supervised > kernel-based > support vector machine",
+  "commodity": {
+    "major_category": "Unknown",
+    "minor_category": "Unknown",
+    "commodities_elements": [
+      "C (graphite)"
+    ],
+    "commodities_combined": [
+      "Graphite"
+    ]
+  },
+  "deposit_type": "Unknown",
+  "dataset": {
+    "public_availability": "Yes",
+    "types": [
+      {
+        "data_type": "Geochemical data",
+        "units": "Unknown"
+      },
+      {
+        "data_type": "Geophysical data",
+        "units": "Unknown"
+      },
+      {
+        "data_type": "Mineral occurrence data",
+        "units": "Unknown"
+      }
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "Developed a prospectivity map for graphite in Canada.",
+    "Mitigated workflow-induced uncertainty through ensemble modeling.",
+    "Produced consensus and uncertainty maps for intuitive use.",
+    "Demonstrated robustness of MPM products aligning with existing geological knowledge.",
+    "Identified high prospectivity zones for future exploration."
+  ]
+}

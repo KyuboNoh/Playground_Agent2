@@ -1,0 +1,40 @@
+{
+  "bibliographic_metadata": {
+    "Year": "2022",
+    "Month": "January",
+    "Journal": "Ore Geology Reviews",
+    "Journal Impact factor": "Unknown",
+    "Title": "Mapping prospectivity for regolith-hosted REE deposits via convolutional neural network with generative adversarial network augmented data",
+    "Author": "Tong Li, Renguang Zuo, Xinfu Zhao, Kuidong Zhao",
+    "url": "https://doi.org/10.1016/j.oregeorev.2022.104693"
+  },
+  "abstract": "This study proposed a convolutional neural network (CNN) architecture to integrate multi-source data (geological, geochemical, and geomorphological) to map mineral prospectivity of regolith-hosted REE deposits. A generative adversarial network (GAN) was applied for data augmentation to address the lack of labeled data. The CNN achieved 99.7% training accuracy and 98.9% validation accuracy, successfully locating all known mineral deposits within the prospective areas delineated by the CNN.",
+  "methodology": "supervised > deep learning > convolutional neural network (CNN); knowledge-driven > probabilistic > weights of evidence (WofE)",
+  "commodity": {
+    "major_category": "Sedimentary & Diagenetic",
+    "minor_category": "Unknown",
+    "commodities_elements": [
+      "REE"
+    ],
+    "commodities_combined": [
+      "Unknown"
+    ]
+  },
+  "deposit_type": "Unknown",
+  "dataset": {
+    "public_availability": "Unknown",
+    "types": [
+      "Geological data; Unknown",
+      "Geochemical data; Unknown",
+      "Geomorphological data; Unknown"
+    ],
+    "train_app_relationship": "Same",
+    "scope": "Unknown"
+  },
+  "key_points": [
+    "Proposed a CNN architecture for mineral prospectivity mapping.",
+    "Utilized GAN for data augmentation to address data scarcity.",
+    "Achieved high training and validation accuracy.",
+    "Successfully located known mineral deposits within delineated prospective areas."
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "bibliographic_metadata": {
+    "Year": "2025",
+    "Month": "November",
+    "Journal": "Computers & Geosciences",
+    "Journal Impact factor": "Unknown",
+    "Title": "Optimized AI-MPM: Application of PSO for tuning the hyperparameters of SVM and RF algorithms",
+    "Author": "Mehrdad Daviran, Abbas Maghsoudi, Reza Ghezelbash",
+    "url": "https://doi.org/10.1016/j.cageo.2024.105785"
+  },
+  "abstract": "This study introduces a hybrid model combining Particle Swarm Optimization (PSO) with Support Vector Machines (SVM) and Random Forest (RF) algorithms for mineral prospectivity mapping. The PSO algorithm fine-tunes hyperparameters, enhancing prediction accuracy for porphyry-type Cu mineralization in the Kerman belt, SE Iran. The model integrates diverse datasets and evaluates performance using multiple validation methods, demonstrating superior accuracy in identifying mineral-rich zones.",
+  "methodology": "supervised > tree-based > random forest; supervised > kernel-based > support vector machine; optimization/heuristic > metaheuristics > particle swarm optimization",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Porphyry Cu(-Mo-Au-Ag)",
+    "commodities_elements": [
+      "Cu",
+      "Mo",
+      "Au",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Cu-Mo",
+      "Cu-Au",
+      "Cu-Mo-Au",
+      "Cu-Au-Ag"
+    ]
+  },
+  "deposit_type": "Porphyry Cu(-Mo-Au-Ag)",
+  "dataset_fields": {
+    "public_availability": "No",
+    "types": [
+      "Geochemical signatures in stream sediments; Unknown",
+      "Geological and structural features; Unknown",
+      "Geophysical anomalies; Unknown",
+      "Hydrothermal alteration patterns; Unknown"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "The PSO-SVM model outperformed traditional models in identifying mineral-rich zones.",
+    "Integration of diverse datasets significantly enhances predictive accuracy.",
+    "The study area is characterized by Eocene volcano-sedimentary rocks associated with porphyry copper deposits.",
+    "Hyperparameter tuning using PSO improves model performance and reduces uncertainty."
+  ]
+}

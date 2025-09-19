@@ -1,0 +1,38 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2025,
+    "Month": "Unknown",
+    "Journal": "International Journal of Environmental Sciences",
+    "Journal Impact factor": "Unknown",
+    "Title": "Integrating AI With Remote Sensing For Mineral Prospectivity Mapping",
+    "Author": "Madhukar Cherukuri, Dr. Bijendra Kumar, Dr. C. Umarani, Dr. K. Santosh Kumar, Shailee Sachin Patel, Nehal Rajput",
+    "url": "https://theaspd.com/index.php"
+  },
+  "abstract": "Mineral prospectivity mapping (MPM) is an essential part of mineral discovery, which has conventionally gone through a process dependent on geoscience experience and manual data interpretation. Due to the swift development of remote sensing-based technologies and artificial intelligence (AI), in particular, machine learning (ML) and deep learning (DL), the study of the mineral-rich zones has undergone a paradigm shift. The proposed method of incorporating AI in remotely provided sensory data can be used to automate and improve the precision of MPM. The suggested system was applied on a well documented area of mineralization where the results have shown that the effectiveness of AI models to the conventional method is far superior to the traditional in terms of accuracy of the prediction and spatial generalization.",
+  "methodology": "supervised > tree-based > random forest; supervised > tree-based > gradient boosting (GBDT); supervised > kernel-based > support vector machine",
+  "commodity": {
+    "major_category": "Unknown",
+    "minor_category": "Unknown",
+    "commodities_elements": [],
+    "commodities_combined": []
+  },
+  "deposit_type": "Unknown",
+  "dataset_fields": {
+    "public_availability": "Yes",
+    "types": [
+      "Multispectral imagery; Unknown",
+      "Topographic data; Unknown",
+      "Geological maps; Unknown",
+      "Mineral occurrence points; Unknown"
+    ],
+    "train_app_relationship": "Same",
+    "scope": "Unknown"
+  },
+  "key_points": [
+    "End-To-End AI Framework Of MPM: Integrated acquisition of data, feature engineering, training model, spatial prediction, and validation.",
+    "Multi-Source Feature Fusion: Utilized various remote sensing features for better classification success.",
+    "Comparative Algorithm Evaluation: Compared Random Forest, SVM, and Gradient Boosting for model suitability.",
+    "Useful Mineral Targeting Implementation: Provided a methodology for matching predictive maps with recognized mineral deposits.",
+    "Open Data Usage and Scalability: Used open-access remote sensing data and open-source AI framework."
+  ]
+}

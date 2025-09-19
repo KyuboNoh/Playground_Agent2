@@ -1,0 +1,54 @@
+{
+  "bibliographic_metadata": {
+    "Year": "2025",
+    "Month": "June",
+    "Journal": "Remote Sens.",
+    "Journal Impact factor": "Unknown",
+    "Title": "Alteration Information Extraction and Mineral Prospectivity Mapping in the Laozhaiwan Area Using Multisource Remote Sensing Data",
+    "Author": "Qi Chen, Dayu Cai, Zhifang Zhao, Xiaoguang Yang, Yilong Wang, Xiao Jiang, Lei Xu, Haichuan Duan, Yang He, Xiaoxiao Zhang, Yiyang Wang, Ting Xu",
+    "url": "https://doi.org/10.3390/rs17132178"
+  },
+  "abstract": "Gold is a vital strategic resource for many countries. The Laozhaiwan area is an important gold resource base in Yunnan Province and even nationwide. Conducting mineral resource exploration in this region to increase gold reserves is of great significance. The application of remote sensing technology in mineral resource exploration is a green and efficient technical approach, which has been widely utilized in the field of mineral resource prospecting. This study selects the Laozhaiwan area in the southeastern part of Yunnan Province as the research region. Linear and ring structures were extracted using the remote sensing visual interpretation method based on Sentinel-2A multispectral data. Additionally, Sentinel-2A, ASTER, and ZY1-02D data were used to extract iron-stained, hydroxyl, silicification, and limonite alteration information through Principal Component Analysis (PCA) and Spectral Angle Mapper (SAM) methods. A comprehensive analysis of geological data reveals that alteration minerals and linear-ring structures are closely related to mineralization, providing valuable indicators for mineral resource exploration.",
+  "methodology": "supervised > tree-based > random forest; supervised > tree-based > gradient boosting (GBDT); supervised > kernel-based > support vector machine; knowledge-driven > probabilistic > weights of evidence (WofE); knowledge-driven > multicriteria decision analysis > AHP",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Carlin-type gold",
+    "commodities_elements": [
+      "Au",
+      "As",
+      "Hg",
+      "Tl",
+      "Sb"
+    ],
+    "commodities_combined": [
+      "Au-(As-Hg-Tl-Sb)"
+    ]
+  },
+  "Deposit type": "Carlin-type gold",
+  "dataset": {
+    "public_availability": "Yes",
+    "types": [
+      {
+        "data_type": "Sentinel-2A multispectral data",
+        "units": "Unknown"
+      },
+      {
+        "data_type": "ASTER multispectral data",
+        "units": "Unknown"
+      },
+      {
+        "data_type": "ZY1-02D hyperspectral data",
+        "units": "Unknown"
+      }
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "Utilized multi-source remote sensing data for mineral exploration.",
+    "Extracted linear and ring structures related to mineralization.",
+    "Identified alteration minerals such as iron-stained, hydroxyl, and silicification.",
+    "Validated remote sensing results through field investigations.",
+    "Delineated two prospective areas for mineral exploration."
+  ]
+}

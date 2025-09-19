@@ -1,0 +1,54 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2023,
+    "Month": "August",
+    "Journal": "Journal of Geochemical Exploration",
+    "Journal Impact factor": "Unknown",
+    "Title": "Mineral prospectivity mapping using machine learning techniques for gold exploration in the Larder Lake area, Ontario, Canada",
+    "Author": "Haiming Liu, Jeff Harris, Ross Sherlock, Pouran Behnia, Eric Grunsky, Mostafa Naghizadeh, Kate Rubingh, Gyorgyi Tuba, Eric Roots, Graham Hill",
+    "url": "https://doi.org/10.1016/j.gexplo.2023.107279"
+  },
+  "abstract": "A mineral prospectivity map (MPM) focusing on gold mineralization in the Larder Lake region of Northern Ontario, Canada, has been produced in this study. We have used the Random Forest (RF) algorithm to use 32 predictor maps integrating geophysical, geochemical, and geological datasets from various sources that represent vectors to gold mineralization. It is evident from the efficiency of classification curves that MPMs generated are robust. The unsupervised algorithms, K-means and principal component analysis (PCA) were used to investigate and visualize the clustering nature of large geochemical and geophysical datasets. We conclude that the Larder Lake-Cadillac deformation zone (LLCDZ) is relatively more fertile than the Lincoln-Nipissing shear zone (LNSZ) with respect to gold mineralization due to deeper penetrating faults.",
+  "methodology": "supervised > tree-based > random forest; supervised > unsupervised > principal component analysis; supervised > unsupervised > k-means clustering; supervised > generalized linear models > partial least squares-discriminant analysis",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Orogenic (lode) gold",
+    "commodities_elements": [
+      "Au",
+      "As",
+      "Sb",
+      "W"
+    ],
+    "commodities_combined": [
+      "Au-(As-Sb)",
+      "Au-W"
+    ]
+  },
+  "Deposit type": "Orogenic (lode) gold",
+  "dataset": {
+    "public_availability": "Available on request",
+    "types": [
+      {
+        "data_type": "Geochemical data",
+        "units": "Various elements (e.g., Au, As, W, etc.)"
+      },
+      {
+        "data_type": "Geophysical data",
+        "units": "Resistivity, Susceptibility, Density (various depths)"
+      },
+      {
+        "data_type": "Geological data",
+        "units": "Polygons, polylines, and raster"
+      }
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "The study produced a mineral prospectivity map for gold in the Larder Lake area.",
+    "Random Forest algorithm was used with 32 predictor maps.",
+    "PCA and K-means clustering were employed for data analysis.",
+    "The LLCDZ is identified as more fertile for gold mineralization than the LNSZ.",
+    "The study integrates various datasets to improve mineral exploration targeting."
+  ]
+}

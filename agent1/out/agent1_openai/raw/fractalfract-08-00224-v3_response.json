@@ -1,0 +1,37 @@
+{
+  "bibliographic_metadata": {
+    "Year": "2024",
+    "Month": "April",
+    "Journal": "Fractal Fract.",
+    "Journal Impact factor": "Unknown",
+    "Title": "Fractal-Based Multi-Criteria Feature Selection to Enhance Predictive Capability of AI-Driven Mineral Prospectivity Mapping",
+    "Author": "Tao Sun, Mei Feng, Wenbin Pu, Yue Liu, Fei Chen, Hongwei Zhang, Junqi Huang, Luting Mao, Zhiqiang Wang",
+    "url": "https://doi.org/10.3390/fractalfract8040224"
+  },
+  "abstract": "AI-driven mineral prospectivity mapping (MPM) is a valid and increasingly accepted tool for delineating the targets of mineral exploration, but it suffers from noisy and unrepresentative input features. In this study, a set of fractal and multifractal methods were employed to excavate the underlying nonlinear mineralization-related information from geological features. Multiple feature selection criteria were applied to rank the relative importance of ore-related features and their fractal representations. The results indicate that fractal-trained AI models significantly improve predictive capability, especially for indirect predictor features that show subtle correlations with mineralization in the raw dataset.",
+  "methodology": "supervised > tree-based > random forest; supervised > tree-based > decision tree (CART); supervised > tree-based > gradient boosting (GBDT); supervised > generalized linear models > logistic regression",
+  "commodity": {
+    "major_category": "Unknown",
+    "minor_category": "Unknown",
+    "commodities_elements": [],
+    "commodities_combined": []
+  },
+  "deposit_type": "Unknown",
+  "dataset": {
+    "public_availability": "Yes",
+    "types": [
+      "Geological features; Unknown",
+      "Geophysical features; Unknown",
+      "Geochemical anomalies; Unknown",
+      "Remote sensing data; Unknown"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "Fractal and multifractal methods enhance the extraction of nonlinear mineralization-related information.",
+    "Feature selection criteria improve the ranking of ore-related features.",
+    "Fractal-trained AI models outperform those trained on raw datasets in predictive capability.",
+    "The study area is the Gannan ore district, known for tungsten deposits."
+  ]
+}

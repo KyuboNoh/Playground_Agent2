@@ -1,0 +1,52 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2022,
+    "Month": "October",
+    "Journal": "IEEE Access",
+    "Journal Impact factor": "Unknown",
+    "Title": "Multi-Class Prediction of Mineral Resources Based on Deep Learning",
+    "Author": [
+      "LIANG DING",
+      "YUELONG ZHU",
+      "PENGCHENG ZHANG",
+      "HAI DONG",
+      "HAO CHEN"
+    ],
+    "url": "https://doi.org/10.1109/ACCESS.2022.3215957"
+  },
+  "abstract": "Big data-driven technologies, especially machine learning and deep learning technologies, have been extensively employed in mineral prospectivity prediction. Several approaches have been proposed to learn the deep characteristics of geoscience data, enhance the accuracy of prediction and reduce uncertainty. Nevertheless, the approaches always contain the following two limitations. Firstly, the formation of mineral resources often involves the coupling of multiple factors on a certain spatio-temporal scale, resulting in rare labelled deposits and insufficient number of training samples. Secondly, training Deep Neural Network (DNN) is very challenging. Many approaches are subject to weak interpretability and lack of organic combination with geoscience knowledge. To address these two problems, we propose Geo-Rnet and GCAE (Geological Convolutional Autoencoder). Geo-Rnet is a multi-class mineral prospectivity prediction approach based on improved DNN. GCAE is able to effectively augment multi-disciplinary geoscience data by constructing upon an optimized Convolutional Autoencoder. The experimental results show that most of prospective areas predicted by Geo-Rnet overlap with the labelled mineralization locations, with an average accuracy of 91.1%. In addition, 89.98% of the ore deposits are located in the predicted areas. The results indicate the effectiveness of Geo-Rnet and GCAE for multi-class prediction of mineral resources.",
+  "methodology": "supervised > deep learning > convolutional neural network (CNN); supervised > deep learning > transformer",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Porphyry Cu(-Mo-Au-Ag)",
+    "commodities_elements": [
+      "Cu",
+      "Mo",
+      "Au",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Cu-Mo",
+      "Cu-Au",
+      "Cu-Mo-Au",
+      "Cu-Au-Ag"
+    ]
+  },
+  "Deposit type": "Porphyry Cu(-Mo-Au-Ag)",
+  "dataset": {
+    "public_availability": "Unknown",
+    "types": [
+      "Geological data; Unknown",
+      "Geochemical data; 39 elements",
+      "Geophysical data; Unknown"
+    ],
+    "train_app_relationship": "Same",
+    "scope": "Unknown"
+  },
+  "key_points": [
+    "Geo-Rnet achieves an average prediction accuracy of 91.1%.",
+    "89.98% of known mineralization points are located in predicted areas.",
+    "GCAE effectively augments multi-disciplinary geoscience data.",
+    "The study addresses challenges of insufficient labeled samples and weak interpretability in DNN."
+  ]
+}

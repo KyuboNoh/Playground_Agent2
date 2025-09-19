@@ -1,0 +1,45 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2024,
+    "Month": "September",
+    "Journal": "Journal of Geophysical Research: Machine Learning and Computation",
+    "Journal Impact factor": "Unknown",
+    "Title": "Deep Forest Modeling: An Interpretable Deep Learning Method for Mineral Prospectivity Mapping",
+    "Author": "Yue\u2010Lin Dong, Zhen\u2010Jie Zhang",
+    "url": "https://doi.org/10.1029/2024JH000311"
+  },
+  "abstract": "Accurate mineral prediction is crucial for reducing costs and uncertainties in mineral discovery and extraction. The use of artificial intelligence and big data has advanced mineral prediction into intelligent forecasting. Machine learning methods have shown significant promise in enhancing outcomes. Currently, neural network\u2010based approaches dominate deep learning (DL), but they lack interpretability and have high modeling complexity, making them less effective for complex problems and time\u2010consuming. Deep Forest, an innovative DL paradigm, addresses these issues by dynamically adjusting complexity and providing importance assessments for predictive factors. This study focuses on the North American Cordillera, known for its rich geological data and potential for porphyry copper deposits (PCDs). Predictions are made using Deep Forest with factors like Euclidean distance between faults and magmatic rock, fault line density, gravity anomalies, and stream\u2010sediment geochemical data. Deep Forest shows high performance and can avoid the black box problem of DL without relying on other tools in DL, providing a new perspective for the development and application of other non\u2010neural network DL models for mineral prediction.",
+  "methodology": "supervised > tree-based > deep forest",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Porphyry Cu(-Mo-Au-Ag)",
+    "commodities_elements": [
+      "Cu",
+      "Mo",
+      "Au",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Cu-Mo",
+      "Cu-Au",
+      "Cu-Mo-Au",
+      "Cu-Au-Ag"
+    ]
+  },
+  "Deposit type": "Porphyry Cu(-Mo-Au-Ag)",
+  "dataset": {
+    "public_availability": "Yes",
+    "types": [
+      "Geological data (fault and magmatic rocks)",
+      "Geochemical data (Al, Ba, Ca, Co, Cr, Cu, Fe, La, Mg, Mn, Na, Ni, Pb, Sc, Sr, Th, Ti, V, Y, Zn)",
+      "Geophysical data (gravity anomalies)"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "Prediction of porphyry copper deposits (PCDs) in the Cordillera region of North America using Deep Forest.",
+    "Deep Forest has the advantages of depth and interpretability and is an available method for mineral prediction.",
+    "Deep Forest offers exploration recommendations for PCDs."
+  ]
+}

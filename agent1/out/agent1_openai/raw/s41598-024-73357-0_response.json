@@ -1,0 +1,43 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2024,
+    "Month": "September",
+    "Journal": "Scientific Reports",
+    "Journal Impact factor": "Unknown",
+    "Title": "Mineral prospectivity prediction based on convolutional neural network and ensemble learning",
+    "Author": "Hujun He, Haolei Zhu, Xingke Yang, Weiwei Zhang, Jinghao Wang",
+    "url": "https://doi.org/10.1038/s41598-024-73357-0"
+  },
+  "abstract": "This study proposes an ensemble learning approach to synthesize convolutional neural network algorithms for mineral prospectivity prediction. By selecting 14 factors related to gold mineralization and utilizing six classical CNN models, the study achieved over 94% accuracy in predicting mineral prospectivity in the Bawanggou mine area, providing a comprehensive method for gold exploration.",
+  "methodology": "supervised > deep learning > ensemble learning",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Orogenic (lode) gold",
+    "commodities_elements": [
+      "Au",
+      "As",
+      "Sb",
+      "W"
+    ],
+    "commodities_combined": [
+      "Au-(As-Sb)",
+      "Au-W"
+    ]
+  },
+  "Deposit type": "Orogenic (lode) gold",
+  "dataset": {
+    "public_availability": "Unknown",
+    "types": [
+      "Geochemical exploration data (Au, Ag, As, Cu, Pb, Zn, Hg, Sb, W, Mo)",
+      "Geological factors (ductile shear zones, brittle fault zones, mineralization\u2013alteration body zones, metamorphic quartz sandstone zones)"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Bawanggou gold mine area to unknown area"
+  },
+  "key_points": [
+    "Utilized ensemble learning to improve prediction stability.",
+    "Achieved over 94% accuracy using six CNN models.",
+    "Focused on gold mineralization factors in the Bawanggou mine area.",
+    "Developed a comprehensive method for mineral prospectivity mapping."
+  ]
+}

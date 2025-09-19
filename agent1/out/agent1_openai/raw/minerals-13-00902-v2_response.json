@@ -1,0 +1,54 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2023,
+    "Month": "July",
+    "Journal": "Minerals",
+    "Journal Impact factor": "Unknown",
+    "Title": "Apriori Algorithm-Based Three-Dimensional Mineral Prospectivity Mapping\u2014An Example from Meiling South Area, Xinjiang, China",
+    "Author": "Jinyu Chang, Nannan Zhang, Kefa Zhou, Jintao Tao, Li Chen, Hao Zhang, Yujin Chi",
+    "url": "https://doi.org/10.3390/min13070902"
+  },
+  "abstract": "Mineral Prospectivity Mapping (MPM) is shifting toward intelligent deep mineralization searches in the era of big data and the increasing difficulties of surface deposit detection. Comparative analysis of two forms of mineralization prediction based on the Apriori algorithm was performed in the Meiling South mining area in the eastern Hami region of Xinjiang, China. The study utilized the Apriori algorithm to mine ore-forming information and determine ore-forming voxel positions, comparing these with predictions from Gaussian Naive Bayesian (GNB) and Support Vector Machine (SVM) models. The results demonstrated that the Apriori algorithm effectively identifies high and low-grade ore bodies and provides valuable insights for mineralization prediction.",
+  "methodology": "supervised > tree-based > random forest; supervised > kernel-based > support vector machine",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "VMS (Volcanogenic Massive Sulfide)",
+    "commodities_elements": [
+      "Cu",
+      "Zn",
+      "Pb",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Cu-Zn",
+      "Zn-Pb-Ag",
+      "Cu-Zn-Pb-Au-Ag"
+    ]
+  },
+  "deposit_type": "VMS (Volcanogenic Massive Sulfide)",
+  "dataset": {
+    "public_availability": "No",
+    "types": [
+      {
+        "data_type": "Drill hole data",
+        "unit": "m"
+      },
+      {
+        "data_type": "Residual density data",
+        "unit": "g/cm3"
+      },
+      {
+        "data_type": "3D voxel attributes",
+        "unit": "m, degrees"
+      }
+    ],
+    "train_app_relationship": "Same",
+    "scope": "Unknown"
+  },
+  "key_points": [
+    "The Apriori algorithm effectively identifies high and low-grade ore bodies.",
+    "The study area is located in the Meiling South mining area in Xinjiang, China.",
+    "A comparative analysis was performed using Apriori, GNB, and SVM models.",
+    "The results indicate that the Apriori algorithm provides valuable insights for mineralization prediction."
+  ]
+}

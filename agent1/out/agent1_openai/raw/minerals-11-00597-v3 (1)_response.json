@@ -1,0 +1,49 @@
+{
+  "Bibliographic metadata": {
+    "Year": 2021,
+    "Month": "June",
+    "Journal": "Minerals",
+    "Journal Impact factor": "Unknown",
+    "Title": "Study of the Influence of Non-Deposit Locations in Data-Driven Mineral Prospectivity Mapping: A Case Study on the Iskut Project in Northwestern British Columbia, Canada",
+    "Author": [
+      "Alix Lachaud",
+      "Adam Marcus",
+      "Slobodan Vu\u02c7ceti\u00b4c",
+      "Ilija Mi\u0161kovi\u00b4c"
+    ],
+    "url": "https://doi.org/10.3390/min11060597"
+  },
+  "Abstract": "The accuracy of data-driven predictive mineral prospectivity models relies heavily on the training datasets used. These models are usually trained using data for 'known' deposit locations as well as 'non-deposit' locations that are based on randomly generated point patterns. In this study, data related to the Seabridge Gold Inc Iskut project, an epithermal Au deposit in northwestern British Columbia (BC), Canada, are used to test the utility of data-driven mineral prospectivity modeling. The input spatial dataset is comprised mostly of publicly available data. Data for 18 vein and epithermal Au known mineral occurrences (KMO) are obtained from the BC Geological Survey\u2019s MINFILE repository and selected as training deposit locations. A total of eleven sets of non-deposit locations (NDL) were also created, including one set of selected non-prospective KMO for Au deposits from the MINFILE and ten sets of random point patterns. Given the scale of this study, most of the KMO recorded on the property are of the epithermal deposit type. Hence, they could not be used as a selection criterion. Data-driven mineral potential models are generated using the random forest (RF) algorithm and trained on multiple data sets. The comparison of RF models demonstrated that using non-prospective KMO generates more accurate predictions than the random point pattern. The produced mineral prospectivity maps delineated multiple areas with higher discovery potential, which matched viable targets for the Au-Cu epithermal-porphyry system identified through previous Seabridge Gold Inc. (Toronto, ON, Canada) field reconnaissance and drilling programs.",
+  "Methodology": "supervised > tree-based > random forest",
+  "Commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Epithermal Au-Ag (HS/LS/IS)",
+    "commodities_elements": [
+      "Au",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "HS Au-Ag-Cu-Te",
+      "LS Au-Ag-Sb-As",
+      "IS Au-Ag-Cu"
+    ]
+  },
+  "Deposit type": "Epithermal Au-Ag (HS/LS/IS)",
+  "Dataset": {
+    "public availability": "Yes",
+    "types": [
+      "Geological data; Unknown",
+      "Geochemical data; Unknown",
+      "Geophysical data; nT",
+      "Remote sensing data; Unknown"
+    ],
+    "train/app relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "Key points": [
+    "The study compares different training sets using selected non-prospective KMO and random non-deposit locations.",
+    "The model using selected non-prospective KMO has higher accuracy than models using random NDL.",
+    "Five predictor maps with the highest importance represent the source, pathway, and traps of epithermal Au deposits.",
+    "The best mineral prospectivity maps capture 100% of training deposits in 15% of the prospective area."
+  ]
+}

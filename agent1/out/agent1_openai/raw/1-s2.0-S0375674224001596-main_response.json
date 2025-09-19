@@ -1,0 +1,45 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2024,
+    "Month": "July",
+    "Journal": "Journal of Geochemical Exploration",
+    "Journal Impact factor": "Unknown",
+    "Title": "How do non-deposit sites influence the performance of machine learning-based gold prospectivity mapping? A study case in the Pitangui Greenstone Belt, Brazil",
+    "Author": "Brener Ot\u00e1vio Luiz Ribeiro, Danilo Barbuena, Gustavo Henrique Coelho de Melo, Jo\u00e3o Gabriel Motta, Eduardo Duarte Marques, Marcelo de Souza Marinho",
+    "url": "https://doi.org/10.1016/j.gexplo.2024.107543"
+  },
+  "abstract": "This study investigates the influence of non-deposit sites on mineral prospectivity mapping (MPM) using machine learning algorithms in the Pitangui Greenstone Belt, Brazil. It highlights the importance of training datasets and the selection of non-deposit locations, demonstrating that slight changes can significantly affect model performance. The research employs various machine learning algorithms, including Artificial Neural Networks (ANN), Random Forests (RF), and Support Vector Machines (SVM), to model gold prospectivity, revealing that RF consistently outperforms others. The findings contribute to improved methodologies for gold exploration in the region.",
+  "methodology": "supervised > tree-based > random forest; supervised > tree-based > artificial neural network; supervised > kernel-based > support vector machine",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Orogenic (lode) gold",
+    "commodities_elements": [
+      "Au",
+      "As",
+      "Sb",
+      "W"
+    ],
+    "commodities_combined": [
+      "Au-(As-Sb)",
+      "Au-W"
+    ]
+  },
+  "Deposit type": "Orogenic (lode) gold",
+  "dataset": {
+    "public_availability": "Yes",
+    "types": [
+      "Geochemical data; ppm",
+      "Geological data; Unknown",
+      "Geophysical data; Unknown"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Training from known deposits to application in prospective areas"
+  },
+  "key_points": [
+    "The study emphasizes the impact of non-deposit site selection on MPM accuracy.",
+    "Random Forests algorithm outperformed ANN and SVM in predicting gold prospectivity.",
+    "The methodology developed can be applied to other mineral exploration contexts.",
+    "The gold prospectivity map generated predicts 97% of known deposits in just 3% of the area.",
+    "Five prospective zones and four targets for further exploration were identified."
+  ]
+}

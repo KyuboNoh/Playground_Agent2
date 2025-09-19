@@ -1,0 +1,49 @@
+{
+  "Bibliographic metadata": {
+    "Year": 2023,
+    "Month": "November",
+    "Journal": "Ore Geology Reviews",
+    "Journal Impact factor": "Unknown",
+    "Title": "Mineral prospecting mapping with conditional generative adversarial network augmented data",
+    "Author": "Yixiao Wu, Bingli Liu, Yaxin Gao, Cheng Li, Rui Tang, Yunhui Kong, Miao Xie, Kangning Li, Shiyao Dan, Ke Qi, Yufei Ren, Zhuo Wu",
+    "url": "https://doi.org/10.1016/j.oregeorev.2023.105787"
+  },
+  "Abstract": "Mineral Prospectivity Mapping (MPM) plays a pivotal role in identifying geo-anomalies indicative of potential mineralization, utilizing various geological, geophysical, geochemical, and remote sensing data. This study proposes a Conditional Generative Adversarial Network (cGAN) strategy for data augmentation to address challenges posed by limited geological exploration data. The results indicate that the cGAN-based data augmentation strategy exhibits higher resistance to overfitting, successfully delineating a prospectivity map for gold deposits in the Hezuo-Meiwu district, Gansu, China.",
+  "Methodology": "supervised > deep learning > convolutional neural network (CNN); supervised > deep learning > GAN; supervised > deep learning > CNN\u2013GAN hybrid",
+  "Commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Orogenic (lode) gold",
+    "commodities_elements": [
+      "Au",
+      "As",
+      "Sb",
+      "W"
+    ],
+    "commodities_combined": [
+      "Au-(As-Sb)",
+      "Au-W"
+    ]
+  },
+  "Deposit type": "Orogenic (lode) gold",
+  "Dataset": {
+    "public availability": "No",
+    "types": [
+      {
+        "data_type": "Geochemical data",
+        "units": "ppm"
+      },
+      {
+        "data_type": "Structural distance",
+        "units": "meters"
+      }
+    ],
+    "train/app relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "Key points": [
+    "Proposes a cGAN strategy for data augmentation in mineral prospectivity mapping.",
+    "Demonstrates improved performance and reduced overfitting compared to traditional methods.",
+    "Successfully delineates a prospectivity map for gold deposits in the Hezuo-Meiwu district.",
+    "Utilizes a combination of geological, geophysical, and geochemical data for analysis."
+  ]
+}

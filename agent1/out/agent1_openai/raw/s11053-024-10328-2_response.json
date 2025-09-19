@@ -1,0 +1,42 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2024,
+    "Month": "March",
+    "Journal": "Natural Resources Research",
+    "Journal Impact factor": "Unknown",
+    "Title": "Data-Driven Mineral Prospectivity Mapping Based on Known Deposits Using Association Rules",
+    "Author": "Xiaotong Yu, Pengpeng Yu, Kunyi Wang, Wei Cao, Yongzhang Zhou",
+    "url": "https://doi.org/10.1007/s11053-024-10328-2"
+  },
+  "abstract": "This study proposes an interpretable method using association rules to predict mineral prospectivity in the Pangxidong district by incorporating characteristics associated with mineral deposits into mineral prospectivity mapping (MPM). The Apriori algorithm was utilized to extract strong association rules related to known Ag\u2013Au and Pb\u2013Zn deposits, achieving effective delineation of high-probability areas for undiscovered deposits.",
+  "methodology": "supervised > tree-based > random forest; supervised > tree-based > gradient boosting (GBDT)",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Vein systems (hypothermal/mesothermal/epithermal)",
+    "commodities_elements": [
+      "Ag",
+      "Au",
+      "Pb",
+      "Zn"
+    ],
+    "commodities_combined": [
+      "Ag-Au",
+      "Pb-Zn"
+    ]
+  },
+  "deposit_type": "Vein systems (hypothermal/mesothermal/epithermal)",
+  "dataset": {
+    "public_availability": "Unknown",
+    "types": [
+      "Geological data (vector format)",
+      "Geochemical data (concentrations of trace elements in ppm and ppb)"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "The Apriori algorithm effectively maps major types of Ag\u2013Au and Pb\u2013Zn deposits.",
+    "High-probability areas for undiscovered deposits were identified along ore-controlling faults.",
+    "The method demonstrates robustness and potential for broader application in mineral exploration."
+  ]
+}

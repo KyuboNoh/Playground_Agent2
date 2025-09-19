@@ -1,0 +1,49 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2025,
+    "Month": "February",
+    "Journal": "Minerals",
+    "Journal Impact factor": "Unknown",
+    "Title": "Mineral Prospectivity Mapping in Xiahe-Hezuo Area Based on Wasserstein Generative Adversarial Network with Gradient Penalty",
+    "Author": "Jiansheng Gong, Yunhe Li, Miao Xie, Yunhui Kong, Rui Tang, Cheng Li, Yixiao Wu, Zehua Wu",
+    "url": "https://doi.org/10.3390/min15020184"
+  },
+  "abstract": "The Xiahe-Hezuo area in Gansu Province, China, located in the West Qinling Metallogenic Belt, is characterized by complex regional geological structures and abundant mineral resources. A number of gold-polymetallic deposits have been identified in this region, demonstrating significant potential for gold-polymetallic mineral prospecting within the metallogenic belt. This study focuses on regional Mineral Prospectivity Mapping (MPM) in the Xiahe-Hezuo area. To address the common challenge of small-sample data limitations in geological prediction, we introduce a Wasserstein Generative Adversarial Network with gradient penalty (WGAN-GP) to generate high-fidelity geological feature samples, effectively expanding the training dataset. A Convolutional Neural Network (CNN) was used to train and predict on both pre- and post-augmentation data. The experimental results show that, before augmentation, the CNN model\u2019s Receiver Operating Characteristic (ROC) value was 0.9648. After data augmentation with the WGAN-GP, the CNN model\u2019s ROC value improved to 0.9792. Additionally, the CNN model\u2019s classification performance was significantly enhanced, with the training set accuracy increasing by 5% and the test set accuracy improving by 2%, successfully overcoming the issue of insufficient model generalization caused by small sample sizes. The mineralization prediction results based on data augmentation delineate five prospective mineralization targets, whose spatial distribution exhibits strong correlations with known deposits and fault structural belts, confirming the reliability of the predictions. This study validates the effectiveness of data augmentation techniques in MPM and provides a transferable technical framework for MPM in data-scarce regions.",
+  "methodology": "supervised > deep learning > convolutional neural network (CNN); knowledge-driven > probabilistic > weights of evidence (WofE)",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Porphyry Cu(-Mo-Au-Ag)",
+    "commodities_elements": [
+      "Cu",
+      "Mo",
+      "Au",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Cu-Mo",
+      "Cu-Au",
+      "Cu-Mo-Au",
+      "Cu-Au-Ag"
+    ]
+  },
+  "Deposit type": "Porphyry Cu(-Mo-Au-Ag)",
+  "dataset": {
+    "public_availability": "Unknown",
+    "types": [
+      {
+        "data_type": "Geochemical data",
+        "units": "ppm",
+        "description": "13 chemical elements including Ag, As, Au, Ba, Bi, Co, Cu, Hg, Mo, Pb, Sb, W, Zn"
+      }
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Training from known mineralized areas to application in predicting mineralization potential"
+  },
+  "key_points": [
+    "WGAN-GP significantly improved model classification performance.",
+    "Data augmentation enhanced the diversity and representativeness of training samples.",
+    "Five prospective mineralization targets were delineated based on predictions.",
+    "The model effectively learned the mapping relationship between geochemical data and mineralization patterns.",
+    "Results align with known geological understanding, indicating high prospecting potential."
+  ]
+}

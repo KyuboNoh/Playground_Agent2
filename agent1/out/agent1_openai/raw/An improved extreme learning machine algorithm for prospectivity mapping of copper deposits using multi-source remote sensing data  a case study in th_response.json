@@ -1,0 +1,51 @@
+{
+  "Bibliographic metadata": {
+    "Year": 2025,
+    "Month": "May",
+    "Journal": "International Journal of Digital Earth",
+    "Journal Impact factor": "Unknown",
+    "Title": "An improved extreme learning machine algorithm for prospectivity mapping of copper deposits using multi-source remote sensing data: a case study in the North Altyn Tagh, Xinjiang, China",
+    "Author": "Boqi Yuan, Qinjun Wang, Wentao Xu, Chaokang He, Wenyue Xie",
+    "url": "https://doi.org/10.1080/17538947.2025.2510567"
+  },
+  "Abstract": "Traditional extreme learning machine (ELM) model suffers from instability due to random initialization of input weights and hidden-layer bias, often resulting in suboptimal predictive performance. To address this limitation, the Slime Mould Algorithm (SMA), a bio-inspired optimization strategy, was integrated to refine the initialization of ELM parameters for mapping prospectivity of copper deposits. Based on 15 known ore deposits in the northern part of the Altyn Tagh, China, multi-source remote sensing data, including ASTER, Landsat-8 OLI, and ZY-1 02E imagery as well as geological data were integrated within a geographic information system (GIS) framework. The confusion matrix, the area under the receiver operating characteristic (ROC) curve and the success-rate curve were employed to evaluate the model\u2019s performance against traditional ELM and multi-layer perceptron. Experimental results demonstrated that the SMA-ELM model exhibited superior overall performance compared to the other two models.",
+  "Methodology": "supervised > tree-based > extreme learning machine; knowledge-driven > probabilistic > weights of evidence (WofE)",
+  "Commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Porphyry Cu(-Mo-Au-Ag)",
+    "commodities_elements": [
+      "Cu",
+      "Mo",
+      "Au",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Cu-Mo",
+      "Cu-Au",
+      "Cu-Mo-Au",
+      "Cu-Au-Ag"
+    ]
+  },
+  "Deposit type": "Porphyry Cu(-Mo-Au-Ag)",
+  "Dataset": {
+    "public availability": "Available upon reasonable request",
+    "types": [
+      {
+        "data_type": "Remote sensing imagery",
+        "units": "Unknown"
+      },
+      {
+        "data_type": "Geological data",
+        "units": "Unknown"
+      }
+    ],
+    "train/app relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "Key points": [
+    "SMA-ELM model outperformed traditional ELM and MLP in mineral prospectivity mapping.",
+    "Integration of multi-source remote sensing data and geological data within a GIS framework.",
+    "High-potential metallogenic zones delineated consistent with known deposits and geological structures.",
+    "SMA effectively optimizes ELM parameters, improving model stability and predictive performance."
+  ]
+}

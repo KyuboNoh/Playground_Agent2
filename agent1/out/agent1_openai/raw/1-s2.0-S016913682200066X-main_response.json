@@ -1,0 +1,43 @@
+{
+  "Bibliographic metadata": {
+    "Year": "2022",
+    "Month": "February",
+    "Journal": "Ore Geology Reviews",
+    "Journal Impact factor": "Unknown",
+    "Title": "Application of maximum entropy for mineral prospectivity mapping in heavily vegetated areas of Greater Kurile Chain with Landsat 8 data",
+    "Author": "Sergei Shevyrev, Emmanuel John M. Carranza",
+    "url": "https://doi.org/10.1016/j.oregeorev.2022.104758"
+  },
+  "Abstract": "Exploration for strategic mineral resources, like precious metals, in remote areas of the Greater Kurile Chain is challenging. Climate and weather conditions, dissected relief, soil and forest cover in this region impede acquisition of geological data. Mineral exploration requires development of fast and cost-effective methods that allow processing of insufficient and fragmented data like spaceborne images. Consideration of specific defoliation technique of directed principal components (DPC) and mineral mapping as well as application of assessment technique of Maximum Entropy (MaxEnt, also Logistic Regression, logit) led us to use Landsat 8 OLI for modeling of mineralization distribution in the Kunashir and Iturup Islands.",
+  "Methodology": "supervised > tree-based > random forest; supervised > tree-based > gradient boosting (GBDT); supervised > kernel-based > support vector machine; supervised > neural networks > feedforward neural network (MLP)",
+  "Commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Epithermal Au-Ag (HS/LS/IS)",
+    "commodities_elements": [
+      "Au",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "HS Au-Ag-Cu-Te",
+      "LS Au-Ag-Sb-As",
+      "IS Au-Ag-Cu"
+    ]
+  },
+  "Deposit type": "Epithermal Au-Ag (HS/LS/IS)",
+  "Dataset fields": {
+    "public availability": "Yes",
+    "types": [
+      "Landsat 8 OLI data; Unknown",
+      "Mineral abundance images; Unknown"
+    ],
+    "train/app relationship": "Different",
+    "scope": "Kunashir Island to Iturup Island"
+  },
+  "Key points": [
+    "Application of Maximum Entropy (MaxEnt) for mineral prospectivity mapping.",
+    "Use of Landsat 8 OLI data to model mineralization distribution.",
+    "Directed Principal Components (DPC) technique to reduce vegetation influence.",
+    "Model trained on Kunashir Island and applied to Iturup Island.",
+    "Predictive model successfully outlined known mineral deposits."
+  ]
+}

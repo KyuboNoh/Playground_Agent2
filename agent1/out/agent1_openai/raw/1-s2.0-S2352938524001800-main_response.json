@@ -1,0 +1,53 @@
+{
+  "Bibliographic metadata": {
+    "Year": "2024",
+    "Month": "August",
+    "Journal": "Remote Sensing Applications: Society and Environment",
+    "Journal Impact factor": "Unknown",
+    "Title": "Predictive modelling of mineral prospectivity using satellite remote sensing and machine learning algorithms",
+    "Author": "Muhammad Ahsan Mahboob, Turgay Celik, Bekir Genc",
+    "url": "https://doi.org/10.1016/j.rsase.2024.101316"
+  },
+  "Abstract": "This study applies machine learning algorithms, including Convolutional Neural Networks (CNN), Random Forest (RF), and Support Vector Machine (SVM), to predict mineral prospectivity using satellite remote sensing data and limited field datasets. The RF model demonstrated the highest predictive accuracy for copper deposits in North Waziristan, Pakistan, suggesting its suitability for mineral exploration. The study emphasizes the importance of integrating remote sensing data with field information for effective mineral prospectivity mapping.",
+  "Methodology": "supervised > tree-based > random forest; supervised > tree-based > support vector machine; supervised > deep learning > convolutional neural network (CNN)",
+  "Commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Porphyry Cu(-Mo-Au-Ag)",
+    "commodities_elements": [
+      "Cu",
+      "Mo",
+      "Au",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Cu-Mo",
+      "Cu-Au",
+      "Cu-Mo-Au",
+      "Cu-Au-Ag"
+    ]
+  },
+  "Deposit type": "Porphyry Cu(-Mo-Au-Ag)",
+  "Dataset": {
+    "public availability": "Yes",
+    "types": [
+      "Geological Map; Unknown",
+      "Geological Lineaments; Unknown",
+      "Intrusive Contacts; Unknown",
+      "Iron-oxide Alteration; Unknown",
+      "Argillic Alteration; Unknown",
+      "Phyllic Alteration; Unknown",
+      "Propylitic Alteration; Unknown",
+      "Topographic Elevation; m",
+      "Topographic Slope; degrees"
+    ],
+    "train/app relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "Key points": [
+    "Machine learning algorithms were applied to predict mineral prospectivity.",
+    "Random Forest model outperformed CNN and SVM in predictive accuracy.",
+    "Integration of satellite remote sensing data with field data is crucial.",
+    "The study area is rich in copper deposits, particularly in North Waziristan, Pakistan.",
+    "The methodology can enhance exploration targeting for mineral deposits."
+  ]
+}

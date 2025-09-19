@@ -1,0 +1,35 @@
+{
+  "bibliographic_metadata": {
+    "Year": "2022",
+    "Month": "February",
+    "Journal": "Computers & Geosciences",
+    "Journal Impact factor": "Unknown",
+    "Title": "Applications of data augmentation in mineral prospectivity prediction based on convolutional neural networks",
+    "Author": "Na Yang, Zhenkai Zhang, Jianhua Yang, Zenglin Hong",
+    "url": "https://doi.org/10.1016/j.cageo.2022.105075"
+  },
+  "abstract": "This paper adopts a data augmentation method to enhance mineral prospectivity prediction for gold deposits in the Fengxian Region, China. By utilizing cropping operations, the method generates sufficient training samples while preserving the spatial directions of geological data. The continuous buffer distance method quantifies faults and anticline axes, improving predictive performance. Three convolutional neural networks (LeNet, AlexNet, VggNet) were employed, with LeNet achieving the highest accuracy (91.38%) and Kappa coefficient (0.8119). The results delineate high potential areas for gold exploration.",
+  "methodology": "supervised > deep learning > convolutional neural network (CNN)",
+  "commodity": {
+    "major_category": "Unknown",
+    "minor_category": "Unknown",
+    "commodities_elements": [],
+    "commodities_combined": []
+  },
+  "Deposit type": "Unknown",
+  "dataset": {
+    "public_availability": "No",
+    "types": [
+      "Geological factors (NE-trending brittle faults, NW-trending brittle-ductile faults, anticline axes)",
+      "Geochemical factors (Au, Cu, Pb, Zn, As, Sb, Hg, Ag)"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Training from Fengxian County to application in mineral prospectivity prediction"
+  },
+  "key_points": [
+    "Data augmentation method improves sample size without altering geological data direction.",
+    "Continuous buffer distance retains more geological information than discrete methods.",
+    "LeNet model outperformed others with an accuracy of 91.38% and Kappa coefficient of 0.8119.",
+    "High potential areas for gold deposits were identified in the Fengxian region."
+  ]
+}

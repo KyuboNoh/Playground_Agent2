@@ -1,0 +1,47 @@
+{
+  "Bibliographic metadata": {
+    "Year": 2025,
+    "Month": "February",
+    "Journal": "Ore Geology Reviews",
+    "Journal Impact factor": "Unknown",
+    "Title": "Mineral prospectivity mapping of orogenic gold mineralization in the Malartic-Val-d\u2019Or Transect area, Metal Earth project, Canada",
+    "Author": "Ahmad Reza Mokhtari, Pouran Behnia, Bruno Lafrance, Mostafa Naghizadeh, Jack M. Simmons, Jeff R. Harris",
+    "url": "https://doi.org/10.1016/j.oregeorev.2025.106498"
+  },
+  "Abstract": "Mineral Prospectivity Mapping has been applied to define exploration targets for orogenic gold mineralization in the Malartic-Val-d\u2019Or area of the Abitibi greenstone belt. This research utilizes lithological, geophysical, and structural data to investigate factors controlling gold distribution. Stepwise logistic regression and random forest algorithms were employed to map mineral prospectivity for gold potential. The random forest method outperformed logistic regression, indicating strong predictors for distinguishing mineralized and non-mineralized locations.",
+  "Methodology": "supervised > tree-based > random forest; supervised > generalized linear models > logistic regression",
+  "Commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Orogenic (lode) gold",
+    "commodities_elements": [
+      "Au",
+      "As",
+      "Sb",
+      "W"
+    ],
+    "commodities_combined": [
+      "Au-(As-Sb)",
+      "Au-W"
+    ]
+  },
+  "Deposit type": "Orogenic (lode) gold",
+  "Dataset": {
+    "public availability": "Available on request",
+    "types": [
+      "Lithology; Unknown",
+      "Shear zone with multi-ring buffer; Unknown",
+      "Fault density; Unknown",
+      "Resistivity; Unknown",
+      "Density; Unknown"
+    ],
+    "train/app relationship": "Same",
+    "scope": "Regional-scale prospectivity modeling"
+  },
+  "Key points": [
+    "Application of machine learning techniques for mineral prospectivity mapping.",
+    "Random forest method demonstrated superior performance compared to logistic regression.",
+    "Identification of critical factors influencing gold exploration.",
+    "Integration of predictive models with geophysical data enhances understanding of gold deposit formation.",
+    "Prospective zones align closely with shear zones and crustal-scale structures."
+  ]
+}

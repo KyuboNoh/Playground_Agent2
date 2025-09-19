@@ -1,0 +1,47 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2025,
+    "Month": "April",
+    "Journal": "Natural Resources Research",
+    "Journal Impact factor": "Unknown",
+    "Title": "Prospectivity Modeling of Devonian Intrusion-Related W\u2013Mo\u2013Sb\u2013Au Deposits in the Pokiok Plutonic Suite, West-Central New Brunswick, Canada, Using a Monte Carlo-Based Framework",
+    "Author": [
+      "Amirabbas Karbalaeiramezanali",
+      "Mohammad Parsa",
+      "David R. Lentz",
+      "Kathleen G. Thorne"
+    ],
+    "url": "https://doi.org/10.1007/s11053-024-10437-y"
+  },
+  "abstract": "This study aimed to identify potential exploration targets for intrusion-related W\u2013Mo\u2013Sb\u2013Au deposits in the Pokiok Plutonic Suite using knowledge-driven mineral prospectivity mapping techniques. A multifaceted approach combining mineral systems, parsimonious weighting methods, Monte Carlo simulation, and risk-return analysis was adopted to mitigate uncertainties. The methodology allows for confident selection of exploration targets, predicting 73% of known occurrences while reducing the search space by 15%.",
+  "methodology": "supervised > tree-based > random forest; supervised > tree-based > gradient boosting (GBDT); supervised > tree-based > decision tree (CART)",
+  "commodity": {
+    "major_category": "Magmatic",
+    "minor_category": "Orthomagmatic sulfide (Ni-Cu-PGE)",
+    "commodities_elements": [
+      "W",
+      "Mo",
+      "Sb",
+      "Au"
+    ],
+    "commodities_combined": [
+      "W-Mo-Sb-Au"
+    ]
+  },
+  "Deposit type": "Orthomagmatic sulfide (Ni-Cu-PGE)",
+  "dataset_fields": {
+    "public_availability": "Yes",
+    "types": [
+      "Geophysical data; nT",
+      "Geochemical data; ppm",
+      "Geological bedrock data; Unknown"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "Utilized Monte Carlo simulation to address uncertainties in prospectivity mapping.",
+    "Combined multiple decision-making methods for effective mineral exploration.",
+    "Identified low-risk, high-return target areas that predict 73% of known deposits."
+  ]
+}

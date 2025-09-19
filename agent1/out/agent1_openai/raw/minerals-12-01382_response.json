@@ -1,0 +1,46 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2022,
+    "Month": "October",
+    "Journal": "Minerals",
+    "Journal Impact factor": "Unknown",
+    "Title": "3D Mineral Prospectivity Mapping of Zaozigou Gold Deposit, West Qinling, China: Deep Learning-Based Mineral Prediction",
+    "Author": "Zhengbo Yu, Bingli Liu, Miao Xie, Yixiao Wu, Yunhui Kong, Cheng Li, Guodong Chen, Yaxin Gao, Shuai Zha, Hanyuan Zhang, Lu Wang, Rui Tang",
+    "url": "https://doi.org/10.3390/min12111382"
+  },
+  "abstract": "This paper focuses on the scientific problem of quantitative mineralization prediction at large depth in the Zaozigou gold deposit, west Qinling, China. Five geological and geochemical indicators are used to establish geological and geochemical quantitative prediction model. Machine learning and Deep learning algorithms are employed for 3D Mineral Prospectivity Mapping (MPM). Especially, the Student Teacher Ore-induced Anomaly Detection (STOAD) model is proposed based on the knowledge distillation (KD) idea combined with Deep Auto-encoder (DAE) network model. Compared to DAE, STOAD uses three outputs for anomaly detection and can make full use of information from multiple levels of data for greater overall robustness. The results show that the quantitative mineral resources prediction by applying the STOAD model has a good performance, where the value of Area Under Curve (AUC) is 0.97. Finally, three main mineral exploration targets are delineated for further investigation.",
+  "methodology": "supervised > deep learning > STOAD; supervised > deep learning > DAE",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Epithermal Au-Ag (HS/LS/IS)",
+    "commodities_elements": [
+      "Au",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "HS Au-Ag-Cu-Te",
+      "LS Au-Ag-Sb-As",
+      "IS Au-Ag-Cu"
+    ]
+  },
+  "Deposit type": "Epithermal Au-Ag (HS/LS/IS)",
+  "dataset": {
+    "public_availability": "Unknown",
+    "types": [
+      "Drilling data; Unknown",
+      "Geochemical data; Unknown",
+      "Geological reports; Unknown",
+      "Geological exploration maps; Unknown"
+    ],
+    "train/app relationship": "Same",
+    "scope": "Unknown"
+  },
+  "key_points": [
+    "Quantitative mineralization prediction at large depth.",
+    "Use of geological and geochemical indicators for model establishment.",
+    "Application of machine learning and deep learning algorithms.",
+    "Introduction of the STOAD model for anomaly detection.",
+    "High performance of the STOAD model with an AUC of 0.97.",
+    "Identification of three main mineral exploration targets."
+  ]
+}

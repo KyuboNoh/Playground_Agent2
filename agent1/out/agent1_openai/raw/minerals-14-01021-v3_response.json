@@ -1,0 +1,38 @@
+{
+  "bibliographic_metadata": {
+    "Year": "2024",
+    "Month": "October",
+    "Journal": "Minerals",
+    "Journal Impact factor": "Unknown",
+    "Title": "A Review of Mineral Prospectivity Mapping Using Deep Learning",
+    "Author": "Kang Sun, Yansi Chen, Guoshuai Geng, Zongyue Lu, Wei Zhang, Zhihong Song, Jiyun Guan, Yang Zhao, Zhaonian Zhang",
+    "url": "https://doi.org/10.3390/min14101021"
+  },
+  "abstract": "Mineral resources are of great significance in the development of the national economy. Prospecting and forecasting are the key to ensure the security of mineral resources supply, promote economic development, and maintain social stability. The methods for prospecting prediction have evolved from qualitative to quantitative prediction, from empirical research to mathematical analysis. In recent years, deep learning algorithms have gradually entered the attention of geologists due to their robust learning and simulation ability in the application of prospecting prediction. Deep learning algorithms can effectively analyze and predict data, which have great significance in improving the efficiency and accuracy of mineral exploration. However, there are not many specific examples of their application in mineral exploration prediction, and researchers have not yet conducted a comprehensive discussion on the advantages, disadvantages, and accuracy of deep learning algorithms in mineral prospectivity mapping applications. This paper reviews and discusses the application of deep learning in prospecting prediction, highlighting the challenges faced by deep learning in the application of prospecting prediction in data preprocessing, data enhancement, system parameter adjustment, and accuracy evaluation, and puts forward specific suggestions for research in these aspects. The purpose of this paper is to provide a reference for the application of deep learning to researchers and practitioners in the field of prospecting prediction.",
+  "methodology": "supervised > deep learning > convolutional neural network (CNN); supervised > deep learning > generative adversarial network (GAN); supervised > deep learning > recurrent neural network (RNN); supervised > deep learning > autoencoder",
+  "commodity": {
+    "major_category": "Unknown",
+    "minor_category": "Unknown",
+    "commodities_elements": [],
+    "commodities_combined": []
+  },
+  "Deposit type": "Unknown",
+  "dataset": {
+    "public_availability": "Unknown",
+    "types": [
+      "Geological data; Unknown",
+      "Geophysical data; Unknown",
+      "Geochemical data; Unknown",
+      "Remote sensing data; Unknown"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "Deep learning algorithms enhance mineral prospectivity mapping.",
+    "Challenges include data preprocessing, enhancement, and accuracy evaluation.",
+    "Different algorithms (CNN, RNN, GAN) have unique advantages in applications.",
+    "The integration of various data types improves prediction accuracy.",
+    "Future research should focus on enhancing data quality and interpretability."
+  ]
+}

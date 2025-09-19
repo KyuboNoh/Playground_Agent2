@@ -1,0 +1,60 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2025,
+    "Month": "May",
+    "Journal": "Ore Geology Reviews",
+    "Journal Impact factor": "Unknown",
+    "Title": "Interpretable machine learning for mineral prospectivity mapping in the Qulong\u2013Jiama district, Tibet, China",
+    "Author": "Nini Mou, Emmanuel John M. Carranza, Jianling Xue, Shuai Zhang, Gongwen Wang, Hao Song, Yuhao Chen, Xiangning Ren",
+    "url": "https://doi.org/10.1016/j.oregeorev.2025.106659"
+  },
+  "abstract": "Machine learning (ML) models have been successfully adopted to delineate prospecting regions for a specific type of mineral deposit in data-driven mineral prospectivity mapping (MPM). The primary objective of the ML-based MPM is to effectively integrate multi-source mineral exploration information and enhance its predictive capability and precision. This study employs Random Forest (RF), Support Vector Machine (SVM), and Multi-Layer Perceptron (MLP) to conduct mineral prospectivity maps, utilizing interpretable machine learning techniques to improve model explainability and performance.",
+  "methodology": "supervised > tree-based > random forest; supervised > kernel-based > support vector machine; supervised > neural networks > feedforward neural network (MLP)",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Porphyry Cu(-Mo-Au-Ag)",
+    "commodities_elements": [
+      "Cu",
+      "Mo",
+      "Au",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Cu-Mo",
+      "Cu-Au",
+      "Cu-Mo-Au",
+      "Cu-Au-Ag"
+    ]
+  },
+  "deposit_type": "Porphyry Cu(-Mo-Au-Ag)",
+  "dataset": {
+    "public_availability": "No",
+    "types": [
+      {
+        "data_type": "Geological map",
+        "units": "1:50,000 scale"
+      },
+      {
+        "data_type": "Geochemical concentrations",
+        "units": "mg/kg"
+      },
+      {
+        "data_type": "Satellite imagery",
+        "units": "ASTER Level-07XT"
+      },
+      {
+        "data_type": "Ground-based magnetic data",
+        "units": "nT"
+      }
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "Employs interpretable machine learning techniques to enhance mineral prospectivity mapping.",
+    "Utilizes Random Forest, Support Vector Machine, and Multi-Layer Perceptron for model construction.",
+    "Achieves high predictive performance with an AUC value of 0.970.",
+    "Identifies key evidence layers contributing to mineralization predictions.",
+    "Optimizes exploration targeting criteria based on coherent training samples."
+  ]
+}

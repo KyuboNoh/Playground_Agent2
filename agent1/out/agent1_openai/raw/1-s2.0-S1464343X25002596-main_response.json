@@ -1,0 +1,48 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2025,
+    "Month": "August",
+    "Journal": "Journal of African Earth Sciences",
+    "Journal Impact factor": "Unknown",
+    "Title": "Porphyry copper prospectivity modelling using data driven and hybrid outranking methods: A case study of Shahr-e-Babak study area, South Eastern Iran",
+    "Author": "Moslem Jahantigh, Hamidreza Ramazi",
+    "url": "https://doi.org/10.1016/j.jafrearsci.2025.105792"
+  },
+  "abstract": "Identifying potential and mineralized areas with a reasonable level of confidence is a complex issue. The use of supervised methods and machine learning could help to achieve better results in such studies. This study proposes a porphyry copper mineralization model using a combination of data-driven methods, supervised machine learning, and multivariate decision-making methods. The results confirm that the MOORA method is more successful in producing the desired mineral potential model.",
+  "methodology": "supervised > tree-based > random forest; supervised > tree-based > gradient boosting (GBDT); supervised > neural networks > feedforward neural network (MLP); knowledge-driven > multicriteria decision analysis > MOORA",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Porphyry Cu(-Mo-Au-Ag)",
+    "commodities_elements": [
+      "Cu",
+      "Mo",
+      "Au",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Cu-Mo",
+      "Cu-Au",
+      "Cu-Mo-Au",
+      "Cu-Au-Ag"
+    ]
+  },
+  "Deposit type": "Porphyry Cu(-Mo-Au-Ag)",
+  "dataset": {
+    "public_availability": "Confidential",
+    "types": [
+      "Geological data; Unknown",
+      "Geochemical data; Unknown",
+      "Remote sensing data; Unknown",
+      "Geophysical data; Unknown"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "Combination of data-driven and machine learning methods improves mineral prospectivity modeling.",
+    "MOORA method outperforms traditional machine learning methods in generating mineral potential maps.",
+    "Geological, geochemical, remote sensing, and geophysical data were integrated for analysis.",
+    "The study area is located in the Urumieh\u2013Dokhtar Magmatic Arc, known for its porphyry copper deposits.",
+    "The results highlight the importance of lithology and geochemical signatures in predicting mineralization."
+  ]
+}

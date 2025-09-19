@@ -1,0 +1,54 @@
+{
+  "bibliographic_metadata": {
+    "Year": "2020",
+    "Month": "March",
+    "Journal": "Geoscience Frontiers",
+    "Journal Impact factor": "Unknown",
+    "Title": "A Monte Carlo-based framework for risk-return analysis in mineral prospectivity mapping",
+    "Author": "Ziye Wang, Zhen Yin, Jef Caers, Renguang Zuo",
+    "url": "https://doi.org/10.1016/j.gsf.2020.02.010"
+  },
+  "abstract": "Quantification of a mineral prospectivity mapping (MPM) heavily relies on geological, geophysical and geochemical analysis, which combines various evidence layers into a single map. However, MPM is subject to considerable uncertainty due to lack of understanding of the metallogenesis and limited spatial data samples. In this paper, we provide a framework that addresses how uncertainty in the evidence layers can be quantified and how such uncertainty is propagated to the prediction of mineral potential. More specifically, we use Monte Carlo simulation to jointly quantify uncertainties on all uncertain evidence variables, categorized into geological, geochemical and geophysical. On stochastically simulated sets of the multiple input layers, logistic regression is employed to produce different quantifications of the mineral potential in terms of probability. Uncertainties we address lie in the downscaling of magnetic data to a scale that makes such data comparable with known mineral deposits. Additionally, we deal with the limited spatial sampling of geochemistry that leads to spatial uncertainty. Next, we deal with the conceptual geological uncertainty related to how the spatial extent of the influence of evidential geological features such as faults, granite intrusions and sedimentary formations. Finally, we provide a novel way to interpret the established uncertainty in a risk-return analysis to decide areas with high potential but at the same time low uncertainty on that potential.",
+  "methodology": "supervised > tree-based > logistic regression",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Skarn (Fe, Cu, W, Zn-Pb, Sn, Au-As-Cu)",
+    "commodities_elements": [
+      "Fe",
+      "Cu",
+      "W",
+      "Zn",
+      "Pb",
+      "Sn",
+      "Au",
+      "As",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Fe",
+      "Cu-Fe-Au-Ag",
+      "W-Cu",
+      "Zn-Pb-Ag",
+      "Sn",
+      "Au-As-Cu"
+    ]
+  },
+  "Deposit type": "Skarn (Fe, Cu, W, Zn-Pb, Sn, Au-As-Cu)",
+  "dataset_fields": {
+    "public_availability": "Yes",
+    "types": [
+      "Geological map; 1:200,000",
+      "Geochemical data; major and trace element concentrations",
+      "Aeromagnetic data; total magnetic intensity"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "Framework for quantifying uncertainty in mineral prospectivity mapping.",
+    "Monte Carlo simulation used to assess uncertainties in geological, geochemical, and geophysical data.",
+    "Logistic regression applied to stochastically simulated input layers.",
+    "Focus on risk-return analysis to identify high potential areas with low uncertainty.",
+    "Case study on skarn Fe deposits in southwestern Fujian, China."
+  ]
+}

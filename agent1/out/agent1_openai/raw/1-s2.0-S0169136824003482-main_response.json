@@ -1,0 +1,43 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2024,
+    "Month": "August",
+    "Journal": "Ore Geology Reviews",
+    "Journal Impact factor": "Unknown",
+    "Title": "Improved mineral prospectivity mapping using graph neural networks",
+    "Author": "Felix M.H. Sihombing, Richard M. Palin, Hannah S.R. Hughes, Laurence J. Robb",
+    "url": "https://doi.org/10.1016/j.oregeorev.2024.106215"
+  },
+  "abstract": "Prospectivity analysis is an important part of the exploration information system (EIS) and mineral prospectivity mapping (MPM) is a widely used technique for prospectivity analysis. This study demonstrates how re-designing exploration data into a graph format that focuses on spatial relationships can increase the effectiveness of MPM. The use of graph deep learning was applied to three different commodities (copper, iron, and tin) in the southern United Kingdom, showing significant performance improvements compared to conventional ML techniques, particularly when trained with imbalanced datasets.",
+  "methodology": "supervised > deep learning > graph neural network (GNN)",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "VMS (Volcanogenic Massive Sulfide)",
+    "commodities_elements": [
+      "Cu",
+      "Fe",
+      "Sn"
+    ],
+    "commodities_combined": [
+      "Cu-Fe-Sn"
+    ]
+  },
+  "deposit_type": "VMS (Volcanogenic Massive Sulfide)",
+  "dataset": {
+    "public_availability": "Yes",
+    "types": [
+      "Geological map; Unknown",
+      "Geochemical attributes; Unknown",
+      "Mineral occurrence data; Unknown"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "Graph neural networks (GNN) improve mineral prospectivity mapping (MPM) by utilizing spatial relationships.",
+    "The study focused on copper, iron, and tin mineralization in the southern United Kingdom.",
+    "GNN outperformed conventional ML techniques in terms of accuracy, recall, and F1 scores.",
+    "Training with imbalanced datasets (more barren data than mineralized data) enhanced model performance.",
+    "The research highlights the importance of considering relational information in exploration data."
+  ]
+}

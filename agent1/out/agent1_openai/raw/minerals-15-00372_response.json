@@ -1,0 +1,53 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2025,
+    "Month": "April",
+    "Journal": "Minerals",
+    "Journal Impact factor": "Unknown",
+    "Title": "Machine Learning Classification of Fertile and Barren Adakites for Refining Mineral Prospectivity Mapping: Geochemical Insights from the Northern Appalachians, New Brunswick, Canada",
+    "Author": [
+      "Amirabbas Karbalaeiramezanali",
+      "Fazilat Yousefi",
+      "David R. Lentz",
+      "Kathleen G. Thorne"
+    ],
+    "url": "https://doi.org/10.3390/min15040372"
+  },
+  "abstract": "This study applies machine learning (ML) techniques to classify fertile [for porphyry Cu and (or) Au systems] and barren adakites using geochemical data from New Brunswick, Canada. It emphasizes that not all intrusive units, including adakites, are inherently fertile and should not be directly used as the heat source evidence layer in mineral prospectivity mapping without prior analysis. A dataset of 99 fertile and 66 barren adakites was analyzed using seven ML models: support vector machine (SVM), neural network, random forest (RF), decision tree, AdaBoost, gradient boosting, and logistic regression. SVM achieved the highest performance (AUC = 0.91), followed by gradient boosting (0.90) and RF (0.89). Statistical analysis identified middle rare earth elements (REEs), including Gd and Dy, with Hf, as key indicators of fertility.",
+  "methodology": "supervised > tree-based > random forest; supervised > tree-based > gradient boosting (GBDT); supervised > kernel-based > support vector machine; supervised > neural networks > feedforward neural network (MLP); supervised > tree-based > decision tree (CART); ensemble > boosting > boosting (GBDT/XGBoost/LightGBM); supervised > generalized linear models > logistic regression",
+  "commodity": {
+    "major_category": "Magmatic",
+    "minor_category": "Porphyry Cu(-Mo-Au-Ag)",
+    "commodities_elements": [
+      "Cu",
+      "Mo",
+      "Au",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Cu-Mo",
+      "Cu-Au",
+      "Cu-Mo-Au",
+      "Cu-Au-Ag"
+    ]
+  },
+  "deposit_type": "Porphyry Cu(-Mo-Au-Ag)",
+  "dataset": {
+    "public_availability": "Unknown",
+    "types": [
+      "Geochemical analyses; ppm",
+      "Major oxides; wt%",
+      "Trace elements; ppm",
+      "Geochemical ratios; Unknown"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "Machine learning effectively classifies fertile and barren adakites.",
+    "Key indicators of fertility include Gd, Dy, and Hf.",
+    "SVM achieved the highest performance with an AUC of 0.91.",
+    "Gradient boosting and random forest followed closely in performance.",
+    "Statistical analysis identified significant geochemical variables for fertility."
+  ]
+}

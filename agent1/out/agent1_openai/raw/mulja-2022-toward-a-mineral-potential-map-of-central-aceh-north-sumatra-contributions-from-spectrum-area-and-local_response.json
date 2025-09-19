@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "Year": 2022,
+    "Month": 3,
+    "Journal": "Applied Earth Science",
+    "Journal Impact factor": "Unknown",
+    "Title": "Toward a mineral potential map of central Aceh, North Sumatra: contributions from spectrum-area and local singularity fractal analysis of stream sediment geochemistry and its relationships to magmatic-hydrothermal Cu and Au mineralisation",
+    "Author": "Thomas Mulja",
+    "url": "https://doi.org/10.1080/25726838.2022.2053376"
+  },
+  "abstract": "A reassessment of the geochemistry of stream sediments collected by the British-led North Sumatra Project from 1975 to 1980 in central Aceh with spectrum\u2013area and local singularity fractal techniques refines previously determined areas with anomalous Cu and delineates As anomalies (proxy for Au) that correspond to porphyry Cu and epithermal Au\u2013Ag deposits and prospects discovered in the 1980s and 1990s. Additionally, the application of these methods to stream sediment samples collected by an Australian company in the mid-1990s from part of central Aceh identifies Au, As, and Cu anomalies that are aligned with regional geochemical trends. Integrating singularity metal-enriched areas and the distribution of mineral occurrences and structures reveals northerly and easterly tectono-magmatic corridors controlling epithermal Au\u2013Ag and porphyry Cu mineralisation. The above results attest to the usefulness of legacy data for first-pass mineral assessments and for providing evidence layers for a future mineral prospectivity map.",
+  "methodology": "supervised > tree-based > random forest; supervised > tree-based > gradient boosting (GBDT)",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Porphyry Cu(-Mo-Au-Ag)",
+    "commodities_elements": [
+      "Cu",
+      "Au",
+      "Ag",
+      "As"
+    ],
+    "commodities_combined": [
+      "Cu-Au",
+      "Cu-Mo",
+      "Cu-Au-Ag"
+    ]
+  },
+  "Deposit type": "Porphyry Cu(-Mo-Au-Ag)",
+  "dataset": {
+    "public availability": "Unknown",
+    "types": [
+      {
+        "data_type": "Stream sediment geochemistry",
+        "units": "ppm"
+      },
+      {
+        "data_type": "Stream sediment geochemistry",
+        "units": "ppb"
+      }
+    ],
+    "train/app relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "Reassessment of geochemistry using fractal techniques.",
+    "Identification of Cu and As anomalies corresponding to mineral deposits.",
+    "Integration of legacy data for mineral prospectivity mapping.",
+    "Identification of tectono-magmatic corridors influencing mineralisation."
+  ]
+}

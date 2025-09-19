@@ -1,0 +1,41 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2025,
+    "Month": "November",
+    "Journal": "Mathematical Geosciences",
+    "Journal Impact factor": "Unknown",
+    "Title": "Domain Adversarial Neural Network for Mapping Mineral Prospectivity",
+    "Author": "Qiuyi Lin, Renguang Zuo",
+    "url": "https://doi.org/10.1007/s11004-024-10164-3"
+  },
+  "abstract": "This study presents an improved unsupervised domain adversarial adaptation network for mineral prospectivity mapping (MPM) using synthetic datasets. The method addresses challenges in transferring geological knowledge across areas with different ore-forming characteristics. The network demonstrated superior performance in identifying high-potential zones for gold polymetallic mineralization in Hubei Province, China, providing valuable insights for mineral exploration.",
+  "methodology": "supervised > deep learning > domain adversarial neural network",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Porphyry Cu(-Mo-Au-Ag)",
+    "commodities_elements": [
+      "Au",
+      "Cu"
+    ],
+    "commodities_combined": [
+      "Cu-Au"
+    ]
+  },
+  "Deposit type": "Porphyry Cu(-Mo-Au-Ag)",
+  "dataset": {
+    "public_availability": "Unknown",
+    "types": [
+      "Geological survey data; Unknown",
+      "Geochemical survey data; 39 major and trace elements (Ag, As, Au, B, Ba, Be, Bi, Cd, Co, Cr, Cu, F, Hg, La, Li, Mn, Mo, Nb, Ni, P, Pb, Sb, Sn, Sr, Th, Ti, U, V, W, Y, Zn, Zr, Al2O3, Fe2O3, K2O, MgO, Na2O, SiO2, CaO); Unknown"
+    ],
+    "train/app relationship": "Different",
+    "scope": "Source area (northwestern Hubei Province) to Target area (southeastern Hubei Province)"
+  },
+  "key_points": [
+    "The study introduces an improved domain adversarial neural network for mineral prospectivity mapping.",
+    "Synthetic datasets were effectively utilized to enhance model training.",
+    "The method achieved better performance in identifying gold polymetallic mineralization zones.",
+    "The integration of maximum mean discrepancy improved feature alignment across domains.",
+    "The results provide critical insights for future mineral exploration efforts."
+  ]
+}

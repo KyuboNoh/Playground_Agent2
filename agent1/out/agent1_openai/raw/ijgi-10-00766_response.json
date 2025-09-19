@@ -1,0 +1,44 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2021,
+    "Month": "November",
+    "Journal": "ISPRS International Journal of Geo-Information",
+    "Journal Impact factor": "Unknown",
+    "Title": "Mapping Mineral Prospectivity Using a Hybrid Genetic Algorithm\u2013Support Vector Machine (GA\u2013SVM) Model",
+    "Author": "Xishihui Du, Kefa Zhou, Yao Cui, Jinlin Wang, Shuguang Zhou",
+    "url": "https://doi.org/10.3390/ijgi10110766"
+  },
+  "abstract": "This study employs a hybrid of the genetic algorithm (GA) and support vector machine (SVM) model to map prospective areas for Au deposits in Karamay, northwest China. GA is used to optimize the SVM parameters that result in the best fitness. After obtaining evidence layers from geological and geochemical data, GA\u2013SVM models trained using different datasets were applied to discriminate between prospective and non-prospective areas for Au deposits. The best model predicted 95.83% of the known Au deposits within prospective areas, occupying 35.68% of the study area.",
+  "methodology": "supervised > kernel-based > support vector machine; optimization/heuristic > metaheuristics > genetic algorithm (feature selection/weighting)",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Orogenic (lode) gold",
+    "commodities_elements": [
+      "Au",
+      "As",
+      "Sb",
+      "W"
+    ],
+    "commodities_combined": [
+      "Au-(As-Sb)",
+      "Au-W"
+    ]
+  },
+  "deposit_type": "Orogenic (lode) gold",
+  "dataset_fields": {
+    "public_availability": "Available on request",
+    "types": [
+      "Geological maps; 1:200,000",
+      "Stream sediment geochemical data; 1 per 4 km\u00b2"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "GA optimizes SVM parameters for better classification.",
+    "P-A plot is used for classifying evidence layers into binary patterns.",
+    "Point pattern analysis helps in selecting non-mineralized locations.",
+    "The best model predicted 95.83% of known Au deposits.",
+    "Spatial correlation exists between prospective areas and NE-trending faults."
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2023,
+    "Month": "October",
+    "Journal": "Natural Resources Research",
+    "Journal Impact factor": "Unknown",
+    "Title": "Integration of ASTER and Soil Survey Data by Principal Components Analysis and One-Class Support Vector Machine for Mineral Prospectivity Mapping in Kerkasha, Southwestern Eritrea",
+    "Author": "Finhas Tsehaye Zerai, Pece V. Gorsevski, Kurt S. Panter, John Farver, Majid H. Tangestani",
+    "url": "https://doi.org/10.1007/s11053-023-10268-3"
+  },
+  "abstract": "This study evaluates the potential for mineral prospectivity mapping (MPM) within the Kerkesha area, southwestern Eritrea, using remote sensing and geochemical data analysis. The Advanced Spaceborne Thermal Emission and Reflection Radiometer (ASTER) remote sensing data were used for mapping zones of hydrothermal alteration, while assessment of geologic structures was based on automated extraction of lineaments from a digital elevation model (DEM). Integration of these alteration and structural datasets with surface geochemical data was carried out to identify pathfinder elements associated with Au\u2013Cu\u2013Zn mineralization as well as to evaluate and delineate anomalous regions in this relatively underexplored region of the Arabia Nubia Shield (ANS). The modeling approach for the extraction and interpretation of mineralization-related spectral footprints was the selective principal component analysis (SPCA), and the lineament features extracted from DEM derivatives were integrated with the soil geochemical data and modeled by principal component analysis (PCA). The results revealed a NE\u2013SW trend of lineaments, delineated zones of hydrothermal alteration indicating the presence of multi-deposit type mineralization, and identified pathfinder elements.",
+  "methodology": "supervised > tree-based > random forest; supervised > tree-based > gradient boosting (GBDT); supervised > kernel-based > support vector machine; knowledge-driven > probabilistic > weights of evidence (WofE)",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "VMS (Volcanogenic Massive Sulfide)",
+    "commodities_elements": [
+      "Cu",
+      "Zn",
+      "Pb",
+      "Ag",
+      "Au"
+    ],
+    "commodities_combined": [
+      "Cu-Zn",
+      "Zn-Pb-Ag",
+      "Cu-Zn-Pb-Au-Ag"
+    ]
+  },
+  "Deposit type": "VMS (Volcanogenic Massive Sulfide)",
+  "dataset": {
+    "public_availability": "Yes",
+    "types": [
+      "Soil geochemistry; ppm",
+      "ASTER remote sensing data; reflectance",
+      "Digital Elevation Model (DEM); elevation"
+    ],
+    "train/app relationship": "Different",
+    "scope": "Training from ASTER and soil data; application to entire study area"
+  },
+  "key_points": [
+    "Integration of ASTER and soil survey data for mineral prospectivity mapping.",
+    "Use of selective principal component analysis (SPCA) and one-class support vector machine (OCSVM) for anomaly detection.",
+    "Identification of pathfinder elements associated with Au\u2013Cu\u2013Zn mineralization.",
+    "Delineation of hydrothermal alteration zones and lineament features.",
+    "Validation of results using area under the curve (AUC) and Youden index."
+  ]
+}

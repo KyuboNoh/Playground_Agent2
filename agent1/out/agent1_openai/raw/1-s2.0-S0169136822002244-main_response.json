@@ -1,0 +1,41 @@
+{
+  "Bibliographic metadata": {
+    "Year": 2022,
+    "Month": "April",
+    "Journal": "Ore Geology Reviews",
+    "Journal Impact factor": "Unknown",
+    "Title": "Ensemble learning models with a Bayesian optimization algorithm for mineral prospectivity mapping",
+    "Author": "Jiangning Yin, Nan Li",
+    "url": "https://doi.org/10.1016/j.oregeorev.2022.104916"
+  },
+  "Abstract": "This study implemented ensemble learning of extreme gradient boosting (XGBoost) and random forest (RF) models for mineral prospectivity mapping (MPM) of magmatic hydrothermal tin polymetallic deposits in Xianghualing District, southern Hunan Province, China. A Bayesian optimization algorithm (BOA) was employed to optimize hyperparameters, significantly improving model performance. The XGBoost model outperformed the RF model in accuracy, precision, recall, F1 score, and kappa coefficient, demonstrating its potential for MPM.",
+  "Methodology": "supervised > tree-based > gradient boosting (XGBoost); supervised > tree-based > random forest",
+  "Commodity": {
+    "major_category": "Magmatic",
+    "minor_category": "Hydrothermal",
+    "commodities_elements": [
+      "Sn"
+    ],
+    "commodities_combined": [
+      "Sn"
+    ]
+  },
+  "Deposit type": "Hydrothermal",
+  "Dataset": {
+    "public availability": "Yes",
+    "types": [
+      "Geochemical data; Unknown",
+      "Bouguer gravity data; Unknown",
+      "Heavy mineral data; Unknown"
+    ],
+    "train/app relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "Key points": [
+    "Ensemble learning methods were applied for mineral prospectivity mapping.",
+    "Bayesian optimization significantly improved model performance.",
+    "XGBoost model showed superior predictive ability compared to RF model.",
+    "Geochemical and heavy mineral data were crucial for mapping.",
+    "The study area is known for its tin polymetallic deposits."
+  ]
+}

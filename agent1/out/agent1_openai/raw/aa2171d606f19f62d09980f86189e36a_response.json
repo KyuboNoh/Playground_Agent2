@@ -1,0 +1,54 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2020,
+    "Month": "April",
+    "Journal": "Natural Resources Research",
+    "Journal Impact factor": "Unknown",
+    "Title": "Effects of Random Negative Training Samples on Mineral Prospectivity Mapping",
+    "Author": "Renguang Zuo, Ziye Wang",
+    "url": "https://doi.org/10.1007/s11053-020-09668-6"
+  },
+  "abstract": "This study provides a framework for addressing the effects of random negative training points on mineral prospectivity mapping (MPM). Fifty negative training datasets were generated using random point locations, and 50 mineral potential maps were created using logistic regression. The area under the receiver operating characteristic curves (AUC) was used to evaluate MPM performance. The mean of the AUC represented the average spatial correlation between mineralization and selected spatial patterns, while the standard deviation indicated uncertainty. A risk and return analysis explored the uncertainty of the mineral potential map due to random negative samples. The proposed framework was demonstrated by mapping potential for skarn Fe mineralization in southwestern Fujian, China.",
+  "methodology": "supervised > tree-based > random forest; supervised > tree-based > decision tree (CART); supervised > generalized linear models > logistic regression",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Skarn (Fe, Cu, W, Zn-Pb, Sn, Au-As-Cu)",
+    "commodities_elements": [
+      "Fe",
+      "Cu",
+      "W",
+      "Zn",
+      "Pb",
+      "Sn",
+      "Au",
+      "As",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Fe",
+      "Cu-Fe-Au-Ag",
+      "W-Cu",
+      "Zn-Pb-Ag",
+      "Sn",
+      "Au-As-Cu"
+    ]
+  },
+  "Deposit type": "Skarn (Fe, Cu, W, Zn-Pb, Sn, Au-As-Cu)",
+  "dataset": {
+    "public_availability": "Unknown",
+    "types": [
+      "Geological map; scale 1:200,000",
+      "Geochemical data; concentration data for 39 major and trace elements",
+      "Airborne total magnetic intensity data; spatial resolution 2 km"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A (southwestern Fujian) to Region B (skarn Fe mineralization mapping)"
+  },
+  "key_points": [
+    "Random negative training samples affect mineral prospectivity mapping.",
+    "Fifty negative training datasets were generated for analysis.",
+    "Logistic regression was used to create mineral potential maps.",
+    "AUC values indicated strong spatial correlation between known deposits and geochemical patterns.",
+    "Risk and return analysis was conducted to assess uncertainty in mineral potential maps."
+  ]
+}

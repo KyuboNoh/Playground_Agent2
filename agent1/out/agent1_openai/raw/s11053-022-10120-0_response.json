@@ -1,0 +1,57 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2022,
+    "Month": "September",
+    "Journal": "Natural Resources Research",
+    "Journal Impact factor": "Unknown",
+    "Title": "An Integrated Framework for Data-Driven Mineral Prospectivity Mapping Using Bagging-Based Positive-Unlabeled Learning and Bayesian Cost-Sensitive Logistic Regression",
+    "Author": [
+      "Zhiqiang Zhang",
+      "Gongwen Wang",
+      "Emmanuel John M. Carranza",
+      "Junjie Fan",
+      "Xinxing Liu",
+      "Xiang Zhang",
+      "Yulong Dong",
+      "XiaoPeng Chang",
+      "Deming Sha"
+    ],
+    "url": "https://doi.org/10.1007/s11053-022-10120-0"
+  },
+  "abstract": "This study proposes an integrated framework for mineral prospectivity mapping (MPM) using Bagging-based positive-unlabeled learning (BPUL) and Bayesian cost-sensitive logistic regression (BCSLR) to address uncertainties from imbalanced data and cost-sensitive issues. The framework was applied in the Wulong Au district, China, demonstrating superior performance compared to traditional methods. Return-risk analysis identified low risk-high return exploration targets.",
+  "methodology": "supervised > tree-based > bagging; supervised > generalized linear models > logistic regression; semi-supervised > PU learning > positive\u2013unlabeled learning",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Orogenic (lode) gold",
+    "commodities_elements": [
+      "Au",
+      "As",
+      "Sb",
+      "W"
+    ],
+    "commodities_combined": [
+      "Au-(As-Sb)",
+      "Au-W"
+    ]
+  },
+  "deposit_type": "Orogenic (lode) gold",
+  "dataset": {
+    "public_availability": "Unknown",
+    "types": [
+      "Geological map; 1:50,000-scale",
+      "Petrophysical data; density, magnetic susceptibility, resistivity",
+      "Bouguer gravity data; mGal",
+      "RTP magnetic data; nT",
+      "MT data; m"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "Proposed a novel framework for mineral prospectivity mapping (MPM).",
+    "Utilized Bagging-based positive-unlabeled learning (BPUL) and Bayesian cost-sensitive logistic regression (BCSLR).",
+    "Demonstrated improved performance in identifying exploration targets.",
+    "Conducted return-risk analysis to assess exploration targets.",
+    "Identified low risk-high return areas for further exploration."
+  ]
+}

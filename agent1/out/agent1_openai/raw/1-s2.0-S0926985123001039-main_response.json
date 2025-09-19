@@ -1,0 +1,53 @@
+{
+  "Bibliographic_metadata": {
+    "Year": 2023,
+    "Month": "April",
+    "Journal": "Journal of Applied Geophysics",
+    "Journal_Impact_factor": "Unknown",
+    "Title": "Application of data-driven multi-index overlay and BWM-MOORA MCDM methods in mineral prospectivity mapping of porphyry Cu mineralization",
+    "Author": [
+      "Shokouh Riahi",
+      "Abbas Bahroudi",
+      "Maysam Abedi",
+      "David R. Lentz",
+      "Soheila Aslani"
+    ],
+    "url": "https://doi.org/10.1016/j.jappgeo.2023.105025"
+  },
+  "Abstract": "The present study applies proposed hybrid mathematical frameworks, namely Data-driven Multi-Index Overlay Method (DMIO) and Best Worst Method-multi objective optimization by ratio analysis (BWM-MOORA) techniques, for generating robust predictive models enhancing mineral prospectivity analysis. These are used for weighting multiple groups of evidence maps acquired from geological databases, such as remote sensing, geological, geochemical, and geophysical, and then integrating these weighted layers into robust predictive models to assess porphyry copper prospectivity.",
+  "Methodology": "supervised > tree-based > random forest; supervised > tree-based > gradient boosting (GBDT); knowledge-driven > multicriteria decision analysis > AHP",
+  "Commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Porphyry Cu(-Mo-Au-Ag)",
+    "commodities_elements": [
+      "Cu",
+      "Mo",
+      "Au",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Cu-Mo",
+      "Cu-Au",
+      "Cu-Mo-Au",
+      "Cu-Au-Ag"
+    ]
+  },
+  "Deposit_type": "Porphyry Cu(-Mo-Au-Ag)",
+  "Dataset_fields": {
+    "public_availability": "Yes",
+    "types": [
+      "Geological data; Unknown",
+      "Geochemical data; Unknown",
+      "Geophysical data; Unknown",
+      "Remote sensing data; Unknown"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "Key_points": [
+    "Application of hybrid mathematical frameworks for mineral prospectivity mapping.",
+    "Integration of geological, geochemical, and geophysical evidence layers.",
+    "Use of BWM-MOORA and DMIO methods for predictive modeling.",
+    "Assessment of porphyry copper prospectivity in the Chahargonbad area."
+  ]
+}

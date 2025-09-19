@@ -1,0 +1,44 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2022,
+    "Month": "April",
+    "Journal": "Natural Resources Research",
+    "Journal Impact factor": "Unknown",
+    "Title": "Three-Dimensional Mineral Prospectivity Mapping by XGBoost Modeling: A Case Study of the Lannigou Gold Deposit, China",
+    "Author": "Quanping Zhang, Jianping Chen, Hua Xu, Yule Jia, Xuewei Chen, Zhen Jia, Hao Liu",
+    "url": "https://doi.org/10.1007/s11053-022-10054-7"
+  },
+  "abstract": "This study presents a three-dimensional mineral prospectivity mapping (3DMPM) approach using the eXtreme Gradient Boosting (XGBoost) algorithm for the Lannigou gold deposit in Guizhou, China. The model integrates geological data to establish a 3D model and a prospectivity model based on metallogenic systems and geological anomalies. The XGBoost model demonstrated superior performance compared to the weights of evidence method in terms of prediction accuracy.",
+  "methodology": "supervised > tree-based > gradient boosting (XGBoost)",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Epithermal Au-Ag (HS/LS/IS)",
+    "commodities_elements": [
+      "Au",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "HS Au-Ag-Cu-Te",
+      "LS Au-Ag-Sb-As",
+      "IS Au-Ag-Cu"
+    ]
+  },
+  "Deposit type": "Epithermal Au-Ag (HS/LS/IS)",
+  "dataset_fields": {
+    "public_availability": "Unknown",
+    "types": [
+      "Geological data; Unknown",
+      "3D geological model; Unknown",
+      "Borehole data; m",
+      "Geological sections; m"
+    ],
+    "train/app relationship": "Same",
+    "scope": "Unknown"
+  },
+  "key_points": [
+    "3D geological entity model established using geological data.",
+    "XGBoost model outperformed weights of evidence method in prediction accuracy.",
+    "Main ore-controlling factors identified through geological anomaly theories.",
+    "High prediction accuracy and reduced exploration risk demonstrated by XGBoost."
+  ]
+}

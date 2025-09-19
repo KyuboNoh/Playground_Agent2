@@ -1,0 +1,48 @@
+{
+  "bibliographic_metadata": {
+    "Year": "2023",
+    "Month": "May",
+    "Journal": "International Journal of Mining and Geo-Engineering",
+    "Journal Impact factor": "Unknown",
+    "Title": "A Hybrid Fuzzy Ordered Weighted Averaging Method in Mineral Prospectivity Mapping: A case for Porphyry Cu Exploration in Chahargonbad District, Iran",
+    "Author": "Shokouh Riahi, Maysam Abedi, Abbas Bahroudi",
+    "url": "https://doi.org/10.22059/ijmge.2023.357315.595050"
+  },
+  "abstract": "This research presents a case study that employs the Fuzzy Ordered Weighted Averaging (FOWA) method to develop mineral prospectivity/potential maps (MPM) for the Chahargonbad district in southeastern Iran. The primary objective of the study is to uncover intricate and concealed relationships between various evidence layers and known ore occurrences through a comprehensive analysis of multi-disciplinary geospatial data. Consequently, thirteen evidence layers were meticulously derived from existing databases, encompassing geological, geochemical, geophysical, and remote sensing data, which were then integrated using the FOWA multi-criteria decision-making approach to delineate favorable zones for porphyry Cu mineralization.",
+  "methodology": "supervised > tree-based > random forest; supervised > tree-based > gradient boosting (GBDT)",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Porphyry Cu(-Mo-Au-Ag)",
+    "commodities_elements": [
+      "Cu",
+      "Mo",
+      "Au",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Cu-Mo",
+      "Cu-Au",
+      "Cu-Mo-Au",
+      "Cu-Au-Ag"
+    ]
+  },
+  "deposit_type": "Porphyry Cu(-Mo-Au-Ag)",
+  "dataset_fields": {
+    "public_availability": "Available on reasonable request",
+    "types": [
+      "Geological data; Unknown",
+      "Geochemical data (Cu, Mo, Zn, Pb, Ag, Co, Ni, Cr, Ba); ppm",
+      "Geophysical data; Unknown",
+      "Remote sensing data; Unknown"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "Utilized Fuzzy Ordered Weighted Averaging (FOWA) for mineral prospectivity mapping.",
+    "Thirteen evidence layers derived from geological, geochemical, geophysical, and remote sensing data.",
+    "Achieved an ore prediction rate of 77% within favorable zones occupying 23% of the area.",
+    "Hybrid FOWA method allows for varying risk attitudes in decision-making.",
+    "Identified high-potential areas for porphyry Cu mineralization in the Chahargonbad district."
+  ]
+}

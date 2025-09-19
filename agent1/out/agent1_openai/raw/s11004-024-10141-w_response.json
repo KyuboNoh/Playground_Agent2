@@ -1,0 +1,44 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2024,
+    "Month": "April",
+    "Journal": "Mathematical Geosciences",
+    "Journal Impact factor": "Unknown",
+    "Title": "Geologically Constrained Convolutional Neural Network for Mineral Prospectivity Mapping",
+    "Author": "Fanfan Yang, Renguang Zuo",
+    "url": "https://doi.org/10.1007/s11004-024-10141-w"
+  },
+  "abstract": "This study proposes a geologically constrained convolutional neural network (CNN) for mapping gold polymetallic mineralization potential in western Henan Province, China. By integrating geological constraints into the CNN model, the study aims to enhance the interpretability and predictive performance of mineral prospectivity mapping (MPM). The results indicate that combining data-driven approaches with geological knowledge improves the reliability of predictive results.",
+  "methodology": "supervised > deep learning > convolutional neural network (CNN)",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Porphyry Cu(-Mo-Au-Ag)",
+    "commodities_elements": [
+      "Au",
+      "Cu"
+    ],
+    "commodities_combined": [
+      "Cu-Au"
+    ]
+  },
+  "deposit_type": "Porphyry Cu(-Mo-Au-Ag)",
+  "dataset": {
+    "public_availability": "Unknown",
+    "types": [
+      "Geological data; Unknown",
+      "Geochemical data; Unknown",
+      "Geophysical data; Unknown",
+      "Remote sensing data; Unknown",
+      "Drilling data; Unknown"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "Proposes a geologically constrained CNN for mineral prospectivity mapping.",
+    "Integrates geological knowledge to improve model interpretability.",
+    "Demonstrates superior predictive performance compared to traditional models.",
+    "Utilizes a combination of soft and hard constraints in the CNN architecture.",
+    "Focuses on gold polymetallic mineralization in western Henan Province, China."
+  ]
+}

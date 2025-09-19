@@ -1,0 +1,44 @@
+{
+  "bibliographic_metadata": {
+    "Year": "2025",
+    "Month": "June",
+    "Journal": "Ore Geology Reviews",
+    "Journal Impact factor": "Unknown",
+    "Title": "Mineral prospectivity Mapping: An interpretable classifier Combining catchment basin and knowledge graph embedding",
+    "Author": "Qun Yan, Yao Pei, Linfu Xue, Hairui Sun, Rui Wang, Xiangjin Ran",
+    "url": "https://doi.org/10.1016/j.oregeorev.2025.106758"
+  },
+  "abstract": "This study develops a Mineral Prospectivity Mapping (MPM) method that integrates data and knowledge for geological interpretation. Using stream sediment geochemical assays and a geological map knowledge graph, we construct catchment basins to constrain spatial geochemical interpolation. A Graph Attention Network (GAT) embeds geological knowledge, and K-means clustering classifies samples for training an XGBoost model for gold prospectivity prediction. Results show improved prediction performance, with key elements associated with gold mineralization identified.",
+  "methodology": "supervised > tree-based > gradient boosting (XGBoost)",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Orogenic (lode) gold",
+    "commodities_elements": [
+      "Au",
+      "As",
+      "Sb",
+      "W"
+    ],
+    "commodities_combined": [
+      "Au-(As-Sb)",
+      "Au-W"
+    ]
+  },
+  "deposit_type": "Orogenic (lode) gold",
+  "dataset_fields": {
+    "public_availability": "Yes",
+    "types": [
+      "Geochemical data; ppm",
+      "Geochemical data; ppb"
+    ],
+    "train_app_relationship": "Same",
+    "scope": "Gold prospectivity prediction in the Mawu area, Gansu Province"
+  },
+  "key_points": [
+    "Integration of geological knowledge with geochemical data enhances prediction accuracy.",
+    "K-means clustering effectively classifies spatial features for sample selection.",
+    "XGBoost model provides interpretable results using Shapley values.",
+    "Geochemical interpolation constrained by catchment basins improves spatial alignment with geological features.",
+    "Five gold mineral prospectivity areas were delineated based on the model."
+  ]
+}

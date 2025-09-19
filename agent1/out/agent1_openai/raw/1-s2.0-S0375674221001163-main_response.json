@@ -1,0 +1,46 @@
+{
+  "Bibliographic metadata": {
+    "Year": 2021,
+    "Month": "June",
+    "Journal": "Journal of Geochemical Exploration",
+    "Journal Impact factor": "Unknown",
+    "Title": "A simulation-based framework for modulating the effects of subjectivity in greenfield Mineral Prospectivity Mapping with geochemical and geological data",
+    "Author": "Mohammad Parsa, Amin Beiranvand Pour",
+    "url": "https://doi.org/10.1016/j.gexplo.2021.106838"
+  },
+  "Abstract": "Mineral Prospectivity Mapping (MPM) is a multifaceted process relying heavily on experts' judgments. This study proposes a methodology for modulating the effects of subjectivity in knowledge-driven MPM, combining Monte Carlo simulation with fuzzy logic. The proposed procedure returns three components: a modulated prospectivity model, uncertainty, and confidence. Low-risk targets occupy merely 0.5% of the study area, showcasing the framework's efficacy for reducing the search space in greenfield exploration.",
+  "Methodology": "supervised > tree-based > random forest; supervised > tree-based > gradient boosting (GBDT)",
+  "Commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Porphyry Cu(-Mo-Au-Ag)",
+    "commodities_elements": [
+      "Cu",
+      "Mo",
+      "Au",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Cu-Mo",
+      "Cu-Au",
+      "Cu-Mo-Au",
+      "Cu-Au-Ag"
+    ]
+  },
+  "Deposit type": "Porphyry Cu(-Mo-Au-Ag)",
+  "Dataset": {
+    "public availability": "Yes",
+    "types": [
+      "Geological maps; 1:100,000",
+      "Satellite imagery; ASTER data",
+      "Geochemical data; ppm"
+    ],
+    "train/app relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "Key points": [
+    "Proposes a framework to reduce subjectivity in mineral prospectivity mapping.",
+    "Combines Monte Carlo simulation with fuzzy logic for uncertainty assessment.",
+    "Identifies low-risk exploration targets in the Sarcheshmeh copper district.",
+    "Demonstrates the efficacy of the proposed methodology in reducing exploration costs."
+  ]
+}

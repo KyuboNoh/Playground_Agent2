@@ -1,0 +1,45 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2024,
+    "Month": "December",
+    "Journal": "Natural Resources Research",
+    "Journal Impact factor": "Unknown",
+    "Title": "Mineral Prospectivity Mapping and Differential Metal Endowment Between Two Greenstone Belts in the Canadian Superior Craton",
+    "Author": "J. R. Harris, J. Strong, P. Thurston, K. Nymoen, R. Haugaard, M. Naghizadeh, G. Tuba, P. Behnia, E. Grunsky, J. Ayer, R. Smith, R. Sherlock, A. Reza-Mokhtari",
+    "url": "https://doi.org/10.1007/s11053-024-10432-3"
+  },
+  "abstract": "Mineral prospectivity maps were produced for gold in two greenstone belts in the Superior geological province in Ontario, Canada, as part of the Metal Earth Project. These maps cover the well-endowed Matheson area and the less fertile Dryden area. Newly identified areas for follow-up gold exploration are associated with major faults and 3D geophysical data. Observations not used in mineral prospectivity mapping may describe why the Matheson greenstone belt is more fertile with respect to gold mineralization than the Dryden greenstone belt.",
+  "methodology": "supervised > tree-based > random forest",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Orogenic (lode) gold",
+    "commodities_elements": [
+      "Au",
+      "As",
+      "Sb",
+      "W"
+    ],
+    "commodities_combined": [
+      "Au-(As-Sb)",
+      "Au-W"
+    ]
+  },
+  "deposit_type": "Orogenic (lode) gold",
+  "dataset_fields": {
+    "public_availability": "Yes",
+    "types": [
+      "Gold data; points",
+      "Geological data; shapefiles",
+      "Lithogeochemical data; points",
+      "Geophysical data; continuous surface maps"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Training from Matheson and Dryden areas to application in gold exploration"
+  },
+  "key_points": [
+    "Identified exploration targets in Matheson are closely associated with major faults.",
+    "Exploration targets in Dryden are in mafic rocks near large granitoid intrusions.",
+    "3D geophysical data indicate significant differences in mineralization potential between the two areas.",
+    "Isotopic data reveal that the Matheson area has a more juvenile crust compared to Dryden."
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2025,
+    "Month": 3,
+    "Journal": "Minerals",
+    "Journal Impact factor": "Unknown",
+    "Title": "Applying Mineral System Criteria to Develop a Predictive Modelling for Epithermal Gold Mineralization in Northern New Brunswick: Using Knowledge-Driven and Data-Driven Methods",
+    "Author": "Farzaneh Mami Khalifani, David R. Lentz, James A. Walker, Fereshteh Khammar",
+    "url": "https://doi.org/10.3390/min15040345"
+  },
+  "abstract": "Using mineral prospectivity mapping (MPM), the mineral systems approach enables the identification of geological indicators linked to ore formation. This approach streamlines exploration by minimizing the time and cost required to identify areas with the highest mineral potential. In northern New Brunswick, the Tobique\u2013Chaleur Zone contains several orogenic and epithermal gold systems. This study employed MPM by translating key mineral system components into mappable criteria for regional-scale analysis, integrating knowledge-based and data-driven methods, including fuzzy logic, geometric average, and logistic regression approaches. The fuzzy overlay model had the highest predictive accuracy (AUC 0.97).",
+  "methodology": "supervised > tree-based > logistic regression; supervised > tree-based > fuzzy logic; supervised > tree-based > geometric average",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Epithermal Au-Ag (HS/LS/IS)",
+    "commodities_elements": [
+      "Au",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "HS Au-Ag-Cu-Te",
+      "LS Au-Ag-Sb-As",
+      "IS Au-Ag-Cu"
+    ]
+  },
+  "Deposit type": "Epithermal Au-Ag (HS/LS/IS)",
+  "dataset": {
+    "public_availability": "Yes",
+    "types": [
+      "Geological data; Unknown",
+      "Geochemical data; Unknown",
+      "Geophysical data; Unknown"
+    ],
+    "train/app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "Applied MPM technique to identify high-favorability zones for epithermal gold mineralization.",
+    "Integrated geological expertise with fuzzy logic, geometric average, and logistic regression.",
+    "Identified zones strongly correlated with known gold occurrences.",
+    "Fuzzy logic model achieved the highest predictive accuracy (AUC = 0.97).",
+    "Geological, geochemical, and geophysical datasets were crucial in defining evidence layers."
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2023,
+    "Month": "October",
+    "Journal": "Natural Resources Research",
+    "Journal Impact factor": "Unknown",
+    "Title": "A Framework for Data-Driven Mineral Prospectivity Mapping with Interpretable Machine Learning and Modulated Predictive Modeling",
+    "Author": "Nini Mou, Emmanuel John M. Carranza, Gongwen Wang, Xiang Sun",
+    "url": "https://doi.org/10.1007/s11053-023-10272-7"
+  },
+  "abstract": "This study constructs a framework to improve data-driven mineral prospectivity mapping (MPM) in the Qulong\u2013Jiama mineral district of Tibet. It addresses the interpretability of black box models and bias in high-prospectivity areas. The mineral systems concept is applied to select targeting criteria, and model-agnostic methods are used to interpret machine learning models. An ensemble method combines bootstrapping and Random Forest to generate modulated prediction models, identifying exploration targets that occupy just 3% of the study area.",
+  "methodology": "supervised > tree-based > random forest; supervised > kernel-based > support vector machine",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Porphyry Cu(-Mo-Au-Ag)",
+    "commodities_elements": [
+      "Cu",
+      "Mo",
+      "Au",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Cu-Mo",
+      "Cu-Au",
+      "Cu-Mo-Au",
+      "Cu-Au-Ag"
+    ]
+  },
+  "Deposit type": "Porphyry Cu(-Mo-Au-Ag)",
+  "dataset": {
+    "public_availability": "Yes",
+    "types": [
+      "Geological map; scale 1:50,000",
+      "ASTER satellite imagery; Level-07XT data",
+      "Geochemical samples; 7207 samples for 13 elements (Ag, As, Au, Cu, Ba, Bi, Hg, Mo, Pb, Sn, Sb, W, Zn)",
+      "Ground-based magnetic survey; scale 1:50,000"
+    ],
+    "train_app_relationship": "Same",
+    "scope": "Unknown"
+  },
+  "key_points": [
+    "Framework improves interpretability of mineral prospectivity models.",
+    "Addresses bias in high-prospectivity areas.",
+    "Utilizes model-agnostic methods for interpretation.",
+    "Ensemble method combines bootstrapping with Random Forest.",
+    "Final exploration targets occupy only 3% of the study area."
+  ]
+}

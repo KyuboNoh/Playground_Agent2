@@ -1,0 +1,56 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2024,
+    "Month": "May",
+    "Journal": "Ore Geology Reviews",
+    "Journal Impact factor": "Unknown",
+    "Title": "Three-dimensional mineral prospectivity mapping based on natural language processing and random forests: A case study of the Xiyu diamond deposit, China",
+    "Author": "Guanyun Zhou, Jianping Chen, Wentong An, Chang Liu, Wei Li",
+    "url": "https://doi.org/10.1016/j.oregeorev.2024.106082"
+  },
+  "abstract": "This study presents a novel workflow for integrating geological text big data into three-dimensional mineral prospectivity mapping (3DMPM). Focusing on the Xiyu kimberlite-type diamond deposit in Shandong, China, exploration criteria were constructed using text mining technologies. A random forests classification model was applied to predict mineralization, demonstrating the effectiveness of the workflow in coupling geological data and knowledge.",
+  "methodology": "supervised > tree-based > random forest",
+  "commodity": {
+    "major_category": "Magmatic",
+    "minor_category": "Kimberlite/Lamproite (diamond)",
+    "commodities_elements": [
+      "Diamond",
+      "Garnet (G10)",
+      "Chromite (Cr)",
+      "Ilmenite (Ti)"
+    ],
+    "commodities_combined": [
+      "Diamond+IndicatorMinerals"
+    ]
+  },
+  "deposit_type": "Kimberlite/Lamproite (diamond)",
+  "dataset_fields": {
+    "public_availability": "Available on request",
+    "types": [
+      {
+        "data_type": "Topographic map",
+        "unit": "Scale 1:2000; 1:10000"
+      },
+      {
+        "data_type": "Geologic section",
+        "unit": "Scale 1:1000"
+      },
+      {
+        "data_type": "Drill-hole data",
+        "unit": "Depth (m)"
+      },
+      {
+        "data_type": "Geological plan of mining level",
+        "unit": "Scale 1:1000"
+      }
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "Integration of geological text big data into 3D mineral prospectivity mapping.",
+    "Construction of exploration criteria using text mining technologies.",
+    "Application of random forests for mineralization prediction.",
+    "Demonstrated effectiveness of the workflow in geological data coupling."
+  ]
+}

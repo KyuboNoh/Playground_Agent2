@@ -1,0 +1,48 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2025,
+    "Month": "July",
+    "Journal": "Ore Geology Reviews",
+    "Journal Impact factor": "Unknown",
+    "Title": "Multi-model decision system: An ensemble deep learning model to enhance predictive power in mineral prospectivity mapping",
+    "Author": "Zeinab Soltani, Hossein Hassani, Saeid Esmaeiloghli",
+    "url": "https://doi.org/10.1016/j.oregeorev.2025.106768"
+  },
+  "abstract": "Deep learning (DL) models have emerged as cutting-edge technologies in the recent decade and have shown remarkable capabilities for metal exploration and mineral prospectivity mapping (MPM). The relevance of DL architectures for MPM applications is attributed to their robust competencies in auto-identifying non-linear features and handling big exploration data in complex Earth systems. However, depending on the use of different models, DL-based MPM procedures may result in diverse mineralization-related spatial patterns. This instability can introduce uncertainty into DL-derived MPM predictions, making it challenging to select the appropriate DL architecture. Here, we conceptualize and discuss an innovative ensemble system designed to create synergies between multiple DL-based predictions, thereby mitigating instabilities from mineralization-related spatial patterns derived from different DL models.",
+  "methodology": "supervised > deep learning > ensemble",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "IOCG (Iron Oxide Copper-Gold)",
+    "commodities_elements": [
+      "Fe",
+      "Cu",
+      "Au",
+      "U",
+      "REE",
+      "Co",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Cu-Au-U-REE-Fe",
+      "Cu-Au-Co"
+    ]
+  },
+  "deposit_type": "IOCG (Iron Oxide Copper-Gold)",
+  "dataset": {
+    "public_availability": "Confidential",
+    "types": [
+      "Geological data; Unknown",
+      "Geochemical data; Unknown",
+      "Remote sensing data; Unknown"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "The study introduces a multi-model decision system (MMDS) for mineral prospectivity mapping.",
+    "The MMDS integrates predictions from multiple deep learning models to enhance predictive power.",
+    "The methodology was applied to the Feizabad district in NE Iran, targeting IOCG-type mineralization.",
+    "Success-rate curves indicated that the MMDS-derived prospectivity map outperformed stand-alone models.",
+    "The ensemble approach effectively mitigates uncertainties in mineralization-related spatial patterns."
+  ]
+}

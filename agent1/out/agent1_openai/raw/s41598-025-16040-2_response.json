@@ -1,0 +1,44 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2025,
+    "Month": "August",
+    "Journal": "Scientific Reports",
+    "Journal Impact factor": "Unknown",
+    "Title": "Deep learning and fractal-wavelet techniques for magnetite-apatite exploration in Tarom Iran",
+    "Author": "Mohammad Mahdi Pourgholam, Ahmad Adib, Peyman Afzal, Kambiz Rahbar, Mehran Gholinejad",
+    "url": "https://doi.org/10.1038/s41598-025-16040-2"
+  },
+  "abstract": "This study proposes an approach to detect iron-apatite mineralization and paragenesis related to Iron deposits by applying an image fusion based on deep learning (FDL) on exploration datasets. The exploration dataset includes remote-sensing, airborne geophysics, stream sediment geochemistry, and geological maps. The Prospectivity model was based on logical relations between each layer or sublayer extracted features and classes. The results indicate potential regions as Mineral Prospectivity Map (MPM) using fusion-based deep learning algorithms.",
+  "methodology": "supervised > deep learning > CNN; supervised > deep learning > ResNet; supervised > deep learning > VGG-19; supervised > deep learning > GoogleNet; supervised > deep learning > AlexNet",
+  "commodity": {
+    "major_category": "Magmatic",
+    "minor_category": "IOA (Iron Oxide-Apatite)",
+    "commodities_elements": [
+      "Fe",
+      "P",
+      "REE"
+    ],
+    "commodities_combined": [
+      "Fe-REE"
+    ]
+  },
+  "Deposit type": "IOA (Iron Oxide-Apatite)",
+  "dataset_fields": {
+    "public_availability": "Available upon request",
+    "types": [
+      "Geological features; Unknown",
+      "Geochemical data; Unknown",
+      "Geophysical data; Unknown",
+      "Remote sensing data; Unknown"
+    ],
+    "train/app relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "Integration of multiple data types for mineral exploration.",
+    "Use of deep learning for anomaly detection.",
+    "High correlation between MPM and field sampling results.",
+    "Automated class boundaries via wavelet norms.",
+    "Field validation achieved 89% accuracy."
+  ]
+}

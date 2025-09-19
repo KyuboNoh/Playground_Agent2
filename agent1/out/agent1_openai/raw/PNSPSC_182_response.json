@@ -1,0 +1,42 @@
+{
+  "bibliographic_metadata": {
+    "Year": "2025",
+    "Month": "Unknown",
+    "Journal": "Proceedings of the Nigerian Society of Physical Sciences",
+    "Journal Impact factor": "Unknown",
+    "Title": "Multisource data fusion for enhanced gold mineral prospectivity mapping in Yagba West, Kogi State: a machine learning approach",
+    "Author": "Momohjimoh Abdulsalami, Jacob Funsho Omonile, Abubakar Fahad, Abdullateef Aliyu, Muhammad Kabir Yahaya",
+    "url": "https://flayoophl.com/journals/index.php/pnspsc"
+  },
+  "abstract": "Gold mineral prospectivity mapping is crucial for identifying potential gold-bearing zones and supporting exploration efforts through advanced data analytics. This study applied Support Vector Machines (SVM) and Classification and Regression Trees (CART) to generate gold mineralization maps for Yagba West, utilizing an integrated dataset comprising SRTM DEM, Landsat 8 imagery, geological maps, and aeromagnetic data. The SVM model mapped a 249.58 km\u00b2 gold-prospective area with 96% validation accuracy, while the CART model identified 132.13 km\u00b2 with 97% accuracy. The findings underscore the potential of machine learning in enhancing gold prospectivity mapping and optimizing exploration strategies.",
+  "methodology": "supervised > tree-based > random forest; supervised > tree-based > decision tree (CART)",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Vein systems (hypothermal/mesothermal/epithermal)",
+    "commodities_elements": [
+      "Au"
+    ],
+    "commodities_combined": [
+      "Au"
+    ]
+  },
+  "deposit_type": "Vein systems (hypothermal/mesothermal/epithermal)",
+  "dataset": {
+    "public_availability": "Available on request",
+    "types": [
+      "SRTM DEM; m",
+      "Landsat 8 imagery; Unknown",
+      "Geological maps; Unknown",
+      "Aeromagnetic data; Unknown"
+    ],
+    "train_app_relationship": "Same",
+    "scope": "Yagba West, Kogi State"
+  },
+  "key_points": [
+    "Utilized SVM and CART for gold mineralization mapping.",
+    "SVM identified a larger area (249.58 km\u00b2) compared to CART (132.13 km\u00b2).",
+    "Both models demonstrated high classification performance.",
+    "Gold occurrences are concentrated in quartzite and schist formations.",
+    "Machine learning enhances exploration strategies in structurally controlled terrains."
+  ]
+}

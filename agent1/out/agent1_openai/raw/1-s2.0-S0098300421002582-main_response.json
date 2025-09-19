@@ -1,0 +1,41 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2022,
+    "Month": "October",
+    "Journal": "Computers & Geosciences",
+    "Journal Impact factor": "Unknown",
+    "Title": "Mineral prospectivity mapping using a joint singularity-based weighting method and long short-term memory network",
+    "Author": "Ziye Wang, Renguang Zuo",
+    "url": "https://doi.org/10.1016/j.cageo.2021.104974"
+  },
+  "abstract": "This study develops a joint workflow combining a singularity-based weighting method and a long short-term memory (LSTM) network for mineral prospectivity mapping (MPM). The approach evaluates geological features' importance for mineralization and integrates them using LSTM to extract deep geological information. A case study targeting Fe mineralization in southwestern Fujian Province, China, demonstrates the effectiveness of this method, revealing that known Fe deposits are located in high prospective regions identified by the model.",
+  "methodology": "supervised > deep learning > long short-term memory network (LSTM)",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "VMS (Volcanogenic Massive Sulfide)",
+    "commodities_elements": [
+      "Fe"
+    ],
+    "commodities_combined": [
+      "Fe"
+    ]
+  },
+  "Deposit type": "VMS (Volcanogenic Massive Sulfide)",
+  "dataset": {
+    "public_availability": "Yes",
+    "types": [
+      "Geological data; Unknown",
+      "Geochemical data; 39 major and trace elements",
+      "Geophysical data; Airborne total magnetic intensity; nT"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Training area to Testing area"
+  },
+  "key_points": [
+    "Developed a joint workflow for mineral prospectivity mapping.",
+    "Utilized a singularity-based weighting method for geological features.",
+    "Employed a long short-term memory network for data integration.",
+    "Case study focused on Fe mineralization in southwestern Fujian Province.",
+    "Model predictions aligned closely with known Fe deposit locations."
+  ]
+}

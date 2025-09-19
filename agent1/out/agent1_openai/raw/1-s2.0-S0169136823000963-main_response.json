@@ -1,0 +1,51 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2023,
+    "Month": "March",
+    "Journal": "Ore Geology Reviews",
+    "Journal Impact factor": "Unknown",
+    "Title": "Mineral prospectivity mapping using attention-based convolutional neural network",
+    "Author": "Quanke Li, Guoxiong Chen, Lei Luo",
+    "url": "https://doi.org/10.1016/j.oregeorev.2023.105381"
+  },
+  "abstract": "Data-driven mineral prospectivity mapping (MPM) based on deep learning methods has become a powerful tool for mineral exploration targeting in the past years. Convolutional neural networks (CNNs) have shown great success in this field because of their powerful ability to capture the complex spatial geo-anomalies related to mineralization. However, the exploration big data applied to MPM mainly relies on the high dimensions of evidence layers, which impedes the extraction of key channel features. This paper developed an ensemble MPM method based on CNN and Attention model: the ATT\u2013CNN method. A case study of W\u2013Sn mineral prospectivity modeling in the Nanling metallogenic belt in South China was used to verify the proposed method. The results show that the prediction accuracies of the ATT\u2013CNN model are higher than those of the traditional CNN, suggesting that the proposed ensemble method improves the geological generalization of CNN.",
+  "methodology": "supervised > deep learning > convolutional neural network (CNN); supervised > deep learning > attention-based model",
+  "commodity": {
+    "major_category": "Magmatic",
+    "minor_category": "Unknown",
+    "commodities_elements": [
+      "W",
+      "Sn"
+    ],
+    "commodities_combined": [
+      "W-Sn"
+    ]
+  },
+  "deposit_type": "Unknown",
+  "dataset": {
+    "public_availability": "No",
+    "types": [
+      {
+        "data_type": "Geochemical data",
+        "units": "Unknown"
+      },
+      {
+        "data_type": "Geological data",
+        "units": "Unknown"
+      },
+      {
+        "data_type": "Geophysical data",
+        "units": "Unknown"
+      }
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "Developed ATT\u2013CNN method for mineral prospectivity mapping.",
+    "Improved prediction accuracy compared to traditional CNN.",
+    "Case study conducted in the Nanling metallogenic belt, South China.",
+    "Data augmentation methods used to alleviate training sample scarcity.",
+    "High agreement with known deposits suggests effective targeting."
+  ]
+}

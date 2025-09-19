@@ -1,0 +1,56 @@
+{
+  "Bibliographic metadata": {
+    "Year": "2021",
+    "Month": "July",
+    "Journal": "Applied Geochemistry",
+    "Journal Impact factor": "Unknown",
+    "Title": "A copper porphyry promising zones mapping based on the exploratory data, multivariate geochemical analysis and GIS integration",
+    "Author": "Farzad Moradpouri, Mohammad Hayati",
+    "url": "https://doi.org/10.1016/j.apgeochem.2021.105051"
+  },
+  "Abstract": "The aim of this paper is to generate the mineral prospectivity mapping (MPM) for a porphyry copper mineralization area. First, three information layers of geochemistry, geophysics, and geology were defined as the main criteria with a total of 13 sub-criteria. A multivariate geochemical analysis (MGA) was performed to reduce the number of measured elements to those most related to Cu mineralization. The final step involved discriminant analysis (DA), PCA, and agglomerative hierarchical clustering (AHC) analysis to identify the main elements related to Cu mineralization. The PROMETHEE method was then applied to generate MPMs in Arc GIS 10.5 software, identifying promising areas for future exploration programs.",
+  "Methodology": "supervised > tree-based > random forest; supervised > tree-based > gradient boosting (GBDT); knowledge-driven > multicriteria decision analysis > AHP; knowledge-driven > multicriteria decision analysis > TOPSIS",
+  "Commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Porphyry Cu(-Mo-Au-Ag)",
+    "commodities_elements": [
+      "Cu",
+      "Mo",
+      "Au",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Cu-Mo",
+      "Cu-Au",
+      "Cu-Mo-Au",
+      "Cu-Au-Ag"
+    ]
+  },
+  "Deposit type": "Porphyry Cu(-Mo-Au-Ag)",
+  "Dataset": {
+    "public availability": "Unknown",
+    "types": [
+      {
+        "data_type": "Geochemical data",
+        "unit": "ppm"
+      },
+      {
+        "data_type": "Geophysical data (Magnetic and IP anomalies)",
+        "unit": "Unknown"
+      },
+      {
+        "data_type": "Geological data",
+        "unit": "Unknown"
+      }
+    ],
+    "train/app relationship": "Same",
+    "scope": "Unknown"
+  },
+  "Key points": [
+    "Generated mineral prospectivity mapping (MPM) for porphyry copper mineralization.",
+    "Utilized geochemical, geophysical, and geological data as main criteria.",
+    "Performed multivariate geochemical analysis to identify key elements related to Cu mineralization.",
+    "Applied PROMETHEE method for decision-making in mineral exploration.",
+    "Mapped promising areas for future exploration using GIS."
+  ]
+}

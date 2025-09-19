@@ -1,0 +1,56 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2021,
+    "Month": "July",
+    "Journal": "Natural Resources Research",
+    "Journal Impact factor": "Unknown",
+    "Title": "A Hybrid Logistic Regression: Gene Expression Programming Model and Its Application to Mineral Prospectivity Mapping",
+    "Author": "Fan Xiao, Weilin Chen, Jun Wang, Oktay Erten",
+    "url": "https://doi.org/10.1007/s11053-021-09918-1"
+  },
+  "abstract": "This study proposes a hybrid model combining logistic regression (LR) with gene expression programming (GEP) for mineral prospectivity mapping (MPM). The hybrid GEP\u2013LR model addresses the limitations of ordinary LR by automatically discovering symbolic functions without linear assumptions. The model's performance is validated through synthetic data modeling and a case study on porphyry Cu\u2013Mo polymetallic deposits in the Eastern Tianshan region, demonstrating its robustness in predicting mineral prospectivity.",
+  "methodology": "supervised > generalized linear models > logistic regression; supervised > tree-based > random forest",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Porphyry Cu(-Mo-Au-Ag)",
+    "commodities_elements": [
+      "Cu",
+      "Mo",
+      "Au",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Cu-Mo",
+      "Cu-Au",
+      "Cu-Mo-Au",
+      "Cu-Au-Ag"
+    ]
+  },
+  "deposit_type": "Porphyry Cu(-Mo-Au-Ag)",
+  "dataset": {
+    "public_availability": "Unknown",
+    "types": [
+      {
+        "data_type": "Geological data",
+        "units": "Unknown"
+      },
+      {
+        "data_type": "Geophysical data",
+        "units": "Unknown"
+      },
+      {
+        "data_type": "Geochemical data",
+        "units": "Unknown"
+      }
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "The hybrid GEP\u2013LR model improves the robustness of ordinary LR methods.",
+    "It effectively handles both linear and nonlinear data distributions.",
+    "The model outperforms ordinary LR in predicting mineral prospectivity.",
+    "The study area is located in the Eastern Tianshan region, known for its Cu\u2013Mo deposits.",
+    "The model utilizes various geological, geophysical, and geochemical evidence for mapping."
+  ]
+}

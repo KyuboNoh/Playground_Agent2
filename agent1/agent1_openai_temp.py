@@ -56,67 +56,234 @@ rules2_str = _load_rule_json(_repo_root / "Rule2_method_classification.json")
 
 # ---------------------------------------------------------------------------
 # Prompt payloads used as inputs for the LLM
-# (sourced from agent1_openai.py to keep behaviour aligned)
+# (sourced from agent2_json_to_csv.py to keep behaviour aligned)
 # ---------------------------------------------------------------------------
 system_msg = {
     "role": "system",
     "content": (
         "You are an expert geoscientist and computational scientist.\n"
-        "TASK SCOPE (hard constraints):\n"
-        "• Read each paper in pdf and summarize with given RULE that will be shown below.\n"
-        "COMMODITY RULES (authoritative):\n"
-        "you MUST return a CSV files with EXACT keys "
-        "major_category, minor_category, commodities_elements, commodities_combined (no extra keys, no strings). "
-        "If you cannot map a paper to a commodity in the rules, OMIT that paper entirely.\n"
+        "TASK SCOPE:\n"
+        "• Read the attached PDF and extract structured metadata and content.\n"
+        "• Classify COMMODITY strictly using the provided Rule1 JSON (authoritative). If you cannot map the paper to a rule, leave the Commodity out.\n"
+        "• Classify METHODOLOGY strictly using the provided Rule2 JSON (authoritative). If you cannot map, leave empty.\n\n"
+        "COMMODITY RULES (Rule1_OreDeposit.json):\n"
+        "Return 'Commodity' as a JSON OBJECT copied from the rule with EXACT keys:\n"
+        "  major_category, minor_category, commodities_elements, commodities_combined\n"
+        "Also return 'Deposit type' equal to the rule's 'minor_category'.\n"
         f"{rules1_str}\n\n"
-        "METHODOLOGY RULES (authoritative):\n"
-        "you MUST return a CSV files with EXACT keys "
+        "METHODOLOGY RULES (Rule2_method_classification.json):\n"
+        "Return 'Methodology' as a semicolon-separated list of canonical class labels from this mapping only (no free text):\n"
         f"{rules2_str}\n\n"
         "OUTPUT RULES:\n"
-        "• Return in CSV format (no prose/markdown/code fences). If nothing qualifies, return [].\n"
-        "• Do NOT guess: if a field is unknown, set it to 'Unknown'.\n"
+        "• Return ONLY JSON that matches the provided schema (no prose/markdown/code fences). If nothing qualifies, return an empty object or empty arrays where appropriate.\n"
+        "• Never fabricate: if a field is unknown, set it to 'Unknown'.\n"
+        "• Prefer values explicitly present in the PDF. If the PDF lacks a field, leave it 'Unknown'.\n"
     ),
 }
 
 user_msg = {
     "role": "user",
     "content": (
-        "You are a research assistant helping a mineral exploration team. "
-        "Read the attached PDF (a journal article) carefully. "
-        "Extract structured bibliographic metadata, a concise abstract, "
-        "and the methodological/commodity information required for our tracking sheet. "
-        "Focus on the actual content of the PDF—do not fabricate values. "
-        "If a field is not explicitly stated, return an empty string for that field. "
-        "Additionally, summarise the paper's key findings into short bullet points.\n\n"
-        "Use EXACT keys per item: Index, Year, Month, Journal, Journal Impact factor, Methodology, Title, Author, Study Country, Study Province/Region"
-        "URL of the papers, Public availability original dataset, Training/Application dataset type, "
-        "Training vs Application dataset relationship, Training to application scope, URL of the data server, Commodity, "
-        "(Commodity 2, Commodity 3, ...; Optional when multiple commodities).\n"
-        "For 'Training vs Application dataset relationship', return 'Same' when the same dataset (even if split into subsets) is used for both training and application; otherwise return 'Different'."
-        " When the relationship is 'Different', describe the transfer as 'Region A to Region B' (or similar) in 'Training to application scope' using the study areas discussed in the paper.\n"
-        "Unknown fields → 'Unknown'. Return ONLY valid JSON (array of objects)."
+        "You are a research assistant helping a mineral exploration team. Read the attached PDF.\n"
+        "Extract:\n"
+        "• Bibliographic metadata (Year, Month, Journal, Journal Impact factor, Title, Author, url)\n"
+        "• Abstract (concise)\n"
+        "• Methodology (use Rule2 classes only)\n"
+        "• Commodity (as a Rule1 object) and Deposit type (= Rule1 minor_category)\n"
+        "• Dataset fields (public availability, types (List all kinds af data and their units (e.g., magnetic field; nT), train/app relationship & scope)\n"
+        "• Key points (bullets)\n\n"
+        "For 'Training vs Application dataset relationship': return 'Same' if the same dataset is used for training and application (even if split into subsets), else 'Different'.\n"
+        "If 'Different', describe the transfer as 'Region A to Region B' in 'Training to application scope'.\n"
+        "Return ONLY JSON that matches the given schema."
     ),
+}
+
+# A Commodity OBJECT exactly like Rule1 entries
+COMMODITY_SCHEMA = {
+    "type": "object",
+    "additionalProperties": False,
+    "properties": {
+        "major_category": {"type": "string"},
+        "minor_category": {"type": "string"},
+        "commodities_elements": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+        "commodities_combined": {"type": "array", "items": {"type": "string"}, "minItems": 1}
+    },
+    "required": ["major_category", "minor_category", "commodities_elements", "commodities_combined"]
 }
 
 # ---------------------------------------------------------------------------
 # Summary CSV configuration (tabular output written after model parsing)
 # ---------------------------------------------------------------------------
 SUMMARY_COLUMNS = [
-    "Year",
-    "Month",
-    "Journal",
-    "Journal Impact factor",
-    "Commodity",
-    "Methodology",
-    "Title",
-    "Author",
-    "abstract",
-    "Public availability original dataset",
-    "Training/Application dataset type",
-    "Training vs Application dataset relationship",
-    "Training to application scope",
-    "url",
+    "Year","Month","Journal","Journal Impact factor","Commodity","Deposit type","Methodology",
+    "Title","Author","Public availability original dataset","Training/Application dataset type",
+    "Training vs Application dataset relationship","Training to application scope","url",
 ]
+
+SUMMARY_KEYS_CANON = {
+    "Year","Month","Journal","Journal Impact factor","Title","Author","abstract","url",
+    "Commodity","Deposit type","Methodology",
+    "Public availability original dataset","Training/Application dataset type",
+    "Training vs Application dataset relationship","Training to application scope"
+}
+_SUMMARY_KEYS_LOWER = {s.lower() for s in SUMMARY_KEYS_CANON}
+
+def _iter_dicts(obj: Any):
+    """Yield every dict inside obj (depth-first)."""
+    if isinstance(obj, dict):
+        yield obj
+        for v in obj.values():
+            yield from _iter_dicts(v)
+    elif isinstance(obj, list):
+        for it in obj:
+            yield from _iter_dicts(it)
+
+def _is_summary_like(d: Dict[str, Any]) -> bool:
+    if not isinstance(d, dict):
+        return False
+    keys = {k.lower() for k in d.keys() if isinstance(k, str)}
+    # consider a dict "summary-like" if it has at least 2 canonical summary keys
+    return len(keys & _SUMMARY_KEYS_LOWER) >= 2
+
+def _merge_left(a: Dict[str, Any], b: Dict[str, Any]) -> Dict[str, Any]:
+    """Return a ∪ b with b overwriting a (keep strings/arrays/objects as-is)."""
+    out = dict(a)
+    for k, v in b.items():
+        out[k] = v
+    return out
+
+def _extract_candidates(payload: Any) -> List[Dict[str, Any]]:
+    """Return a list of candidate items with unified 'summary' dicts and meta arrays."""
+    # If payload is already a list of items, process each entry independently
+    roots = payload if isinstance(payload, list) else [payload]
+    items: List[Dict[str, Any]] = []
+
+    for root in roots:
+        if not isinstance(root, (dict, list)):
+            continue
+
+        # 1) Prefer an explicit 'summary' dict if present at the root
+        if isinstance(root, dict) and isinstance(root.get("summary"), dict):
+            base = {
+                "summary": root["summary"],
+                "key_points": root.get("key_points") or [],
+                "methodology_terms": root.get("methodology_terms") or [],
+                "commodity_terms": root.get("commodity_terms") or [],
+            }
+            items.append(base)
+
+        # 2) Otherwise, search deeply for the *most complete* summary-like dict(s)
+        #    We pick the dict(s) that have the most canonical keys.
+        best_dicts: List[Dict[str, Any]] = []
+        best_score = 0
+        for d in _iter_dicts(root):
+            if not isinstance(d, dict):
+                continue
+            if "summary" in d and isinstance(d["summary"], dict):
+                cand = d["summary"]
+                score = len({k.lower() for k in cand.keys()} & _SUMMARY_KEYS_LOWER)
+                if score > best_score:
+                    best_score, best_dicts = score, [cand]
+                elif score == best_score and score > 0:
+                    best_dicts.append(cand)
+            elif _is_summary_like(d):
+                score = len({k.lower() for k in d.keys()} & _SUMMARY_KEYS_LOWER)
+                if score > best_score:
+                    best_score, best_dicts = score, [d]
+                elif score == best_score and score > 0:
+                    best_dicts.append(d)
+
+        if best_dicts:
+            # Merge all best candidates (last one wins), so scattered fields combine
+            merged = {}
+            for d in best_dicts:
+                merged = _merge_left(merged, d)
+            items.append({
+                "summary": merged,
+                "key_points": [],
+                "methodology_terms": [],
+                "commodity_terms": [],
+            })
+
+    # De-duplicate identical summaries by a stable fingerprint
+    uniq, seen = [], set()
+    for it in items:
+        s = it.get("summary") or {}
+        fp = tuple(sorted((k.lower(), str(v)) for k, v in s.items() if isinstance(k, str)))
+        if fp not in seen and s:
+            seen.add(fp)
+            uniq.append(it)
+    return uniq
+
+def _normalise_model_payload(payload: Any) -> List[Dict[str, Any]]:
+    """Wrapper that uses the deep extractor and guarantees the contract."""
+    candidates = _extract_candidates(payload)
+    # Always return at least one item with empty summary if nothing matched
+    return candidates or [{"summary": {}, "key_points": [], "methodology_terms": [], "commodity_terms": []}]
+
+def commodity_obj_to_path(obj: dict | None) -> str:
+    if not isinstance(obj, dict):
+        return "Unknown"
+    major = obj.get("major_category") or "Unknown"
+    minor = obj.get("minor_category") or "Unknown"
+    elems = obj.get("commodities_elements") or []
+    combs = obj.get("commodities_combined") or []
+    elem_str = " + ".join(map(str, elems)) if elems else "Unknown"
+    comb_str = " + ".join(map(str, combs)) if combs else elem_str
+    return f"{major}/{minor}/{elem_str}/{comb_str}"
+
+def row_from_model_json(payload: dict) -> dict[str, str]:
+    row = {c: "Unknown" for c in SUMMARY_COLUMNS}
+
+    # 1) Bibliographic block
+    b = payload.get("bibliographic_metadata") or {}
+    if isinstance(b, dict):
+        if b.get("Year") is not None: row["Year"] = str(b.get("Year"))
+        if b.get("Month"): row["Month"] = str(b.get("Month"))
+        if b.get("Journal"): row["Journal"] = str(b.get("Journal"))
+        if b.get("Journal Impact factor") is not None:
+            row["Journal Impact factor"] = str(b.get("Journal Impact factor"))
+        if b.get("Title"): row["Title"] = str(b.get("Title"))
+        a = b.get("Author")
+        if a is not None:
+            row["Author"] = "; ".join(map(str, a)) if isinstance(a, list) else str(a)
+        if b.get("url"): row["url"] = str(b.get("url"))
+
+    # 2) Methodology (flat string)
+    if payload.get("methodology"):
+        row["Methodology"] = str(payload["methodology"])
+
+    # 3) Commodity object -> path; Deposit type from explicit field or minor_category
+    com = payload.get("commodity")
+    if isinstance(com, dict):
+        row["Commodity"] = commodity_obj_to_path(com)
+        dep = payload.get("Deposit type")
+        row["Deposit type"] = dep.strip() if isinstance(dep, str) and dep.strip() else (com.get("minor_category") or "Unknown")
+
+    # 4) Dataset fields
+    ds = payload.get("dataset_fields") or {}
+    if isinstance(ds, dict):
+        if ds.get("public_availability") is not None:
+            val = ds["public_availability"]
+            row["Public availability original dataset"] = "True" if val in (True, "Yes", "yes", "TRUE") else str(val)
+        types = ds.get("types") or []
+        parts = []
+        if isinstance(types, list):
+            for t in types:
+                if isinstance(t, dict):
+                    dt = (t.get("data_type") or "").strip()
+                    unit = (t.get("unit") or "").strip()
+                    parts.append(f"{dt} ({unit})" if dt and unit else dt or unit)
+                else:
+                    parts.append(str(t))
+        if parts:
+            row["Training/Application dataset type"] = "; ".join(filter(None, parts))
+        if ds.get("train_app_relationship"):
+            row["Training vs Application dataset relationship"] = str(ds["train_app_relationship"])
+        if ds.get("scope"):
+            row["Training to application scope"] = str(ds["scope"])
+
+    return row
 
 # Alternate field names occasionally produced by the LLM. These aliases
 # improve our chances of capturing key metadata even when the response
@@ -161,6 +328,15 @@ SUMMARY_FIELD_ALIASES: Dict[str, List[str]] = {
         "Training application scope",
     ],
 }
+
+SUMMARY_FIELD_ALIASES.update({
+    "Year": ["Publication Year", "Published Year"],
+    "Month": ["Publication Month"],
+    "Journal": ["Journal Name"],
+    "Title": ["Paper Title"],
+    "Author": ["Authors","Author(s)"],
+    "url": ["URL","Url","Link","DOI","doi","URL of the paper","URL of the papers"],
+})
 
 SUMMARY_FIELD_ALIAS_SOURCES_ENV = "SUMMARY_FIELD_ALIAS_URLS"
 SUMMARY_FIELD_ALIAS_CACHE = OUT_DIR / "summary_field_aliases_cache.json"
@@ -403,57 +579,58 @@ RESPONSE_FORMAT = {
     "type": "json_schema",
     "json_schema": {
         "name": "paper_review",
+        "strict": True,  # << enforce schema
         "schema": {
             "type": "object",
+            "additionalProperties": False,
             "properties": {
                 "summary": {
                     "type": "object",
+                    "additionalProperties": False,
                     "properties": {
                         "Year": {"type": "string"},
                         "Month": {"type": "string"},
                         "Journal": {"type": "string"},
                         "Journal Impact factor": {"type": "string"},
-                        "Commodity": {"type": "string"},
-                        "Methodology": {"type": "string"},
                         "Title": {"type": "string"},
                         "Author": {"type": "string"},
                         "abstract": {"type": "string"},
-                        "Public availability original dataset": {"type": "boolean"},
+                        "url": {"type": "string"},
+                        "Commodity": COMMODITY_SCHEMA,
+                        "Deposit type": {"type": "string"},  # << was object; must be string = minor_category
+                        "Methodology": {"type": "string"},    # semicolon-separated canonical labels
+                        "Public availability original dataset": {"type": ["string","boolean"]},  # allow 'Unknown'
                         "Training/Application dataset type": {"type": "string"},
                         "Training vs Application dataset relationship": {"type": "string"},
-                        "Training to application scope": {"type": "string"},
-                        "url": {"type": "string"},
+                        "Training to application scope": {"type": "string"}
                     },
-                    "required": ["Title"],
-                    "additionalProperties": False,
+                    # Require the stuff you actually need in the CSV.
+                    # The model will use 'Unknown' if the PDF lacks it.
+                    "required": [
+                        "Title", "Author", "Year", "Journal", "Journal Impact factor",
+                        "Methodology", "Commodity", "Deposit type", "url"
+                    ]
                 },
                 "key_points": {
                     "type": "array",
                     "items": {
                         "type": "object",
+                        "additionalProperties": False,
                         "properties": {
                             "summary": {"type": "string"},
                             "page_reference": {"type": "string"},
                             "evidence": {"type": "string"},
-                            "confidence": {"type": "string"},
+                            "confidence": {"type": "string"}
                         },
-                        "required": ["summary"],
-                        "additionalProperties": False,
-                    },
+                        "required": ["summary"]
+                    }
                 },
-                "methodology_terms": {
-                    "type": "array",
-                    "items": {"type": "string"},
-                },
-                "commodity_terms": {
-                    "type": "array",
-                    "items": {"type": "string"},
-                },
+                "methodology_terms": {"type": "array", "items": {"type": "string"}},
+                "commodity_terms": {"type": "array", "items": {"type": "string"}}
             },
-            "required": ["summary"],
-            "additionalProperties": False,
-        },
-    },
+            "required": ["summary"]
+        }
+    }
 }
 
 # ---------------------------------------------------------------------------
@@ -583,8 +760,6 @@ def _map_commodities(rows: List[Dict[str, Any]]):
             "commodities",
             "Title",
             "title",
-            "Abstract",
-            "abstract",
         ):
             val = row.get(key)
             if val:
@@ -721,40 +896,27 @@ def _parse_response_json(text: str, pdf_name: str) -> Dict[str, Any]:
                 pass
     raise RuntimeError(f"OpenAI response for {pdf_name} was not valid JSON.")
 
-
-def _call_openai_with_pdf(client: OpenAI, pdf_path: Path, model: str, schema: dict) -> Dict[str, Any]:
+def _call_openai_with_pdf(client: OpenAI, pdf_path: Path, model: str, schema: dict | None) -> Dict[str, Any]:
     with pdf_path.open("rb") as fh:
         uploaded = client.files.create(file=fh, purpose="assistants")
-
     file_id = uploaded.id
     try:
         system_content, user_content = _prepare_prompt(pdf_path.name)
         user_content.append({"type": "input_file", "file_id": file_id})
+
         request_payload = {
             "model": model,
             "input": [
                 {"role": "system", "content": system_content},
-                {"role": "user", "content": user_content},
+                {"role": "user",   "content": user_content},
             ],
             "temperature": temperature,
+            "max_output_tokens": 2000,
         }
-        if schema:
-            request_payload["response_format"] = schema
 
-        try:
-            response = client.responses.create(**request_payload)
-        except TypeError as exc:
-            # Older versions of the OpenAI Python client (<= 1.14) do not yet
-            # support the ``response_format`` argument on ``responses.create``.
-            # Fall back to a plain JSON response by retrying without the schema
-            # when we encounter this specific incompatibility.
-            if "response_format" in str(exc) and "unexpected keyword" in str(exc):
-                request_payload.pop("response_format", None)
-                response = client.responses.create(**request_payload)
-            else:
-                raise
+        # IMPORTANT: No response_format here (older SDKs don't accept it)
+        response = client.responses.create(**request_payload)
         text = response.output_text
-        print(text)
         return _parse_response_json(text, pdf_path.name)
     finally:
         try:
@@ -767,8 +929,9 @@ def _call_openai_with_pdf(client: OpenAI, pdf_path: Path, model: str, schema: di
 # Row construction + CSV writing
 # ---------------------------------------------------------------------------
 
+
 def _coerce_summary(data: Dict[str, Any]) -> Dict[str, Any]:
-    row = {col: "" for col in SUMMARY_COLUMNS}
+    row = {col: "Unknown" for col in SUMMARY_COLUMNS}
     if not isinstance(data, dict):
         return row
 
@@ -779,6 +942,25 @@ def _coerce_summary(data: Dict[str, Any]) -> Dict[str, Any]:
 
     for col in SUMMARY_COLUMNS:
         value: Any | None = None
+
+        # Special handling for Commodity -> path + Deposit type
+        if col == "Commodity":
+            val = data.get("Commodity") or lower_map.get("commodity")
+            if val:
+                row["Commodity"] = commodity_obj_to_path(val)
+                if not row.get("Deposit type") and isinstance(val, dict) and val.get("minor_category"):
+                    row["Deposit type"] = str(val["minor_category"]).strip()
+            continue
+
+        if col == "Deposit type":
+            val = data.get("Deposit type") or lower_map.get("deposit type")
+            if isinstance(val, dict) and val.get("minor_category"):
+                row[col] = str(val["minor_category"]).strip()
+            elif val is not None:
+                row[col] = str(val).strip()
+            continue
+
+        # Generic mapping + aliases
         if col in data and data[col] is not None:
             value = data[col]
         else:
@@ -800,56 +982,87 @@ def _coerce_summary(data: Dict[str, Any]) -> Dict[str, Any]:
                             if "impact" in key_lower and "factor" in key_lower and candidate is not None:
                                 value = candidate
                                 break
+
+        # Normalize booleans → strings for CSV
+        if isinstance(value, bool):
+            value = "True" if value else "False"
+
         if value is not None:
             row[col] = str(value).strip()
+
     return row
 
+def _last_chance_fill(summary_row: Dict[str, Any], raw_summary: Dict[str, Any]):
+    # Common containers the model sometimes uses
+    for container_key in ("bibliography","biblio","metadata","paper","info"):
+        sub = raw_summary.get(container_key)
+        if not isinstance(sub, dict):
+            continue
+        # simple case-insensitive lift
+        low = {k.lower(): v for k, v in sub.items() if isinstance(k,str)}
+        if summary_row["Year"] == "Unknown" and "year" in low: summary_row["Year"] = str(low["year"]).strip()
+        if summary_row["Month"] == "Unknown" and "month" in low: summary_row["Month"] = str(low["month"]).strip()
+        if summary_row["Journal"] == "Unknown" and "journal" in low: summary_row["Journal"] = str(low["journal"]).strip()
+        if summary_row["Journal Impact factor"] == "Unknown":
+            for k in list(low.keys()):
+                if "impact" in k and "factor" in k and sub[k] is not None:
+                    summary_row["Journal Impact factor"] = str(sub[k]).strip()
+                    break
+        if summary_row["Title"] == "Unknown" and "title" in low: summary_row["Title"] = str(low["title"]).strip()
+        if summary_row["Author"] == "Unknown":
+            if "author" in low: summary_row["Author"] = "; ".join(sub["author"]) if isinstance(sub["author"], list) else str(sub["author"]).strip()
+            if "authors" in low: summary_row["Author"] = "; ".join(sub["authors"]) if isinstance(sub["authors"], list) else str(sub["authors"]).strip()
+        if summary_row["url"] == "Unknown":
+            for k in ("url","link","doi"):
+                if k in low and sub[k]:
+                    summary_row["url"] = str(sub[k]).strip()
+                    break
 
 def _normalise_model_payload(payload: Any) -> List[Dict[str, Any]]:
-    """Normalise varied OpenAI responses into a predictable structure."""
+    """Normalise varied OpenAI responses into a predictable structure.
+       If the model returns both a top-level object and a nested `summary`,
+       merge them (nested keys win), so we don't lose Year/Journal/etc.
+    """
 
     def _clean_terms(values: Any) -> List[Any]:
         if not isinstance(values, list):
             return []
-        cleaned: List[Any] = []
-        for item in values:
-            if item is None:
-                continue
-            cleaned.append(item)
-        return cleaned
+        return [item for item in values if item is not None]
+
+    META_KEYS = {"summary", "key_points", "methodology_terms", "commodity_terms"}
 
     def _convert(item: Any) -> Dict[str, Any] | None:
         if not isinstance(item, dict):
             return None
 
-        summary_data: Dict[str, Any]
+        # 1) Start with top-level keys that look like summary fields
+        merged_summary: Dict[str, Any] = {}
+        for k, v in item.items():
+            if not isinstance(k, str):
+                continue
+            if k in META_KEYS:
+                continue
+            # accept canonical keys (case-insensitive)
+            if k in SUMMARY_KEYS_CANON or k.strip().lower() in {s.lower() for s in SUMMARY_KEYS_CANON}:
+                merged_summary[k] = v
+
+        # 2) If nested `summary` exists, it overrides top-level values
         if isinstance(item.get("summary"), dict):
-            summary_data = item["summary"]
-        else:
-            meta_keys = {"summary", "key_points", "methodology_terms", "commodity_terms"}
-            summary_data = {
-                key: value
-                for key, value in item.items()
-                if isinstance(key, str) and key not in meta_keys
-            }
+            for k, v in item["summary"].items():
+                merged_summary[k] = v
 
         return {
-            "summary": summary_data,
+            "summary": merged_summary,
             "key_points": _clean_terms(item.get("key_points")),
             "methodology_terms": _clean_terms(item.get("methodology_terms")),
             "commodity_terms": _clean_terms(item.get("commodity_terms")),
         }
 
     if isinstance(payload, list):
-        normalised: List[Dict[str, Any]] = []
-        for entry in payload:
-            converted = _convert(entry)
-            if converted:
-                normalised.append(converted)
-        return normalised
+        return [c for c in (_convert(x) for x in payload) if c]
+    single = _convert(payload)
+    return [single] if single else []
 
-    converted = _convert(payload)
-    return [converted] if converted else []
 
 
 def _update_summary_csv(rows: List[Dict[str, Any]], csv_path: Path):
@@ -943,152 +1156,178 @@ def process_pdfs(
 
         raw_path = RAW_DIR / f"{pdf_path.stem}_response.json"
         raw_path.write_text(json.dumps(payload, indent=2))
+        payload = json.loads(raw_path.read_text(encoding="utf-8"))
+        row = row_from_model_json(payload)
 
-        entries = _normalise_model_payload(payload)
-        if not entries:
-            error = RuntimeError("No usable summary data returned by the model")
-            print(f"❌ No structured data extracted for {pdf_path.name}.")
-            failures.append((pdf_path, error))
-            continue
-
-        pdf_summary_rows: List[Dict[str, Any]] = []
-        pdf_detail_rows: List[Dict[str, Any]] = []
-
-        for entry_index, entry in enumerate(entries, start=1):
-            summary_payload = entry.get("summary", {})
-            summary_row = _coerce_summary(summary_payload)
-            summary_row["_source_file"] = pdf_path.name
-            entry_id = f"{pdf_path.name}::{entry_index}"
-            summary_row["_entry_id"] = entry_id
-
-            methodology_terms = [
-                str(x).strip() for x in entry.get("methodology_terms", []) if str(x).strip()
-            ]
-            commodity_terms = [
-                str(x).strip() for x in entry.get("commodity_terms", []) if str(x).strip()
-            ]
-            if (
-                methodology_terms
-                and not summary_row["Methodology"]
-            ):
-                summary_row["Methodology"] = "; ".join(
-                    methodology_terms
-                )
-            if commodity_terms and not summary_row["Commodity (multiple)"]:
-                summary_row["Commodity (multiple)"] = "; ".join(commodity_terms)
-            summary_row["_methodology_terms"] = methodology_terms
-            summary_row["_commodity_terms"] = commodity_terms
-
-            summary_rows.append(summary_row)
-            pdf_summary_rows.append(summary_row)
-
-            key_points = entry.get("key_points") or []
-            for idx, point in enumerate(key_points[:MAX_POINTS], start=1):
-                detail_entry = {
-                    "Title": summary_row.get("Title", ""),
-                    "filename": pdf_path.name,
-                    "order": idx,
-                    "key_point": str(point.get("summary", "")).strip(),
-                    "page_reference": str(point.get("page_reference", "")).strip(),
-                    "evidence": str(point.get("evidence", "")).strip(),
-                    "confidence": str(point.get("confidence", "")).strip(),
-                    "_parent_key": "",  # to be populated after keys computed
-                    "_entry_id": entry_id,
-                }
-                detail_rows.append(detail_entry)
-                pdf_detail_rows.append(detail_entry)
-
-        if write_incrementally and pdf_summary_rows:
-            _map_methodologies(pdf_summary_rows)
-            _map_commodities(pdf_summary_rows)
-
-            for row in pdf_summary_rows:
-                row.setdefault("_methodology_terms", [])
-                row.setdefault("_commodity_terms", [])
-                row["_key"] = _make_key(row)
-
-            for detail in pdf_detail_rows:
-                entry_id = detail.get("_entry_id")
-                parent = None
-                if entry_id:
-                    parent = next(
-                        (row for row in pdf_summary_rows if row.get("_entry_id") == entry_id),
-                        None,
-                    )
-                if parent is None:
-                    title = detail.get("Title", "")
-                    parent = next(
-                        (
-                            row
-                            for row in pdf_summary_rows
-                            if row.get("Title") == title and row.get("_source_file") == pdf_path.name
-                        ),
-                        None,
-                    )
-                if parent:
-                    detail["_parent_key"] = parent.get("_key", "")
-                detail.pop("_entry_id", None)
-
-            if summary_csv_path:
-                prepared_rows: List[Dict[str, Any]] = []
-                for row in pdf_summary_rows:
-                    prepared = {col: row.get(col, "") for col in SUMMARY_COLUMNS}
-                    prepared["_key"] = row.get("_key", _make_key(row))
-                    prepared_rows.append(prepared)
-                if prepared_rows:
-                    _update_summary_csv(prepared_rows, summary_csv_path)
-
-            # if detail_csv_path and pdf_detail_rows:
-            #     prepared_details: List[Dict[str, Any]] = []
-            #     for detail in pdf_detail_rows:
-            #         prepared_detail = {col: detail.get(col, "") for col in DETAIL_COLUMNS}
-            #         prepared_details.append(prepared_detail)
-            #     if prepared_details:
-            #         _update_details_csv(prepared_details, detail_csv_path)
-
-    if not write_incrementally:
-        # Apply mappings and compute keys after processing all PDFs
-        _map_methodologies(summary_rows)
-        _map_commodities(summary_rows)
-
-        for row in summary_rows:
-            row.setdefault("_methodology_terms", [])
-            row.setdefault("_commodity_terms", [])
-            row["_key"] = _make_key(row)
-
-        for detail in detail_rows:
-            entry_id = detail.get("_entry_id")
-            parent = None
-            if entry_id:
-                parent = next((row for row in summary_rows if row.get("_entry_id") == entry_id), None)
-            if parent is None:
-                title = detail.get("Title", "")
-                filename = detail.get("filename", "")
-                parent = next(
-                    (
-                        row
-                        for row in summary_rows
-                        if row.get("Title") == title and row.get("_source_file") == filename
-                    ),
-                    None,
-                )
-            if parent:
-                detail["_parent_key"] = parent.get("_key", "")
-            detail.pop("_entry_id", None)
-    else:
-        # Ensure helper IDs are removed when writing incrementally
-        for detail in detail_rows:
-            detail.pop("_entry_id", None)
-
-    # Clean helper columns before returning
-    for row in summary_rows:
-        row.pop("_methodology_terms", None)
-        row.pop("_commodity_terms", None)
-        row.pop("_source_file", None)
-        row.pop("_entry_id", None)
-
-    if failures:
-        print(f"⚠️ {len(failures)} PDF(s) could not be processed.")
+    #     df = pd.DataFrame([row], columns=SUMMARY_COLUMNS)
+    #     # append-or-create CSV
+    #     if SUMMARY_CSV.exists():
+    #         old = pd.read_csv(SUMMARY_CSV)
+    #         out = pd.concat([old, df], ignore_index=True)
+    #     else:
+    #         out = df
+    #     out.to_csv(SUMMARY_CSV, index=False)
+    #
+    #     entries = _normalise_model_payload(payload)
+    #     if not entries:
+    #         error = RuntimeError("No usable summary data returned by the model")
+    #         print(f"❌ No structured data extracted for {pdf_path.name}.")
+    #         failures.append((pdf_path, error))
+    #         continue
+    #
+    #     pdf_summary_rows: List[Dict[str, Any]] = []
+    #     pdf_detail_rows: List[Dict[str, Any]] = []
+    #
+    #     for entry_index, entry in enumerate(entries, start=1):
+    #         summary_payload = entry.get("summary", {})
+    #         summary_row = _coerce_summary(summary_payload)
+    #         _last_chance_fill(summary_row, summary_payload)
+    #
+    #         summary_row["_source_file"] = pdf_path.name
+    #         entry_id = f"{pdf_path.name}::{entry_index}"
+    #         summary_row["_entry_id"] = entry_id
+    #         missing_keys = [k for k in ("Year", "Journal", "Title", "Author", "url") if
+    #                         summary_row.get(k) in ("", "Unknown")]
+    #         if missing_keys:
+    #             print(f"🔎 Missing {missing_keys} for {pdf_path.name}. Model summary keys:",
+    #                   list(summary_payload.keys()))
+    #
+    #         methodology_terms = [
+    #             str(x).strip() for x in entry.get("methodology_terms", []) if str(x).strip()
+    #         ]
+    #         commodity_terms = [
+    #             str(x).strip() for x in entry.get("commodity_terms", []) if str(x).strip()
+    #         ]
+    #         if (
+    #             methodology_terms
+    #             and not summary_row["Methodology"]
+    #         ):
+    #             summary_row["Methodology"] = "; ".join(
+    #                 methodology_terms
+    #             )
+    #         if commodity_terms and not summary_row["Commodity (multiple)"]:
+    #             summary_row["Commodity (multiple)"] = "; ".join(commodity_terms)
+    #         summary_row["_methodology_terms"] = methodology_terms
+    #         summary_row["_commodity_terms"] = commodity_terms
+    #
+    #         summary_rows.append(summary_row)
+    #         pdf_summary_rows.append(summary_row)
+    #
+    #         key_points = entry.get("key_points") or []
+    #         for idx, point in enumerate(key_points[:MAX_POINTS], start=1):
+    #             detail_entry = {
+    #                 "Title": summary_row.get("Title", ""),
+    #                 "filename": pdf_path.name,
+    #                 "order": idx,
+    #                 # "key_point": str(point.get("summary", "")).strip(),
+    #                 # "page_reference": str(point.get("page_reference", "")).strip(),
+    #                 # "evidence": str(point.get("evidence", "")).strip(),
+    #                 # "confidence": str(point.get("confidence", "")).strip(),
+    #                 "_parent_key": "",  # to be populated after keys computed
+    #                 "_entry_id": entry_id,
+    #             }
+    #             detail_rows.append(detail_entry)
+    #             pdf_detail_rows.append(detail_entry)
+    #
+    #     if write_incrementally and pdf_summary_rows:
+    #         # Fallbacks ONLY if missing
+    #         need_method_map = any(not r.get("Methodology") for r in pdf_summary_rows)
+    #         need_commodity_map = any(not r.get("Commodity") for r in
+    #                                  pdf_summary_rows)  # Commodity is an object in JSON, but CSV holds a path string; check before CSV conversion.
+    #
+    #         if need_method_map:
+    #             _map_methodologies(pdf_summary_rows)
+    #
+    #         if need_commodity_map:
+    #             _map_commodities(pdf_summary_rows)
+    #
+    #         for row in pdf_summary_rows:
+    #             row.setdefault("_methodology_terms", [])
+    #             row.setdefault("_commodity_terms", [])
+    #             row["_key"] = _make_key(row)
+    #
+    #         for detail in pdf_detail_rows:
+    #             entry_id = detail.get("_entry_id")
+    #             parent = None
+    #             if entry_id:
+    #                 parent = next(
+    #                     (row for row in pdf_summary_rows if row.get("_entry_id") == entry_id),
+    #                     None,
+    #                 )
+    #             if parent is None:
+    #                 title = detail.get("Title", "")
+    #                 parent = next(
+    #                     (
+    #                         row
+    #                         for row in pdf_summary_rows
+    #                         if row.get("Title") == title and row.get("_source_file") == pdf_path.name
+    #                     ),
+    #                     None,
+    #                 )
+    #             if parent:
+    #                 detail["_parent_key"] = parent.get("_key", "")
+    #             detail.pop("_entry_id", None)
+    #
+    #         if summary_csv_path:
+    #             prepared_rows: List[Dict[str, Any]] = []
+    #             for row in pdf_summary_rows:
+    #                 prepared = {col: row.get(col, "") for col in SUMMARY_COLUMNS}
+    #                 prepared["_key"] = row.get("_key", _make_key(row))
+    #                 prepared_rows.append(prepared)
+    #             if prepared_rows:
+    #                 _update_summary_csv(prepared_rows, summary_csv_path)
+    #
+    #         # if detail_csv_path and pdf_detail_rows:
+    #         #     prepared_details: List[Dict[str, Any]] = []
+    #         #     for detail in pdf_detail_rows:
+    #         #         prepared_detail = {col: detail.get(col, "") for col in DETAIL_COLUMNS}
+    #         #         prepared_details.append(prepared_detail)
+    #         #     if prepared_details:
+    #         #         _update_details_csv(prepared_details, detail_csv_path)
+    #
+    # if not write_incrementally:
+    #     # Apply mappings and compute keys after processing all PDFs
+    #     _map_methodologies(summary_rows)
+    #     _map_commodities(summary_rows)
+    #
+    #     for row in summary_rows:
+    #         row.setdefault("_methodology_terms", [])
+    #         row.setdefault("_commodity_terms", [])
+    #         row["_key"] = _make_key(row)
+    #
+    #     for detail in detail_rows:
+    #         entry_id = detail.get("_entry_id")
+    #         parent = None
+    #         if entry_id:
+    #             parent = next((row for row in summary_rows if row.get("_entry_id") == entry_id), None)
+    #         if parent is None:
+    #             title = detail.get("Title", "")
+    #             filename = detail.get("filename", "")
+    #             parent = next(
+    #                 (
+    #                     row
+    #                     for row in summary_rows
+    #                     if row.get("Title") == title and row.get("_source_file") == filename
+    #                 ),
+    #                 None,
+    #             )
+    #         if parent:
+    #             detail["_parent_key"] = parent.get("_key", "")
+    #         detail.pop("_entry_id", None)
+    # else:
+    #     # Ensure helper IDs are removed when writing incrementally
+    #     for detail in detail_rows:
+    #         detail.pop("_entry_id", None)
+    #
+    # # Clean helper columns before returning
+    # for row in summary_rows:
+    #     row.pop("_methodology_terms", None)
+    #     row.pop("_commodity_terms", None)
+    #     row.pop("_source_file", None)
+    #     row.pop("_entry_id", None)
+    #
+    # if failures:
+    #     print(f"⚠️ {len(failures)} PDF(s) could not be processed.")
 
     return summary_rows, detail_rows
 

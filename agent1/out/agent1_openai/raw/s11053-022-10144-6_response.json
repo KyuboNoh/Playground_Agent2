@@ -1,0 +1,44 @@
+{
+  "Bibliographic metadata": {
+    "Year": 2022,
+    "Month": "December",
+    "Journal": "Natural Resources Research",
+    "Journal Impact factor": "Unknown",
+    "Title": "Quantification of Uncertainty Associated with Evidence Layers in Mineral Prospectivity Mapping Using Direct Sampling and Convolutional Neural Network",
+    "Author": "Fanfan Yang, Ziye Wang, Renguang Zuo, Siquan Sun, Bao Zhou",
+    "url": "https://doi.org/10.1007/s11053-022-10144-6"
+  },
+  "Abstract": "This study utilizes a hybrid model combining a direct sampling algorithm and a convolutional neural network to quantify the uncertainty associated with the evidence layers in mineral prospectivity mapping (MPM). A case study of mapping mineral prospectivity for gold polymetallic deposits in the Middle\u2013Lower Yangtze River Valley metallogenic belt in southeastern Hubei Province of China was implemented. The comparative results indicated that the hybrid model achieved a higher success rate and prediction accuracy than the deterministic framework.",
+  "Methodology": "supervised > deep learning > convolutional neural network (CNN); knowledge-driven > probabilistic > weights of evidence (WofE)",
+  "Commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Orogenic (lode) gold",
+    "commodities_elements": [
+      "Au",
+      "As",
+      "Sb",
+      "W"
+    ],
+    "commodities_combined": [
+      "Au-(As-Sb)",
+      "Au-W"
+    ]
+  },
+  "Deposit type": "Orogenic (lode) gold",
+  "Dataset": {
+    "public availability": "Yes",
+    "types": [
+      "Geological data; Unknown",
+      "Geochemical survey data; Unknown"
+    ],
+    "train/app relationship": "Different",
+    "scope": "Western part containing 33 known gold deposits to eastern part containing eight known gold deposits"
+  },
+  "Key points": [
+    "Hybrid model combines direct sampling and CNN for uncertainty quantification.",
+    "Case study focuses on gold polymetallic deposits in Hubei Province, China.",
+    "Hybrid model outperforms deterministic frameworks in success rate and prediction accuracy.",
+    "Four evidence layers constructed for mineral prospectivity mapping.",
+    "Risk-return analysis conducted to identify low risk-high return areas."
+  ]
+}

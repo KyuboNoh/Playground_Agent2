@@ -1,0 +1,50 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2021,
+    "Month": "June",
+    "Journal": "Z. Dt. Ges. Geowiss.",
+    "Journal Impact factor": "Unknown",
+    "Title": "Mineral prospectivity mapping of Cu-Au by integrating AHP technique with ARAS and WASPAS models in the Sonajil area, E-Azerbaijan",
+    "Author": [
+      "Mohammadjafar Mohammadzadeh",
+      "Aynur Nasseri",
+      "Majid Mahboubiaghdam",
+      "Moharram Jahangiri"
+    ],
+    "url": "https://doi.org/10.1127/zdgg/2021/0256"
+  },
+  "abstract": "The mineral exploration sequence contains field planning, data processing and assessment of results for further decision making. Various exploration layers were synthesised by Additive Ratio Assessment (ARAS) and Weighted Aggregated Sum Product Assessment (WASPAS) models to generate an optimal Mineral Prospectivity Map (MPM) of Cu-Au mineralisation in the Sonajil area, NW of Iran. The knowledge-driven method was adopted using the Multi-Criteria Decision Making (MCDM) approach for preparation of MPM. The resulting map was cross-validated by the results of the petrography study of the samples taken from the mineralised zones indicated by MPM.",
+  "methodology": "supervised > multicriteria decision analysis > AHP; knowledge-driven > multicriteria decision analysis > ARAS; knowledge-driven > multicriteria decision analysis > WASPAS",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Porphyry Cu(-Mo-Au-Ag)",
+    "commodities_elements": [
+      "Cu",
+      "Au",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Cu-Au",
+      "Cu-Mo",
+      "Cu-Au-Ag"
+    ]
+  },
+  "deposit_type": "Porphyry Cu(-Mo-Au-Ag)",
+  "dataset_fields": {
+    "public_availability": "Unknown",
+    "types": [
+      "Geochemical samples; g/t",
+      "Fault density; Unknown",
+      "Alteration maps; Unknown",
+      "Geological maps; Unknown"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "Integration of AHP, ARAS, and WASPAS methods for mineral prospectivity mapping.",
+    "Utilization of GIS for combining various evidential layers.",
+    "Cross-validation of the prospectivity map with petrographic studies.",
+    "Identification of promising areas for Cu-Au mineralisation."
+  ]
+}

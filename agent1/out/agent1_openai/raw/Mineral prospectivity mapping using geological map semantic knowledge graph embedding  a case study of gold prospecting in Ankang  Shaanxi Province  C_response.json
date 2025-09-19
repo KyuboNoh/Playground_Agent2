@@ -1,0 +1,44 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2025,
+    "Month": "June",
+    "Journal": "International Journal of Digital Earth",
+    "Journal Impact factor": "Unknown",
+    "Title": "Mineral prospectivity mapping using geological map semantic knowledge graph embedding: a case study of gold prospecting in Ankang, Shaanxi Province, China",
+    "Author": "Qun Yan, Linfu Xue, Yongsheng Li, Rui Wang, Ke Ding, Zhenglin Xu",
+    "url": "https://doi.org/10.1080/17538947.2025.2517827"
+  },
+  "abstract": "Data-driven MPM often overlooks expert knowledge, leading to poor interpretability and overly broad predictions. We convert the semantic information of geological maps into a semantic knowledge graph (Geo-mapSKG). By embedding the Geo-mapSKG using the TransG model and integrating with geochemical data to enhance the knowledge constraints. Given the spatial variability of geological features, we use a window sampling method for data collection to ensure the completeness of geospatial structural features. To improve the model\u2019s ability to learn the complex variations in geospatial features, we employ the Conformer deep learning model for gold prospectivity prediction. This approach combines the local geological feature extraction capability of CNN with the Transformer\u2019s overall geological dependencies.",
+  "methodology": "supervised > deep learning > convolutional neural network (CNN); supervised > deep learning > transformer; supervised > deep learning > conformer",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Orogenic (lode) gold",
+    "commodities_elements": [
+      "Au",
+      "As",
+      "Sb",
+      "W"
+    ],
+    "commodities_combined": [
+      "Au-(As-Sb)",
+      "Au-W"
+    ]
+  },
+  "deposit_type": "Orogenic (lode) gold",
+  "dataset_fields": {
+    "public_availability": "Unknown",
+    "types": [
+      "Geochemical data; mg/kg (14 elements including Au, Ag, As, Bi, Cd, Co, Cr, Hg, Mo, Pb, Zn, W, Sn, Ni)",
+      "Geological map data; Unknown"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A (Ankang) to Region B (predicted areas)"
+  },
+  "key_points": [
+    "Geo-mapSKG embedding effectively constrains predicted area distribution.",
+    "Conformer model accuracy is higher than CNN and Transformer models.",
+    "Gold prospectivity mapping integrates geological knowledge with geochemical data.",
+    "Window sampling method ensures completeness of geospatial structural features.",
+    "Predicted areas align with known gold deposits and geological structures."
+  ]
+}

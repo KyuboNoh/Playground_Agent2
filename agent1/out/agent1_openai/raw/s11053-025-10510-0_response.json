@@ -1,0 +1,57 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2025,
+    "Month": "October",
+    "Journal": "Natural Resources Research",
+    "Journal Impact factor": "Unknown",
+    "Title": "Recursive Annotation for Negative Labeling in Data-Driven Mineral Prospectivity Mapping",
+    "Author": "Steven E. Zhang, Daniel Coutts, Mohammad Parsa, Renato Cumani, Aaron Thompson",
+    "url": "https://doi.org/10.1007/s11053-025-10510-0"
+  },
+  "abstract": "Data engineering is a challenge in mineral prospectivity mapping using supervised data-driven methods due to a general paucity of true samples. This paper proposes a recursive annotation method based on positive and unlabeled learning to annotate negative samples, which improves model performance and spatial continuity of prospectivity maps. The method was applied to a graphite prospectivity map in Canada, demonstrating its effectiveness in enhancing mineral exploration.",
+  "methodology": "supervised > tree-based > random forest; supervised > tree-based > gradient boosting (GBDT)",
+  "commodity": {
+    "major_category": "Magmatic",
+    "minor_category": "Orthomagmatic sulfide (Ni-Cu-PGE)",
+    "commodities_elements": [
+      "Ni",
+      "Cu",
+      "Co",
+      "PGE",
+      "Pt",
+      "Pd",
+      "Rh",
+      "Au",
+      "S"
+    ],
+    "commodities_combined": [
+      "Ni-Cu-PGE",
+      "Ni-Cu-Co",
+      "Ni-Cu-PGE-Au"
+    ]
+  },
+  "Deposit type": "Orthomagmatic sulfide (Ni-Cu-PGE)",
+  "dataset": {
+    "public_availability": "Yes",
+    "types": [
+      {
+        "geophysical": "gravity, magnetic, seismic"
+      },
+      {
+        "geological": "terrane lithology, age"
+      },
+      {
+        "geospatial": "continent name, spatial indices"
+      }
+    ],
+    "train_app_relationship": "Same",
+    "scope": "National-scale graphite exploration in Canada"
+  },
+  "key_points": [
+    "Proposes a recursive annotation method to improve negative sample labeling.",
+    "Demonstrates effectiveness in enhancing mineral prospectivity mapping.",
+    "Utilizes a deep ensemble approach for model performance assessment.",
+    "Focuses on graphite exploration in Canada as a case study.",
+    "Addresses challenges of data scarcity and label crossover in mineral prospectivity mapping."
+  ]
+}

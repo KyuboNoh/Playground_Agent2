@@ -1,0 +1,49 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2022,
+    "Month": "October",
+    "Journal": "Natural Resources Research",
+    "Journal Impact factor": "Unknown",
+    "Title": "Unlabeled Sample Selection for Mineral Prospectivity Mapping by Semi-supervised Support Vector Machine",
+    "Author": "Jintao Tao, Nannan Zhang, Jinyu Chang, Li Chen, Hao Zhang, Yujin Chi",
+    "url": "https://doi.org/10.1007/s11053-022-10093-0"
+  },
+  "abstract": "This study investigates the use of semi-supervised learning algorithms to enhance mineral prospectivity mapping by selecting unlabeled samples based on their similarity to known mineral deposits. A quasi-Newton method for semi-supervised support vector machine (QN\u2013S3VM) was applied to the Honghai volcanogenic massive sulfide Cu\u2013Zn deposit in eastern Tianshan, China. The results indicate that lower similarity in unlabeled samples improves QN\u2013S3VM performance, demonstrating the effectiveness of similarity measures in sample selection for mineral prospectivity mapping.",
+  "methodology": "supervised > kernel-based > support vector machine; supervised > kernel-based > SVM (RBF)",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "VMS (Volcanogenic Massive Sulfide)",
+    "commodities_elements": [
+      "Cu",
+      "Zn",
+      "Pb",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Cu-Zn",
+      "Zn-Pb-Ag",
+      "Cu-Zn-Pb-Au-Ag"
+    ]
+  },
+  "Deposit type": "VMS (Volcanogenic Massive Sulfide)",
+  "dataset": {
+    "public_availability": "Unknown",
+    "types": [
+      "Bore holes; m",
+      "Cross sections; m",
+      "Geological maps; scale",
+      "Geological plans; m",
+      "Gravity points; m",
+      "Magnetic points; m"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "The study focuses on mineral prospectivity mapping using semi-supervised learning.",
+    "A quasi-Newton method for semi-supervised support vector machine (QN\u2013S3VM) was employed.",
+    "Similarity measures were used to select unlabeled samples for training.",
+    "Lower similarity in unlabeled samples improved the performance of the QN\u2013S3VM.",
+    "The Honghai deposit is classified as a VMS Cu\u2013Zn deposit."
+  ]
+}

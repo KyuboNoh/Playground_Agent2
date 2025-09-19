@@ -1,0 +1,47 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2025,
+    "Month": "January",
+    "Journal": "Journal of Applied Geophysics",
+    "Journal Impact factor": "Unknown",
+    "Title": "A multistage algorithm to generate a predictive porphyry intrusion evidential map with low uncertainty for mineral prospectivity mapping, case study in Pariz Area, Iran",
+    "Author": "Gholam-Reza Elyasi, Abbas Bahroudi, Maysam Abedi",
+    "url": "https://doi.org/10.1016/j.jappgeo.2025.105637"
+  },
+  "abstract": "This study introduces a multistage algorithm to generate a predictive porphyry intrusion evidential map using magnetic data. The algorithm includes steps such as radial symmetry transformation, non-minimum suppression, amplitude contrast transformation, and active contour algorithm. Implemented on aeromagnetic data from the Pariz region in Iran, the results identified all six known deposits and discovered a new porphyry copper deposit, enhancing mineral prospectivity mapping.",
+  "methodology": "supervised > tree-based > random forest; supervised > tree-based > gradient boosting (GBDT); supervised > tree-based > XGBoost; supervised > tree-based > LightGBM; supervised > tree-based > CatBoost",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Porphyry Cu(-Mo-Au-Ag)",
+    "commodities_elements": [
+      "Cu",
+      "Mo",
+      "Au",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Cu-Mo",
+      "Cu-Au",
+      "Cu-Mo-Au",
+      "Cu-Au-Ag"
+    ]
+  },
+  "deposit_type": "Porphyry Cu(-Mo-Au-Ag)",
+  "dataset_fields": {
+    "public_availability": "Unknown",
+    "types": [
+      "Aeromagnetic data; nT",
+      "Geological data; Unknown",
+      "Geochemical data; Unknown"
+    ],
+    "train_app_relationship": "Same",
+    "scope": "Regional scale (1:100,000)"
+  },
+  "key_points": [
+    "Introduced a multistage algorithm for generating evidential maps.",
+    "Successfully identified all six known porphyry copper deposits.",
+    "Discovered a new porphyry copper deposit with significant resources.",
+    "Enhanced prediction accuracy and reduced uncertainty in mineral prospectivity mapping.",
+    "Delineated 20% of the study area as prospective targets for further exploration."
+  ]
+}

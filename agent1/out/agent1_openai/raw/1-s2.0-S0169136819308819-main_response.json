@@ -1,0 +1,49 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2020,
+    "Month": "June",
+    "Journal": "Ore Geology Reviews",
+    "Journal Impact factor": "Unknown",
+    "Title": "Modeling of Cu-Au prospectivity in the Caraj\u00e1s mineral province (Brazil) through machine learning: Dealing with imbalanced training data",
+    "Author": "Elias Martins Guerra Prado, Carlos Roberto de Souza Filho, Emmanuel John M. Carranza, Jo\u00e3o Gabriel Motta",
+    "url": "https://doi.org/10.1016/j.oregeorev.2020.103611"
+  },
+  "abstract": "Machine learning (ML) is becoming an appealing tool in various fields of Earth Sciences, especially in mineral prospectivity mapping (MPM) to support mineral exploration. ML algorithms are designed to assume a relatively balanced amount of training data for the estimation of the decision boundaries between the classes of interest. However, in MPM the numbers of mineralized and non-mineralized locations are naturally imbalanced. The use of imbalanced data leads to difficulties in the training of ML models for MPM. This study evaluates the effects of Synthetic Minority Over-sampling Technique (SMOTE) on the performance of MPM using support vector machine for Cu-Au prospectivity modeling in the Caraj\u00e1s mineral province (Brazil). The results show that SMOTE can significantly increase the performance and spatial efficiency of MPM.",
+  "methodology": "supervised > kernel-based > support vector machine; knowledge-driven > probabilistic > weights of evidence (WofE)",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "IOCG (Iron Oxide Copper-Gold)",
+    "commodities_elements": [
+      "Fe",
+      "Cu",
+      "Au",
+      "U",
+      "REE",
+      "Co",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Cu-Au-U-REE-Fe",
+      "Cu-Au-Co"
+    ]
+  },
+  "deposit_type": "IOCG (Iron Oxide Copper-Gold)",
+  "dataset_fields": {
+    "public_availability": "Yes",
+    "types": [
+      "Airborne magnetic data; nT",
+      "Gamma-ray spectrometric data; eU, eTh",
+      "Gravity data; mGal",
+      "Geological map; Unknown"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Training to application scope: Training data from known mineralized locations to application in predicting prospective areas."
+  },
+  "key_points": [
+    "Machine learning algorithms can improve mineral prospectivity mapping.",
+    "Imbalanced training data can lead to biased model performance.",
+    "SMOTE significantly enhances the performance of ML models in prospectivity mapping.",
+    "The study focuses on Cu-Au deposits in the Caraj\u00e1s mineral province, Brazil.",
+    "The best model achieved high classification rates for both training and testing datasets."
+  ]
+}

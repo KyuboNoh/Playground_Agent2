@@ -1,0 +1,47 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2025,
+    "Month": "March",
+    "Journal": "Ore Geology Reviews",
+    "Journal Impact factor": "Unknown",
+    "Title": "Attention-driven graph convolutional neural networks for mineral prospectivity mapping",
+    "Author": "Changjie Cao, Xiuliang Wang, Fan Yang, Miao Xie, Bingli Liu, Yunhui Kong, Cheng Li, Zhongli Zhou",
+    "url": "https://doi.org/10.1016/j.oregeorev.2025.106554"
+  },
+  "abstract": "Mineral Prospectivity Mapping (MPM) is a fundamental technique in geosciences for identifying regions with high mineral potential. This study proposes an Attention-Driven Graph Convolutional Network (ADGCN) that leverages an attention mechanism to select highly correlated nodes and aggregates features from distant nodes for representation learning. In tests conducted in the Lhasa region, ADGCN achieved an AUC of 91.67%, surpassing GAT by 2.65%, demonstrating superior prediction accuracy in MPM.",
+  "methodology": "supervised > deep learning > graph neural network",
+  "commodity": {
+    "major_category": "Hydrothermal",
+    "minor_category": "Porphyry Cu(-Mo-Au-Ag)",
+    "commodities_elements": [
+      "Cu",
+      "Mo",
+      "Au",
+      "Ag"
+    ],
+    "commodities_combined": [
+      "Cu-Mo",
+      "Cu-Au",
+      "Cu-Mo-Au"
+    ]
+  },
+  "deposit_type": "Porphyry Cu(-Mo-Au-Ag)",
+  "dataset": {
+    "public_availability": "No",
+    "types": [
+      {
+        "data_type": "Geochemical data",
+        "unit": "elements"
+      }
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "ADGCN integrates an attention mechanism with graph convolutional operations.",
+    "Achieved an AUC of 91.67%, outperforming traditional models.",
+    "Utilizes geochemical data to enhance mineral prospectivity mapping.",
+    "Demonstrates superior predictive capability in identifying mineralization zones.",
+    "Highlights the importance of selecting significant nodes for optimal model performance."
+  ]
+}

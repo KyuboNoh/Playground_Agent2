@@ -1,0 +1,42 @@
+{
+  "bibliographic_metadata": {
+    "Year": 2024,
+    "Month": "July",
+    "Journal": "Earth Sciences",
+    "Journal Impact factor": "Unknown",
+    "Title": "A Review of Integration Techniques of Multi-Geoscience Data-Sets in Mineral Prospectivity Mapping",
+    "Author": [
+      "Neelesh Katiyar",
+      "Asita Kulshreshtha",
+      "Pramod Kumar Singh"
+    ],
+    "url": "https://doi.org/10.11648/j.earth.20241304.12"
+  },
+  "abstract": "This paper conducts a comprehensive review of existing methodologies for integrating multi-geoscience datasets aimed at mineral prognostication, focusing on identifying precise and authentic AI-based data integration techniques. It offers insights into the current status of mineral exploration in India and the global evolution of data integration practices. The review highlights the need for effective integration of geological, geophysical, geochemical, and geospectral data for meaningful mineral exploration outcomes.",
+  "methodology": "knowledge-driven > fuzzy > fuzzy logic; knowledge-driven > multicriteria decision analysis > multiclass index overlay",
+  "commodity": {
+    "major_category": "Unknown",
+    "minor_category": "Unknown",
+    "commodities_elements": [],
+    "commodities_combined": []
+  },
+  "deposit_type": "Unknown",
+  "dataset": {
+    "public_availability": "Yes",
+    "types": [
+      "Geological data; Unknown",
+      "Geophysical data; Unknown",
+      "Geochemical data; Unknown",
+      "Geospectral data; Unknown"
+    ],
+    "train_app_relationship": "Different",
+    "scope": "Region A to Region B"
+  },
+  "key_points": [
+    "High demand for metals and construction materials necessitates improved exploration strategies.",
+    "Integration of diverse geoscience datasets enhances mineral prognostication accuracy.",
+    "AI-driven techniques, particularly Fuzzy Inference Systems, are underutilized in India.",
+    "Current mineral exploration practices in India lack standardized protocols.",
+    "The review emphasizes the need for effective data integration methods for sustainable mineral exploration."
+  ]
+}
